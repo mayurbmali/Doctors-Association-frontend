@@ -51,10 +51,13 @@ This is a React-based frontend application for the Association of Physicians of 
 - Dependencies installed with `--legacy-peer-deps` flag due to date-fns version conflict with react-day-picker
 - All packages installed and working correctly
 
+## Known Issues & Fixes
+- **styled-jsx syntax**: The Navbar component was using `<style jsx>` which caused React warnings. Fixed by removing the `jsx` attribute since styled-jsx is not configured in this project.
+
 ## Recent Changes
-- **2025-10-03**: Initial import and Replit environment setup
-  - Configured CRACO for Replit proxy (0.0.0.0:5000, allowedHosts: 'all')
-  - Updated .gitignore with standard React/Node.js patterns
-  - Installed dependencies with legacy peer deps flag
-  - Added 'serve' package for production deployment
-  - Configured deployment settings for Replit autoscale
+- **2025-10-03**: GitHub import completed and configured for Replit
+  - Installed dependencies with `--legacy-peer-deps` flag (resolves date-fns version conflict)
+  - Fixed styled-jsx warning in Navbar component (removed `jsx` attribute from style tag)
+  - Verified CRACO configuration is properly set for Replit (0.0.0.0:5000, allowedHosts: 'all')
+  - Configured deployment for autoscale with build and serve commands
+  - Application tested and working correctly with no console errors

@@ -329,7 +329,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slideInFromLeft {
           from {
             opacity: 0;

@@ -1,843 +1,10 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import { Button } from "../components/ui/button";
-// import { Card, CardContent } from "../components/ui/card";
-// import { Badge } from "../components/ui/badge";
-// import { 
-//   Users, 
-//   Calendar, 
-//   Award, 
-//   Clock, 
-//   MapPin, 
-//   Star,
-//   ArrowRight,
-//   HeartHandshake,
-//   GraduationCap,
-//   Shield
-// } from "lucide-react";
-// import { mockData } from "../utils/mock";
-
-// const Home = () => {
-//   return (
-//     <div className="min-h-screen">
-//       {/* Hero Section */}
-//       <section className="relative bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 text-white">
-//         <div className="absolute inset-0 bg-black opacity-20"></div>
-//         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-//           <div className="text-center">
-//             <Badge className="mb-6 bg-emerald-600 hover:bg-emerald-700 text-white">
-//               Established 1944 • 80+ Years of Excellence
-//             </Badge>
-//             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-//               Advancing Physician
-//               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-yellow-400">
-//                 Excellence Since 1944
-//               </span>
-//             </h1>
-//             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-//               Empowering healthcare professionals through continuous education, networking, 
-//               and advancing the highest standards of medical practice across India.
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-//               <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white">
-//                 <Link to="/membership">
-//                   Join API <ArrowRight className="ml-2 w-5 h-5" />
-//                 </Link>
-//               </Button>
-//               <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-800">
-//                 <Link to="/about">
-//                   Learn More
-//                 </Link>
-//               </Button>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Highlights Grid */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-//             {mockData.highlights.map((highlight, index) => (
-//               <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow duration-300">
-//                 <CardContent className="p-0">
-//                   <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-//                     {highlight.icon}
-//                   </div>
-//                   <h3 className="text-3xl font-bold text-blue-800 mb-2">{highlight.value}</h3>
-//                   <p className="text-gray-600">{highlight.label}</p>
-//                 </CardContent>
-//               </Card>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Quick Links */}
-//       <section className="py-16 bg-slate-50">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-//             Quick Access
-//           </h2>
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-6">
-//                   <HeartHandshake className="w-8 h-8 text-emerald-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">Membership</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Join our prestigious community of physicians and access exclusive benefits, resources, and networking opportunities.
-//                 </p>
-//                 <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
-//                   <Link to="/membership">
-//                     Join Now - ₹1,000/year
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-//                   <GraduationCap className="w-8 h-8 text-blue-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">CME Programs</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Access our continuing medical education programs, conferences, and workshops designed for professional growth.
-//                 </p>
-//                 <Button asChild variant="outline" className="w-full">
-//                   <Link to="/meetings">
-//                     View Programs
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 rounded-full mb-6">
-//                   <Shield className="w-8 h-8 text-yellow-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">Latest Updates</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Stay informed with the latest announcements, policy updates, and important notifications from API.
-//                 </p>
-//                 <Button asChild variant="outline" className="w-full">
-//                   <Link to="/notifications">
-//                     View Notifications
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Testimonials */}
-//      <section className="py-16 bg-blue-800 text-white">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <h2 className="text-3xl font-bold text-center mb-12">
-//           Our Core Members
-//         </h2>
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//           {mockData.testimonials.map((testimonial, index) => (
-//             <Card
-//               key={index}
-//               className="bg-white/10 backdrop-blur-sm border-white/20 text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg relative overflow-hidden group text-center" // Added text-center
-//             >
-//               {/* Optional: Add an animated background effect on hover */}
-//               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-//               <CardContent className="p-6 relative z-10 flex flex-col items-center"> {/* Added flex-col items-center */}
-//                 {/* Larger Circular Image, centered */}
-//                 <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white/50 flex-shrink-0 mb-4 transform group-hover:scale-110 transition-transform duration-300"> {/* Increased size, border, added hover effect */}
-//                   <img
-//                     src={testimonial.imageUrl}
-//                     alt={testimonial.name}
-//                     className="w-full h-full object-cover"
-//                   />
-//                 </div>
-
-//                 <h4 className="font-semibold text-lg">{testimonial.name}</h4> {/* Slightly larger text */}
-//                 <p className="text-blue-200 text-sm mb-6">{testimonial.designation}</p> {/* Moved designation here, added margin-bottom */}
-
-//                 <p className="text-blue-100 italic">"{testimonial.quote}"</p> {/* Moved quote to the bottom */}
-//               </CardContent>
-//             </Card>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-
-//       {/* CTA Section */}
-//       <section className="py-16 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
-//         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-//             Ready to Advance Your Medical Career?
-//           </h2>
-//           <p className="text-xl mb-8 text-emerald-100">
-//             Join thousands of physicians who trust API for professional development, networking, and excellence in healthcare.
-//           </p>
-//           <Button asChild size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50">
-//             <Link to="/membership">
-//               Become a Member Today <ArrowRight className="ml-2 w-5 h-5" />
-//             </Link>
-//           </Button>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-//******************************************************************************************************* */
-
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import { Button } from "../components/ui/button";
-// import { Card, CardContent } from "../components/ui/card";
-// import { Badge } from "../components/ui/badge";
-// import {
-//   Users,
-//   Calendar,
-//   Award,
-//   Clock,
-//   MapPin,
-//   Star,
-//   ArrowRight,
-//   HeartHandshake,
-//   GraduationCap,
-//   Shield,
-//   Info, // Added for About
-//   Newspaper, // Added for Featured News
-//   HelpCircle, // Added for FAQs
-//   Mail, // Added for Contact
-//   Gift, // Added for Membership Benefits (could also use UserPlus, etc.)
-//   Megaphone, // Added for Upcoming Events (could also use CalendarDays)
-// } from "lucide-react";
-// import { mockData } from "../utils/mock";
-
-// const Home = () => {
-//   return (
-//     <div className="min-h-screen">
-//       {/* Hero Section */}
-//       <section className="relative bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 text-white">
-//         <div className="absolute inset-0 bg-black opacity-20"></div>
-//         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-//           <div className="text-center">
-//             <Badge className="mb-6 bg-emerald-600 hover:bg-emerald-700 text-white">
-//               Established 1944 • 80+ Years of Excellence
-//             </Badge>
-//             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-//               Advancing Physician
-//               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-yellow-400">
-//                 Excellence Since 1944
-//               </span>
-//             </h1>
-//             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-//               Empowering healthcare professionals through continuous education, networking,
-//               and advancing the highest standards of medical practice across India.
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-//               <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white">
-//                 <Link to="/membership" aria-label="Join API Now">
-//                   Join API <ArrowRight className="ml-2 w-5 h-5" />
-//                 </Link>
-//               </Button>
-//               <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-800">
-//                 <Link to="/about" aria-label="Learn More About Our Association">
-//                   Learn More
-//                 </Link>
-//               </Button>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Highlights Grid */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-//             {mockData.highlights.map((highlight, index) => (
-//               <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow duration-300">
-//                 <CardContent className="p-0">
-//                   <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-//                     {highlight.icon}
-//                   </div>
-//                   <h3 className="text-3xl font-bold text-blue-800 mb-2">{highlight.value}</h3>
-//                   <p className="text-gray-600">{highlight.label}</p>
-//                 </CardContent>
-//               </Card>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Quick Links */}
-//       <section className="py-16 bg-slate-50">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-//             Quick Access
-//           </h2>
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-6">
-//                   <HeartHandshake className="w-8 h-8 text-emerald-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">Membership</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Join our prestigious community of physicians and access exclusive benefits, resources, and networking opportunities.
-//                 </p>
-//                 <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
-//                   <Link to="/membership" aria-label="Join API Membership">
-//                     Join Now - ₹1,000/year
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-//                   <GraduationCap className="w-8 h-8 text-blue-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">CME Programs</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Access our continuing medical education programs, conferences, and workshops designed for professional growth.
-//                 </p>
-//                 <Button asChild variant="outline" className="w-full">
-//                   <Link to="/meetings" aria-label="View CME Programs and Meetings">
-//                     View Programs
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 rounded-full mb-6">
-//                   <Shield className="w-8 h-8 text-yellow-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">Latest Updates</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Stay informed with the latest announcements, policy updates, and important notifications from API.
-//                 </p>
-//                 <Button asChild variant="outline" className="w-full">
-//                   <Link to="/notifications" aria-label="View Latest Notifications">
-//                     View Notifications
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* About, Events, News, Membership Benefits, FAQs, Contact Summaries */}
-//       <section className="py-16 bg-gray-100">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-//             Explore API
-//           </h2>
-//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-//             {/* About Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-50 rounded-full mb-4">
-//                   <Info className="w-7 h-7 text-blue-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">About Us</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Discover our association’s mission, leadership, and unwavering commitment to advancing medical excellence across India.
-//                 </p>
-//                 <Button asChild variant="link" className="text-blue-600 hover:text-blue-800" aria-label="Learn More About Our Organization">
-//                   <Link to="/about">
-//                     Learn More <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* Upcoming Events Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-emerald-50 rounded-full mb-4">
-//                   <Megaphone className="w-7 h-7 text-emerald-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Upcoming Events</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Stay updated on our national conferences, regional meetings, and essential webinars. Don't miss out on vital learning and networking.
-//                 </p>
-//                 <Button asChild variant="link" className="text-emerald-600 hover:text-emerald-800" aria-label="See All Upcoming Events">
-//                   <Link to="/meetings">
-//                     See Events <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* Featured News Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-yellow-50 rounded-full mb-4">
-//                   <Newspaper className="w-7 h-7 text-yellow-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Featured News</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Catch up on the latest breakthroughs, policy changes, and association highlights impacting the medical community.
-//                 </p>
-//                 <Button asChild variant="link" className="text-yellow-600 hover:text-yellow-800" aria-label="Read Our Latest News">
-//                   <Link to="/news">
-//                     Read News <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* Membership Benefits Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-purple-50 rounded-full mb-4">
-//                   <Gift className="w-7 h-7 text-purple-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Member Benefits</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Unlock a world of advantages including exclusive publications, discounted CMEs, and a powerful professional network.
-//                 </p>
-//                 <Button asChild variant="link" className="text-purple-600 hover:text-purple-800" aria-label="View All Membership Benefits">
-//                   <Link to="/membership">
-//                     View Benefits <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* FAQs Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full mb-4">
-//                   <HelpCircle className="w-7 h-7 text-orange-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">FAQs</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Have questions about membership, events, or general inquiries? Find quick answers to commonly asked questions here.
-//                 </p>
-//                 <Button asChild variant="link" className="text-orange-600 hover:text-orange-800" aria-label="Read Frequently Asked Questions">
-//                   <Link to="/faq">
-//                     Read FAQs <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* Contact Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-red-50 rounded-full mb-4">
-//                   <Mail className="w-7 h-7 text-red-600" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Contact Us</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Reach out to us for support, inquiries, or any feedback. Our team is here to assist you.
-//                 </p>
-//                 <Button asChild variant="link" className="text-red-600 hover:text-red-800" aria-label="Contact Our Support Team">
-//                   <Link to="/contact">
-//                     Contact Us <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Testimonials */}
-//      <section className="py-16 bg-blue-800 text-white">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <h2 className="text-3xl font-bold text-center mb-12">
-//           Our Core Members
-//         </h2>
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//           {mockData.testimonials.map((testimonial, index) => (
-//             <Card
-//               key={index}
-//               className="bg-white/10 backdrop-blur-sm border-white/20 text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg relative overflow-hidden group text-center"
-//             >
-//               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-//               <CardContent className="p-6 relative z-10 flex flex-col items-center">
-//                 <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white/50 flex-shrink-0 mb-4 transform group-hover:scale-110 transition-transform duration-300">
-//                   <img
-//                     src={testimonial.imageUrl}
-//                     alt={testimonial.name}
-//                     className="w-full h-full object-cover"
-//                   />
-//                 </div>
-
-//                 <h4 className="font-semibold text-lg">{testimonial.name}</h4>
-//                 <p className="text-blue-200 text-sm mb-6">{testimonial.designation}</p>
-
-//                 <p className="text-blue-100 italic">"{testimonial.quote}"</p>
-//               </CardContent>
-//             </Card>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-
-//       {/* CTA Section */}
-//       <section className="py-16 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
-//         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-//             Ready to Advance Your Medical Career?
-//           </h2>
-//           <p className="text-xl mb-8 text-emerald-100">
-//             Join thousands of physicians who trust API for professional development, networking, and excellence in healthcare.
-//           </p>
-//           <Button asChild size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50">
-//             <Link to="/membership" aria-label="Become a Member of API Today">
-//               Become a Member Today <ArrowRight className="ml-2 w-5 h-5" />
-//             </Link>
-//           </Button>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
-
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import { Button } from "../components/ui/button";
-// import { Card, CardContent } from "../components/ui/card";
-// import { Badge } from "../components/ui/badge";
-// import {
-//   Users,
-//   Calendar,
-//   Award,
-//   Clock,
-//   MapPin,
-//   Star,
-//   ArrowRight,
-//   HeartHandshake,
-//   GraduationCap,
-//   Shield,
-//   Info,
-//   Newspaper,
-//   HelpCircle,
-//   Mail,
-//   Gift,
-//   Megaphone,
-// } from "lucide-react";
-// import { mockData } from "../utils/mock";
-
-// const Home = () => {
-//   return (
-//     <div className="min-h-screen">
-//       {/* Hero Section */}
-//       <section className="relative bg-gradient-to-br from-purple-800 via-purple-700 to-pink-600 text-white">
-//         <div className="absolute inset-0 bg-black opacity-20"></div>
-//         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-//           <div className="text-center">
-//             <Badge className="mb-6 bg-[#FB7E00] hover:bg-[#FE5F00] text-white">
-//               Established 1944 • 80+ Years of Excellence
-//             </Badge>
-//             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-//               Advancing Physician
-//               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#FAE9DB] to-[#FB7E00]">
-//                 Excellence Since 1944
-//               </span>
-//             </h1>
-//             <p className="text-xl md:text-2xl mb-8 text-purple-100 max-w-3xl mx-auto">
-//               Empowering healthcare professionals through continuous education, networking,
-//               and advancing the highest standards of medical practice across India.
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-//               <Button asChild size="lg" className="bg-[#FB7E00] hover:bg-[#FE5F00] text-white">
-//                 <Link to="/membership" aria-label="Join API Now">
-//                   Join API <ArrowRight className="ml-2 w-5 h-5" />
-//                 </Link>
-//               </Button>
-//               <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-800">
-//                 <Link to="/about" aria-label="Learn More About Our Association">
-//                   Learn More
-//                 </Link>
-//               </Button>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Highlights Grid */}
-//       <section className="py-16 bg-[#FAE9DB]">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-//             {mockData.highlights.map((highlight, index) => (
-//               <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow duration-300">
-//                 <CardContent className="p-0">
-//                   <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
-//                     {highlight.icon}
-//                   </div>
-//                   <h3 className="text-3xl font-bold text-gray-800 mb-2">{highlight.value}</h3>
-//                   <p className="text-gray-600">{highlight.label}</p>
-//                 </CardContent>
-//               </Card>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Quick Links */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-//             Quick Access
-//           </h2>
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6">
-//                   <HeartHandshake className="w-8 h-8 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">Membership</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Join our prestigious community of physicians and access exclusive benefits, resources, and networking opportunities.
-//                 </p>
-//                 <Button asChild className="w-full bg-[#FB7E00] hover:bg-[#FE5F00]">
-//                   <Link to="/membership" aria-label="Join API Membership">
-//                     Join Now - ₹1,000/year
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6">
-//                   <GraduationCap className="w-8 h-8 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">CME Programs</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Access our continuing medical education programs, conferences, and workshops designed for professional growth.
-//                 </p>
-//                 <Button asChild variant="outline" className="w-full border-[#FB7E00] text-[#FB7E00] hover:bg-[#FAE9DB]">
-//                   <Link to="/meetings" aria-label="View CME Programs and Meetings">
-//                     View Programs
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-//               <CardContent className="p-8 text-center">
-//                 <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6">
-//                   <Shield className="w-8 h-8 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-4 text-gray-900">Latest Updates</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Stay informed with the latest announcements, policy updates, and important notifications from API.
-//                 </p>
-//                 <Button asChild variant="outline" className="w-full border-[#FB7E00] text-[#FB7E00] hover:bg-[#FAE9DB]">
-//                   <Link to="/notifications" aria-label="View Latest Notifications">
-//                     View Notifications
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* About, Events, News, Membership Benefits, FAQs, Contact Summaries */}
-//       <section className="py-16 bg-[#FAE9DB]">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-//             Explore API
-//           </h2>
-//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-//             {/* About Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full mb-4">
-//                   <Info className="w-7 h-7 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">About Us</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Discover our association’s mission, leadership, and unwavering commitment to advancing medical excellence across India.
-//                 </p>
-//                 <Button asChild variant="link" className="text-[#FB7E00] hover:text-[#FE5F00]" aria-label="Learn More About Our Organization">
-//                   <Link to="/about">
-//                     Learn More <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* Upcoming Events Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full mb-4">
-//                   <Megaphone className="w-7 h-7 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Upcoming Events</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Stay updated on our national conferences, regional meetings, and essential webinars. Don't miss out on vital learning and networking.
-//                 </p>
-//                 <Button asChild variant="link" className="text-[#FB7E00] hover:text-[#FE5F00]" aria-label="See All Upcoming Events">
-//                   <Link to="/meetings">
-//                     See Events <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* Featured News Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full mb-4">
-//                   <Newspaper className="w-7 h-7 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Featured News</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Catch up on the latest breakthroughs, policy changes, and association highlights impacting the medical community.
-//                 </p>
-//                 <Button asChild variant="link" className="text-[#FB7E00] hover:text-[#FE5F00]" aria-label="Read Our Latest News">
-//                   <Link to="/news">
-//                     Read News <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* Membership Benefits Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full mb-4">
-//                   <Gift className="w-7 h-7 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Member Benefits</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Unlock a world of advantages including exclusive publications, discounted CMEs, and a powerful professional network.
-//                 </p>
-//                 <Button asChild variant="link" className="text-[#FB7E00] hover:text-[#FE5F00]" aria-label="View All Membership Benefits">
-//                   <Link to="/membership">
-//                     View Benefits <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* FAQs Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full mb-4">
-//                   <HelpCircle className="w-7 h-7 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">FAQs</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Have questions about membership, events, or general inquiries? Find quick answers to commonly asked questions here.
-//                 </p>
-//                 <Button asChild variant="link" className="text-[#FB7E00] hover:text-[#FE5F00]" aria-label="Read Frequently Asked Questions">
-//                   <Link to="/faq">
-//                     Read FAQs <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//             {/* Contact Section Summary */}
-//             <Card className="hover:shadow-lg transition-shadow duration-300">
-//               <CardContent className="p-6 flex flex-col items-center text-center">
-//                 <div className="inline-flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full mb-4">
-//                   <Mail className="w-7 h-7 text-[#FB7E00]" />
-//                 </div>
-//                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Contact Us</h3>
-//                 <p className="text-gray-600 mb-6">
-//                   Reach out to us for support, inquiries, or any feedback. Our team is here to assist you.
-//                 </p>
-//                 <Button asChild variant="link" className="text-[#FB7E00] hover:text-[#FE5F00]" aria-label="Contact Our Support Team">
-//                   <Link to="/contact">
-//                     Contact Us <ArrowRight className="ml-2 w-4 h-4" />
-//                   </Link>
-//                 </Button>
-//               </CardContent>
-//             </Card>
-
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Testimonials */}
-//      <section className="py-16 bg-gradient-to-br from-purple-800 via-purple-700 to-pink-600 text-white">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <h2 className="text-3xl font-bold text-center mb-12">
-//           Our Core Members
-//         </h2>
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//           {mockData.testimonials.map((testimonial, index) => (
-//             <Card
-//               key={index}
-//               className="bg-white/10 backdrop-blur-sm border-white/20 text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg relative overflow-hidden group text-center"
-//             >
-//               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-//               <CardContent className="p-6 relative z-10 flex flex-col items-center">
-//                 <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white/50 flex-shrink-0 mb-4 transform group-hover:scale-110 transition-transform duration-300">
-//                   <img
-//                     src={testimonial.imageUrl}
-//                     alt={testimonial.name}
-//                     className="w-full h-full object-cover"
-//                   />
-//                 </div>
-
-//                 <h4 className="font-semibold text-lg">{testimonial.name}</h4>
-//                 <p className="text-purple-200 text-sm mb-6">{testimonial.designation}</p>
-
-//                 <p className="text-purple-100 italic">"{testimonial.quote}"</p>
-//               </CardContent>
-//             </Card>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-
-//       {/* CTA Section */}
-//       <section className="py-16 bg-gradient-to-r from-[#FB7E00] to-[#FE5F00] text-white">
-//         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-//             Ready to Advance Your Medical Career?
-//           </h2>
-//           <p className="text-xl mb-8 text-orange-100">
-//             Join thousands of physicians who trust API for professional development, networking, and excellence in healthcare.
-//           </p>
-//           <Button asChild size="lg" className="bg-white text-[#FE5F00] hover:bg-orange-50">
-//             <Link to="/membership" aria-label="Become a Member of API Today">
-//               Become a Member Today <ArrowRight className="ml-2 w-5 h-5" />
-//             </Link>
-//           </Button>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
-
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
@@ -858,237 +25,624 @@ import {
   Mail,
   Gift,
   Megaphone,
+  ChevronDown,
+  BookOpen,
+  Network,
+  TrendingUp,
+  Target,
+  UserCheck,
+  Briefcase
 } from "lucide-react";
 import { mockData } from "../utils/mock";
 
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
+
 const Home = () => {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  // Hero background images for carousel
+  const heroImages = [
+    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&h=1080&fit=crop'
+  ];
+
+  // Partner logos data
+  const partnerLogos = [
+    { name: "Partner 1", opacity: 0.6 },
+    { name: "Partner 2", opacity: 0.6 },
+    { name: "Partner 3", opacity: 0.6 },
+    { name: "Partner 4", opacity: 0.6 },
+    { name: "Partner 5", opacity: 0.6 },
+    { name: "Partner 6", opacity: 0.6 },
+  ];
+
+  // Benefits data
+  const benefits = [
+    {
+      icon: <Network className="w-8 h-8" />,
+      title: "Networking Opportunities",
+      description: "Connect with leading physicians and healthcare professionals across India"
+    },
+    {
+      icon: <BookOpen className="w-8 h-8" />,
+      title: "CME Credits",
+      description: "Access accredited continuing medical education programs and workshops"
+    },
+    {
+      icon: <Shield className="w-8 h-8" />,
+      title: "Exclusive Resources",
+      description: "Get access to journals, research papers, and clinical guidelines"
+    },
+    {
+      icon: <Briefcase className="w-8 h-8" />,
+      title: "Career Support",
+      description: "Professional development opportunities and career advancement resources"
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: "Advocacy",
+      description: "Voice in healthcare policy and representation at national level"
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Special Discounts",
+      description: "Member-exclusive discounts on conferences, publications, and services"
+    }
+  ];
+
+  // Events data
+  const upcomingEvents = [
+    {
+      id: 1,
+      date: "15 Dec",
+      title: "Annual National Conference 2024",
+      description: "Join us for the biggest medical conference of the year with renowned speakers.",
+      location: "New Delhi",
+      type: "Conference",
+      badge: "CME"
+    },
+    {
+      id: 2,
+      date: "20 Dec",
+      title: "Cardiology Update Webinar",
+      description: "Latest advances in cardiovascular medicine and treatment protocols.",
+      location: "Virtual",
+      type: "Webinar",
+      badge: "CME"
+    },
+    {
+      id: 3,
+      date: "28 Dec",
+      title: "Regional Medical Workshop",
+      description: "Hands-on training and skill development for practicing physicians.",
+      location: "Mumbai",
+      type: "Workshop",
+      badge: "Networking"
+    }
+  ];
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-cover bg-center text-white" style={{ backgroundImage: 'url(/hero-bg.jpg)' }}>
-        <div className="absolute inset-0 bg-gradient-to-r from-saffron/60 to-saffron-dark/50"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-          <div className="text-center">
-            <Badge className="mb-6 bg-saffron hover:bg-saffron-light text-white text-base py-2 px-4 rounded-full shadow-lg">
-              Established 1944 • 80+ Years of Excellence
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Advancing Physician
-              <span className="block text-saffron-light">
-                Excellence Since 1944
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto">
-              Empowering healthcare professionals through continuous education, networking,
-              and advancing the highest standards of medical practice across India.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-green hover:bg-green/90 text-white rounded-lg px-8 py-3 shadow-lg">
-                <Link to="/membership" aria-label="Join API Now">
-                  Join API <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-saffron rounded-lg px-8 py-3">
-                <Link to="/about" aria-label="Learn More About Our Association">
-                  Learn More
-                </Link>
-              </Button>
-            </div>
+      {/* Hero Section with Carousel and Parallax */}
+      <section ref={heroRef} className="relative h-screen min-h-[600px] overflow-hidden">
+        <motion.div
+          style={{ y: heroY }}
+          className="absolute inset-0"
+        >
+          <Swiper
+            modules={[Autoplay, EffectFade]}
+            effect="fade"
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            className="absolute inset-0 h-full"
+          >
+            {heroImages.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div 
+                  className="h-full w-full bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+        
+        <div className="absolute inset-0 bg-gradient-to-r from-saffron/80 via-saffron-dark/70 to-green/60 z-10" />
+        
+        <motion.div 
+          style={{ opacity: heroOpacity }}
+          className="relative z-20 h-full flex items-center"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <Badge className="mb-6 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white text-base py-2 px-6 rounded-full shadow-lg border border-white/30">
+                Established 1944 • 80+ Years of Excellence
+              </Badge>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg"
+              >
+                Advancing Physician
+                <span className="block text-white mt-2">
+                  Excellence Since 1944
+                </span>
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="text-xl md:text-2xl mb-10 text-white max-w-4xl mx-auto drop-shadow-md"
+              >
+                Empowering healthcare professionals through continuous education, networking,
+                and advancing the highest standards of medical practice across India.
+              </motion.p>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Button asChild size="lg" className="bg-green hover:bg-green/90 text-white rounded-xl px-10 py-6 text-lg shadow-2xl hover:shadow-green/50 hover:scale-105 transition-all duration-300">
+                  <Link to="/membership">
+                    Join API <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-saffron rounded-xl px-10 py-6 text-lg shadow-xl hover:scale-105 transition-all duration-300">
+                  <Link to="/about">
+                    Learn More
+                  </Link>
+                </Button>
+              </motion.div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          >
+            <ChevronDown className="w-8 h-8 text-white" />
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* Highlights Grid */}
-      <section className="py-16 bg-white">
+      {/* Trust Badges & Partner Logos */}
+      <section className="py-12 bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {mockData.highlights.map((highlight, index) => (
-              <Card key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white border border-saffron/20">
-                <CardContent className="p-0">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 ${index % 2 === 0 ? 'bg-saffron/10' : 'bg-green/5'} rounded-full mb-4`}>
-                    {React.cloneElement(highlight.icon, { className: `w-8 h-8 ${index % 2 === 0 ? 'text-saffron' : 'text-green'}` })}
-                  </div>
-                  <h3 className="text-3xl font-bold text-saffron mb-2">{highlight.value}</h3>
-                  <p className="text-neutral-800">{highlight.label}</p>
-                </CardContent>
-              </Card>
+          <h3 className="text-center text-sm uppercase tracking-wider text-neutral-500 mb-8 font-semibold">
+            Trusted By Leading Medical Institutions
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            {partnerLogos.map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+              >
+                <div className="w-24 h-16 bg-neutral-300 rounded flex items-center justify-center text-xs text-neutral-600 font-semibold">
+                  {partner.name}
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Quick Links */}
-      <section className="py-16 bg-neutral-50">
+      {/* Key Metrics Section with Animated Counters */}
+      <section className="py-20 bg-gradient-to-br from-saffron/10 to-green/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800">
-            Quick Access
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white border-saffron/30 border">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-green/5 rounded-full mb-6">
-                  <HeartHandshake className="w-8 h-8 text-green" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-neutral-800">Membership</h3>
-                <p className="text-gray-600 mb-6">
-                  Join our prestigious community of physicians and access exclusive benefits, resources, and networking opportunities.
-                </p>
-                <Button asChild className="w-full bg-green hover:bg-green/90 text-white rounded-lg py-3 shadow-md">
-                  <Link to="/membership" aria-label="Join API Membership">
-                    Join Now - ₹1,000/year
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+          <motion.div
+            ref={ref}
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          >
+            <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-saffron/10 rounded-full mb-4">
+                <Users className="w-8 h-8 text-saffron" />
+              </div>
+              <div className="text-5xl font-bold text-saffron mb-2">
+                {inView && <CountUp end={15000} duration={2.5} separator="," suffix="+" />}
+              </div>
+              <p className="text-neutral-600 font-medium">Active Members</p>
+            </motion.div>
 
-            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white border-saffron/30 border">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-saffron/10 rounded-full mb-6">
-                  <GraduationCap className="w-8 h-8 text-saffron" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-neutral-800">CME Programs</h3>
-                <p className="text-gray-600 mb-6">
-                  Access our continuing medical education programs, conferences, and workshops designed for professional growth.
-                </p>
-                <Button asChild variant="outline" className="w-full border-2 border-saffron text-saffron hover:bg-saffron hover:text-white rounded-lg py-3">
-                  <Link to="/meetings" aria-label="View CME Programs and Meetings">
-                    View Programs <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+            <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green/10 rounded-full mb-4">
+                <Award className="w-8 h-8 text-green" />
+              </div>
+              <div className="text-5xl font-bold text-green mb-2">
+                {inView && <CountUp end={80} duration={2.5} suffix="+" />}
+              </div>
+              <p className="text-neutral-600 font-medium">Years of Service</p>
+            </motion.div>
 
-            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white border-saffron/30 border">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-green/5 rounded-full mb-6">
-                  <Shield className="w-8 h-8 text-green" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-neutral-800">Latest Updates</h3>
-                <p className="text-gray-600 mb-6">
-                  Stay informed with the latest announcements, policy updates, and important notifications from API.
-                </p>
-                <Button asChild variant="outline" className="w-full border-2 border-green text-green hover:bg-green hover:text-white rounded-lg py-3">
-                  <Link to="/notifications" aria-label="View Latest Notifications">
-                    View Notifications <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+            <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-saffron/10 rounded-full mb-4">
+                <Calendar className="w-8 h-8 text-saffron" />
+              </div>
+              <div className="text-5xl font-bold text-saffron mb-2">
+                {inView && <CountUp end={500} duration={2.5} separator="," suffix="+" />}
+              </div>
+              <p className="text-neutral-600 font-medium">Annual Events</p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green/10 rounded-full mb-4">
+                <Star className="w-8 h-8 text-green" />
+              </div>
+              <div className="text-5xl font-bold text-green mb-2">
+                {inView && <CountUp end={50} duration={2.5} suffix="+" />}
+              </div>
+              <p className="text-neutral-600 font-medium">Chapters Nationwide</p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* About, Events, News Summaries */}
-      <section className="py-16 bg-white">
+      {/* About Us Section */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#333333]">
-            Explore API
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            {/* About Section Summary */}
-            <Card className="rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 bg-[#FFF6E5]">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-green/10 rounded-full mb-4">
-                  <Info className="w-7 h-7 text-green" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-[#333333]">About Us</h3>
-                <p className="text-[#666666] mb-6">
-                  Discover our association’s mission, leadership, and unwavering commitment to advancing medical excellence across India.
-                </p>
-                <Button asChild variant="link" className="text-[#FF6F00] hover:text-[#FF9933]" aria-label="Learn More About Our Organization">
-                  <Link to="/about">
-                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Upcoming Events Section Summary */}
-            <Card className="rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 bg-[#FFF6E5]">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-saffron/10 rounded-full mb-4">
-                  <Megaphone className="w-7 h-7 text-saffron-dark" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-[#333333]">Upcoming Events</h3>
-                <p className="text-[#666666] mb-6">
-                  Stay updated on our national conferences, regional meetings, and essential webinars. Don't miss out on vital learning and networking.
-                </p>
-                <Button asChild variant="link" className="text-[#FF6F00] hover:text-[#FF9933]" aria-label="See All Upcoming Events">
-                  <Link to="/meetings">
-                    See Events <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Featured News Section Summary */}
-            <Card className="rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 bg-[#FFF6E5]">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-100 rounded-full mb-4">
-                  <Newspaper className="w-7 h-7 text-[#006747]" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-[#333333]">Featured News</h3>
-                <p className="text-[#666666] mb-6">
-                  Catch up on the latest breakthroughs, policy changes, and association highlights impacting the medical community.
-                </p>
-                <Button asChild variant="link" className="text-[#FF6F00] hover:text-[#FF9933]" aria-label="Read Our Latest News">
-                  <Link to="/news">
-                    Read News <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-     <section className="py-16 bg-[#006747]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">
-          Our Core Members
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {mockData.testimonials.map((testimonial, index) => (
-            <Card
-              key={index}
-              className="bg-[#004d33] text-white rounded-xl shadow-md transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <CardContent className="p-6 relative z-10 flex flex-col items-center text-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white/50 flex-shrink-0 mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  <img
-                    src={testimonial.imageUrl}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop" 
+                  alt="API Association"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+            </motion.div>
 
-                <h4 className="font-semibold text-lg text-white">{testimonial.name}</h4>
-                <p className="text-[#F1F1F1] text-sm mb-6">{testimonial.designation}</p>
-
-                <p className="text-[#F1F1F1] italic">"{testimonial.quote}"</p>
-              </CardContent>
-            </Card>
-          ))}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-block mb-4">
+                <span className="text-saffron font-semibold text-sm uppercase tracking-wider border-b-2 border-saffron pb-1">About Us</span>
+              </div>
+              <h2 className="text-4xl font-bold text-neutral-800 mb-6">
+                Leading India's Medical Excellence Since 1944
+              </h2>
+              <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
+                The Association of Physicians of India (API) stands as one of the most prestigious medical organizations in the country, dedicated to advancing the practice of medicine and promoting the highest standards of patient care.
+              </p>
+              <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
+                With over 15,000 active members across 50+ chapters nationwide, we provide a platform for continuous learning, professional networking, and collaborative healthcare advancement.
+              </p>
+              <Button asChild size="lg" className="bg-saffron hover:bg-saffron-dark text-white rounded-xl px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <Link to="/about">
+                  Read Our Full Story <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Quick Navigation Cards */}
+      <section className="py-20 bg-neutral-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-16 text-neutral-800"
+          >
+            Explore Our Resources
+          </motion.h2>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              { icon: <UserCheck className="w-8 h-8" />, title: "Board of Trustees", link: "/trustees", color: "saffron" },
+              { icon: <Users className="w-8 h-8" />, title: "Leadership Team", link: "/leadership", color: "green" },
+              { icon: <BookOpen className="w-8 h-8" />, title: "Our History", link: "/history-achieve", color: "saffron" },
+              { icon: <Calendar className="w-8 h-8" />, title: "Events", link: "/meetings", color: "green" }
+            ].map((item, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <Link to={item.link}>
+                  <Card className={`h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group ${item.color === 'saffron' ? 'border-saffron/20' : 'border-green/20'}`}>
+                    <CardContent className="p-8 text-center">
+                      <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300 ${item.color === 'saffron' ? 'bg-saffron/10' : 'bg-green/10'}`}>
+                        <div className={item.color === 'saffron' ? 'text-saffron' : 'text-green'}>{item.icon}</div>
+                      </div>
+                      <h3 className="text-xl font-semibold text-neutral-800 group-hover:text-saffron transition-colors duration-300">
+                        {item.title}
+                      </h3>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Upcoming Events Carousel */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-16 text-neutral-800"
+          >
+            Upcoming Events
+          </motion.h2>
+          <Swiper
+            modules={[Autoplay, Pagination, Navigation]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
+            className="pb-12"
+          >
+            {upcomingEvents.map((event) => (
+              <SwiperSlide key={event.id}>
+                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <Badge className="bg-saffron text-white px-3 py-1 text-sm font-semibold">
+                        {event.date}
+                      </Badge>
+                      <Badge variant="outline" className="border-green text-green">
+                        {event.badge}
+                      </Badge>
+                    </div>
+                    <h3 className="text-xl font-bold text-neutral-800 mb-3 group-hover:text-saffron transition-colors duration-300">
+                      {event.title}
+                    </h3>
+                    <p className="text-neutral-600 mb-4 line-clamp-2">
+                      {event.description}
+                    </p>
+                    <div className="flex items-center text-sm text-neutral-500 mb-4">
+                      <MapPin className="w-4 h-4 mr-2" />
+                      {event.location}
+                    </div>
+                    <Button asChild className="w-full bg-green hover:bg-green/90 text-white rounded-lg">
+                      <Link to="/meetings">
+                        Register Now
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+
+      {/* Membership Benefits Section */}
+      <section className="py-20 bg-gradient-to-br from-saffron/5 to-green/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-neutral-800 mb-4">
+              Why Join API?
+            </h2>
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+              Unlock exclusive benefits designed to enhance your medical practice and professional growth
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
+              >
+                <div className={`inline-flex items-center justify-center w-16 h-16 ${index % 2 === 0 ? 'bg-saffron/10' : 'bg-green/10'} rounded-2xl mb-6 group-hover:rotate-6 transition-transform duration-300`}>
+                  <div className={index % 2 === 0 ? 'text-saffron' : 'text-green'}>{benefit.icon}</div>
+                </div>
+                <h3 className="text-xl font-bold text-neutral-800 mb-3">
+                  {benefit.title}
+                </h3>
+                <p className="text-neutral-600">
+                  {benefit.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Button asChild size="lg" className="bg-green hover:bg-green/90 text-white rounded-xl px-10 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <Link to="/membership">
+                View All Benefits <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Carousel */}
+      <section className="py-20 bg-gradient-to-br from-saffron via-saffron-dark to-green text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-16"
+          >
+            What Our Members Say
+          </motion.h2>
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
+            className="pb-12"
+          >
+            {mockData.testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white h-full hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-8 text-center flex flex-col items-center">
+                    <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white/50 mb-6">
+                      <img
+                        src={testimonial.imageUrl}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="flex items-center justify-center mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-white/90 italic mb-6 text-lg">
+                      "{testimonial.quote}"
+                    </p>
+                    <h4 className="font-semibold text-xl mb-1">{testimonial.name}</h4>
+                    <p className="text-white/80 text-sm">{testimonial.designation}</p>
+                  </CardContent>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-green-500 to-green-600">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to Advance Your Medical Career?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Join thousands of physicians who trust API for professional development, networking, and excellence in healthcare.
-          </p>
-          <Button asChild size="lg" className="bg-white text-green-600 hover:bg-saffron hover:text-white rounded-lg px-8 py-3 shadow-lg transition-all duration-300">
-            <Link to="/membership" aria-label="Become a Member of API Today">
-              Become a Member Today <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-800">
+              Ready to Advance Your Medical Career?
+            </h2>
+            <p className="text-xl mb-10 text-neutral-600 max-w-2xl mx-auto">
+              Join thousands of physicians who trust API for professional development, networking, and excellence in healthcare.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-saffron hover:bg-saffron-dark text-white rounded-xl px-10 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                <Link to="/membership">
+                  Become a Member Today <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-2 border-saffron text-saffron hover:bg-saffron hover:text-white rounded-xl px-10 py-6 text-lg transition-all duration-300">
+                <Link to="/contact">
+                  Contact Us
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

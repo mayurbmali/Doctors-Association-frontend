@@ -207,7 +207,7 @@ const HistoryAchieve = () => {
         </div>
       </section>
 
-      {/* Timeline Section with Animations */}
+      {/* Timeline Section with Mobile-Friendly Design */}
       <section className="py-20 bg-gradient-to-b from-white via-neutral-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
@@ -217,31 +217,64 @@ const HistoryAchieve = () => {
             </p>
           </div>
 
-          <div className="relative max-w-6xl mx-auto">
-            <div className="absolute left-1/2 transform -translate-x-0.5 h-full w-1 bg-gradient-to-b from-saffron via-green to-saffron opacity-60 rounded-full"></div>
+          {/* Mobile Timeline - Left Aligned */}
+          <div className="lg:hidden relative max-w-3xl mx-auto">
+            <div className="absolute left-6 top-0 h-full w-1 bg-gradient-to-b from-saffron via-green to-saffron opacity-60 rounded-full"></div>
 
-            <div className="space-y-16">
+            <div className="space-y-8">
               {mockData.historyMilestones.map((milestone, index) => (
                 <div 
                   key={index} 
                   ref={el => milestoneRefs.current[index] = el}
                   id={`milestone-${milestone.year}`}
-                  className={`relative flex items-center justify-between transition-all duration-1000 transform ${
+                  className={`relative pl-16 transition-all duration-1000 transform ${
                     visibleMilestones.has(index) 
                       ? 'opacity-100 translate-y-0' 
                       : 'opacity-0 translate-y-12'
                   }`}
                 >
-                  <div className="w-5/12 pr-12">
-                    {index % 2 === 0 && (
-                      <>
-                        <div className="absolute top-1/2 right-[-4rem] transform -translate-y-1/2 z-20">
-                          <div className="w-16 h-16 bg-gradient-to-br from-saffron to-green rounded-full shadow-xl flex items-center justify-center border-4 border-white">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
+                  <div className="absolute left-0 top-4 z-20">
+                    <div className={`w-12 h-12 ${index % 2 === 0 ? 'bg-gradient-to-br from-saffron to-green' : 'bg-gradient-to-br from-green to-saffron'} rounded-full shadow-xl flex items-center justify-center border-4 border-white`}>
+                      <div className="w-3 h-3 bg-white rounded-full"></div>
+                    </div>
+                  </div>
+                  <Card className={`shadow-lg hover:shadow-xl transition-all duration-300 bg-white border-l-4 ${index % 2 === 0 ? 'border-l-saffron' : 'border-l-green'}`}>
+                    <CardContent className="p-6">
+                      <Badge className={`mb-3 ${index % 2 === 0 ? 'bg-saffron' : 'bg-green'} text-white text-lg px-4 py-1 font-bold`}>
+                        {milestone.year}
+                      </Badge>
+                      <h3 className="text-xl font-bold text-neutral-800 mb-3">
+                        {milestone.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Timeline - Center Aligned with Alternating Layout */}
+          <div className="hidden lg:block relative max-w-6xl mx-auto">
+            <div className="absolute left-1/2 transform -translate-x-0.5 h-full w-1 bg-gradient-to-b from-saffron via-green to-saffron opacity-60 rounded-full"></div>
+
+            <div className="space-y-16">
+              {mockData.historyMilestones.map((milestone, index) => (
+                <div 
+                  key={index}
+                  ref={el => milestoneRefs.current[index] = el}
+                  id={`milestone-${milestone.year}`}
+                  className={`relative flex items-center transition-all duration-1000 transform ${
+                    visibleMilestones.has(index) 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-12'
+                  }`}
+                >
+                  {index % 2 === 0 ? (
+                    <>
+                      <div className="w-1/2 pr-12">
                         <Card className="shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white border-2 border-saffron/30 overflow-hidden group">
-                          <CardContent className="p-8 relative">
+                          <CardContent className="p-8">
                             <Badge className="mb-4 bg-saffron text-white text-xl px-5 py-2 font-bold shadow-lg">
                               {milestone.year}
                             </Badge>
@@ -251,20 +284,25 @@ const HistoryAchieve = () => {
                             <p className="text-gray-600 leading-relaxed text-lg">{milestone.description}</p>
                           </CardContent>
                         </Card>
-                      </>
-                    )}
-                  </div>
-
-                  <div className="w-5/12 pl-12">
-                    {index % 2 === 1 && (
-                      <>
-                        <div className="absolute top-1/2 left-[-4rem] transform -translate-y-1/2 z-20">
-                          <div className="w-16 h-16 bg-gradient-to-br from-green to-saffron rounded-full shadow-xl flex items-center justify-center border-4 border-white">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
+                      </div>
+                      <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
+                        <div className="w-16 h-16 bg-gradient-to-br from-saffron to-green rounded-full shadow-xl flex items-center justify-center border-4 border-white">
+                          <div className="w-6 h-6 bg-white rounded-full"></div>
                         </div>
+                      </div>
+                      <div className="w-1/2"></div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-1/2"></div>
+                      <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
+                        <div className="w-16 h-16 bg-gradient-to-br from-green to-saffron rounded-full shadow-xl flex items-center justify-center border-4 border-white">
+                          <div className="w-6 h-6 bg-white rounded-full"></div>
+                        </div>
+                      </div>
+                      <div className="w-1/2 pl-12">
                         <Card className="shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white border-2 border-green/30 overflow-hidden group">
-                          <CardContent className="p-8 relative">
+                          <CardContent className="p-8">
                             <Badge className="mb-4 bg-green text-white text-xl px-5 py-2 font-bold shadow-lg">
                               {milestone.year}
                             </Badge>
@@ -274,9 +312,9 @@ const HistoryAchieve = () => {
                             <p className="text-gray-600 leading-relaxed text-lg">{milestone.description}</p>
                           </CardContent>
                         </Card>
-                      </>
-                    )}
-                  </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               ))}
             </div>

@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
+import FloatingActionButton from "./components/common/FloatingActionButton";
+import StickyHeader from "./components/common/StickyHeader";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import VisionMission from "./pages/VisionMission";
@@ -19,6 +21,7 @@ function App() {
   return (
     <div className="App min-h-screen bg-slate-50">
       <BrowserRouter>
+        <StickyHeader />
         <Navbar />
         <main className="min-h-screen">
           <Routes>
@@ -35,6 +38,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <FloatingActionButton />
         <Toaster />
       </BrowserRouter>
     </div>

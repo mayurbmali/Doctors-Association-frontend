@@ -31,7 +31,12 @@ import {
   TrendingUp,
   Target,
   UserCheck,
-  Briefcase
+  Briefcase,
+  Image as ImageIcon,
+  X,
+  Play,
+  ZoomIn,
+  Phone
 } from "lucide-react";
 import { mockData } from "../utils/mock";
 
@@ -54,6 +59,9 @@ const Home = () => {
     triggerOnce: true,
     threshold: 0.1
   });
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [showVideo, setShowVideo] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -147,6 +155,28 @@ const Home = () => {
       type: "Workshop",
       badge: "Networking"
     }
+  ];
+
+  // Gallery images data
+  const galleryImages = [
+    { id: 1, url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop", caption: "Annual Conference 2024", alt: "Physicians gathering at Annual Conference 2024", span: "row-span-2" },
+    { id: 2, url: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop", caption: "Medical Workshop Session", alt: "Doctors participating in medical workshop" },
+    { id: 3, url: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=600&fit=crop", caption: "Networking Event", alt: "Medical professionals networking at event" },
+    { id: 4, url: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=600&fit=crop", caption: "CME Program", alt: "Continuing Medical Education program in progress" },
+    { id: 5, url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop", caption: "Member Activities", alt: "API members engaged in professional activities", span: "row-span-2" },
+    { id: 6, url: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop", caption: "Research Discussion", alt: "Medical research team discussion" },
+    { id: 7, url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop", caption: "Team Collaboration", alt: "Healthcare professionals collaborating" },
+    { id: 8, url: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=600&fit=crop", caption: "Healthcare Excellence", alt: "Excellence in healthcare delivery" }
+  ];
+
+  // Social proof activities
+  const activities = [
+    { id: 1, text: "Dr. Rajesh Kumar just joined from Mumbai", icon: <UserCheck className="w-4 h-4" /> },
+    { id: 2, text: "50 members registered for upcoming webinar", icon: <Users className="w-4 h-4" /> },
+    { id: 3, text: "Dr. Priya Sharma renewed membership", icon: <Award className="w-4 h-4" /> },
+    { id: 4, text: "New CME program published", icon: <BookOpen className="w-4 h-4" /> },
+    { id: 5, text: "Dr. Amit Patel just joined from Delhi", icon: <UserCheck className="w-4 h-4" /> },
+    { id: 6, text: "120+ attendees confirmed for Annual Conference", icon: <Calendar className="w-4 h-4" /> }
   ];
 
   return (
@@ -524,6 +554,176 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Photo/Video Gallery Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-neutral-800 mb-4">
+              Our Community in Action
+            </h2>
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+              Explore moments from our events, workshops, and member activities
+            </p>
+          </motion.div>
+
+          {/* Masonry Grid Gallery */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px] mb-12">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={image.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className={`relative group cursor-pointer overflow-hidden rounded-xl ${image.span || ''}`}
+                onClick={() => setSelectedImage(image)}
+              >
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-white font-semibold text-sm md:text-base">{image.caption}</p>
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Featured Video Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-2xl overflow-hidden shadow-2xl mb-8"
+          >
+            <div className="relative aspect-video bg-neutral-900">
+              {!showVideo ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <img
+                    src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=1200&h=675&fit=crop"
+                    alt="API Video"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setShowVideo(true)}
+                      className="w-20 h-20 bg-saffron rounded-full flex items-center justify-center shadow-2xl hover:bg-saffron-dark transition-colors duration-300"
+                    >
+                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
+                    </motion.button>
+                  </div>
+                </div>
+              ) : (
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                  title="API Community Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )}
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+              <h3 className="text-white text-xl font-bold">API - Advancing Excellence in Healthcare</h3>
+              <p className="text-white/80 text-sm">Watch our journey and impact on Indian healthcare</p>
+            </div>
+          </motion.div>
+
+          {/* View Gallery Button */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <Button size="lg" className="bg-saffron hover:bg-saffron-dark text-white rounded-xl px-10 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              View Full Gallery <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Image Lightbox Modal */}
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors duration-200"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            className="max-w-5xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage.url}
+              alt={selectedImage.alt}
+              className="w-full h-auto rounded-lg shadow-2xl"
+            />
+            <p className="text-white text-center mt-4 text-lg">{selectedImage.caption}</p>
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* Social Proof Ticker */}
+      <section className="py-8 bg-neutral-50 overflow-hidden border-y border-neutral-200">
+        <div className="relative">
+          <motion.div
+            animate={{
+              x: [0, -1920]
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear",
+              },
+            }}
+            className="flex gap-6 whitespace-nowrap"
+          >
+            {[...activities, ...activities, ...activities].map((activity, index) => (
+              <motion.div
+                key={`${activity.id}-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md border border-neutral-200"
+              >
+                <div className="flex items-center justify-center w-8 h-8 bg-saffron/10 rounded-full text-saffron">
+                  {activity.icon}
+                </div>
+                <span className="text-sm font-medium text-neutral-700">{activity.text}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Testimonials Carousel */}
       <section className="py-20 bg-gradient-to-br from-saffron via-saffron-dark to-green text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -582,34 +782,188 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Enhanced Final CTA Section */}
+      <section className="relative py-24 bg-gradient-to-br from-saffron via-saffron-dark to-green text-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+        
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-800">
-              Ready to Advance Your Medical Career?
+            <Badge className="mb-6 bg-white/20 backdrop-blur-sm text-white text-base py-2 px-6 rounded-full border border-white/30">
+              Join 15,000+ Members
+            </Badge>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              Ready to Join Our Community?
             </h2>
-            <p className="text-xl mb-10 text-neutral-600 max-w-2xl mx-auto">
-              Join thousands of physicians who trust API for professional development, networking, and excellence in healthcare.
+            <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Elevate your medical practice with exclusive resources, networking opportunities, and continuous professional development.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-saffron hover:bg-saffron-dark text-white rounded-xl px-10 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Button 
+                asChild 
+                size="lg" 
+                className="bg-white text-saffron hover:bg-white/90 rounded-xl px-12 py-7 text-lg font-semibold shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 group"
+              >
                 <Link to="/membership">
-                  Become a Member Today <ArrowRight className="ml-2 w-5 h-5" />
+                  Become a Member Today 
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-saffron text-saffron hover:bg-saffron hover:text-white rounded-xl px-10 py-6 text-lg transition-all duration-300">
+              <Button 
+                asChild 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-saffron rounded-xl px-12 py-7 text-lg font-semibold transition-all duration-300 hover:scale-105"
+              >
                 <Link to="/contact">
-                  Contact Us
+                  Have questions? Contact us
                 </Link>
               </Button>
             </div>
           </motion.div>
+        </div>
+
+        {/* Decorative Elements */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -90, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute -bottom-24 -left-24 w-96 h-96 bg-green/20 rounded-full blur-3xl"
+        />
+      </section>
+
+      {/* Contact & Support Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-4xl font-bold text-neutral-800 mb-6">Get in Touch</h2>
+              <p className="text-lg text-neutral-600 mb-8">
+                Have questions? Our team is here to help you with membership, events, or any inquiries.
+              </p>
+              
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-saffron/10 rounded-xl flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-saffron" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Visit Us</h3>
+                    <p className="text-neutral-600">API Headquarters, 123 Medical Complex<br />New Delhi, India 110001</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-green/10 rounded-xl flex-shrink-0">
+                    <Phone className="w-6 h-6 text-green" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Call Us</h3>
+                    <p className="text-neutral-600">+91 11 1234 5678<br />Mon-Fri, 9:00 AM - 6:00 PM IST</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-saffron/10 rounded-xl flex-shrink-0">
+                    <Mail className="w-6 h-6 text-saffron" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Email Us</h3>
+                    <p className="text-neutral-600">info@apiindia.org<br />support@apiindia.org</p>
+                  </div>
+                </div>
+              </div>
+
+              <Button asChild className="bg-saffron hover:bg-saffron-dark text-white rounded-xl px-8 py-6">
+                <Link to="/contact">
+                  Visit Contact Page <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+            </motion.div>
+
+            {/* Quick Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="shadow-2xl border-t-4 border-t-saffron">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-neutral-800 mb-6">Quick Inquiry</h3>
+                  <form className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Full Name</label>
+                      <input
+                        type="text"
+                        placeholder="Dr. John Doe"
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Email</label>
+                      <input
+                        type="email"
+                        placeholder="john@example.com"
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Subject</label>
+                      <input
+                        type="text"
+                        placeholder="Membership Inquiry"
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Message</label>
+                      <textarea
+                        rows="4"
+                        placeholder="How can we help you?"
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition-all resize-none"
+                      />
+                    </div>
+                    <Button type="submit" className="w-full bg-green hover:bg-green/90 text-white rounded-lg py-6 text-lg font-semibold">
+                      Send Message
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>

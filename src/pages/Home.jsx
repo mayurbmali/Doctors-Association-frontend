@@ -83,15 +83,6 @@ const Home = () => {
     'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&h=1080&fit=crop'
   ];
 
-  // Partner logos data
-  const partnerLogos = [
-    { name: "Partner 1", opacity: 0.6 },
-    { name: "Partner 2", opacity: 0.6 },
-    { name: "Partner 3", opacity: 0.6 },
-    { name: "Partner 4", opacity: 0.6 },
-    { name: "Partner 5", opacity: 0.6 },
-    { name: "Partner 6", opacity: 0.6 },
-  ];
 
   // Benefits data
   const benefits = [
@@ -264,30 +255,6 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Trust Badges & Partner Logos */}
-      <section className="py-12 bg-neutral-50 border-y border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-center text-sm uppercase tracking-wider text-neutral-500 mb-8 font-semibold">
-            Trusted By Leading Medical Institutions
-          </h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {partnerLogos.map((partner, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
-              >
-                <div className="w-24 h-16 bg-neutral-300 rounded flex items-center justify-center text-xs text-neutral-600 font-semibold">
-                  {partner.name}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Key Metrics Section with Animated Counters */}
       <section className="py-20 bg-gradient-to-br from-saffron/10 to-green/10">

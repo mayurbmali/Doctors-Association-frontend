@@ -220,13 +220,13 @@ const Navbar = () => {
             className="flex items-center space-x-4 group transition-all duration-300 hover:scale-105"
           >
             <div className="relative">
-              <div className="flex items-center justify-center w-12 h-12 bg-[#006747] rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
+              <div className="flex items-center justify-center w-12 h-12 bg-green rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
                 <Stethoscope className="w-7 h-7 text-white" />
               </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#FF9933] rounded-full animate-pulse"></div>
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-saffron rounded-full animate-pulse"></div>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-bold text-[#006747]">
+              <h1 className="text-2xl font-bold text-green">
                 API
               </h1>
               <p className="text-xs font-medium text-gray-600 -mt-1">
@@ -243,12 +243,12 @@ const Navbar = () => {
                 to={item.href}
                 className={`relative px-4 py-3 text-sm font-semibold transition-all duration-300 rounded-xl group ${
                   isActive(item.href)
-                    ? "text-[#FF6F00] bg-[#FFF6E5]"
-                    : "text-[#333333] hover:text-[#FF6F00] hover:bg-[#FFF6E5]"
+                    ? "text-saffron bg-saffron/10"
+                    : "text-neutral-800 hover:text-saffron hover:bg-saffron/5"
                 }`}
               >
                 {item.name}
-                <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#FF6F00] transition-all duration-300 ${
+                <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-saffron transition-all duration-300 ${
                   isActive(item.href) 
                     ? "w-8 opacity-100" 
                     : "w-0 opacity-0 group-hover:w-6 group-hover:opacity-100"
@@ -261,7 +261,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <Button 
               asChild 
-              className="bg-[#FF6F00] hover:bg-[#FF9933] text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
+              className="bg-saffron hover:bg-saffron-dark text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
             >
               <Link to="/membership" className="flex items-center space-x-2">
                 <span>Join API</span>
@@ -274,7 +274,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="relative p-3 text-gray-700 hover:text-[#FF6F00] hover:bg-[#FFF6E5] rounded-xl transition-all duration-300"
+              className="relative p-3 text-gray-700 hover:text-saffron hover:bg-saffron/10 rounded-xl transition-all duration-300"
             >
               <div className="relative w-6 h-6">
                 <Menu className={`w-6 h-6 absolute transition-all duration-300 ${isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'}`} />
@@ -295,8 +295,8 @@ const Navbar = () => {
                 to={item.href}
                 className={`block px-4 py-3 text-base font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 ${
                   isActive(item.href)
-                    ? "text-[#FF6F00] bg-[#FFF6E5] shadow-md"
-                    : "text-[#333333] hover:text-[#FF6F00] hover:bg-[#FFF6E5]"
+                    ? "text-saffron bg-saffron/10 shadow-md"
+                    : "text-neutral-800 hover:text-saffron hover:bg-saffron/5"
                 }`}
                 style={{ 
                   animationDelay: `${index * 50}ms`,
@@ -313,7 +313,7 @@ const Navbar = () => {
             <div className="px-2 pt-4">
               <Button 
                 asChild 
-                className="w-full bg-[#FF6F00] hover:bg-[#FF9933] text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-saffron hover:bg-saffron-dark text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Link 
                   to="/membership" 

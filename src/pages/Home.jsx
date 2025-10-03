@@ -865,29 +865,30 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#FF6F00] to-[#006747] text-white">
+      <section className="relative bg-cover bg-center text-white" style={{ backgroundImage: 'url(/hero-bg.jpg)' }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-saffron/60 to-saffron-dark/50"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="text-center">
-            <Badge className="mb-6 bg-[#FF6F00] hover:bg-[#FF9933] text-white text-base py-1 px-3 rounded-full">
+            <Badge className="mb-6 bg-saffron hover:bg-saffron-light text-white text-base py-2 px-4 rounded-full shadow-lg">
               Established 1944 • 80+ Years of Excellence
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Advancing Physician
-              <span className="block text-[#FF9933]">
+              <span className="block text-saffron-light">
                 Excellence Since 1944
               </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-[#F8F9FA] max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto">
               Empowering healthcare professionals through continuous education, networking,
               and advancing the highest standards of medical practice across India.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-[#FF6F00] hover:bg-[#FF9933] text-white rounded-lg px-8 py-3">
+              <Button asChild size="lg" className="bg-green hover:bg-green/90 text-white rounded-lg px-8 py-3 shadow-lg">
                 <Link to="/membership" aria-label="Join API Now">
                   Join API <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-[#006747] bg-white text-[#006747] hover:bg-[#006747] hover:text-white rounded-lg px-8 py-3">
+              <Button asChild size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-saffron rounded-lg px-8 py-3">
                 <Link to="/about" aria-label="Learn More About Our Association">
                   Learn More
                 </Link>
@@ -898,17 +899,17 @@ const Home = () => {
       </section>
 
       {/* Highlights Grid */}
-      <section className="py-16 bg-[#FFF6E5]">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {mockData.highlights.map((highlight, index) => (
-              <Card key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white">
+              <Card key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white border border-saffron/20">
                 <CardContent className="p-0">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 ${index % 2 === 0 ? 'bg-orange-100' : 'bg-green-100'} rounded-full mb-4`}>
-                    {React.cloneElement(highlight.icon, { className: `w-8 h-8 ${index % 2 === 0 ? 'text-[#FF6F00]' : 'text-[#006747]'}` })}
+                  <div className={`inline-flex items-center justify-center w-16 h-16 ${index % 2 === 0 ? 'bg-saffron/10' : 'bg-green/5'} rounded-full mb-4`}>
+                    {React.cloneElement(highlight.icon, { className: `w-8 h-8 ${index % 2 === 0 ? 'text-saffron' : 'text-green'}` })}
                   </div>
-                  <h3 className="text-3xl font-bold text-[#333333] mb-2">{highlight.value}</h3>
-                  <p className="text-[#666666]">{highlight.label}</p>
+                  <h3 className="text-3xl font-bold text-saffron mb-2">{highlight.value}</h3>
+                  <p className="text-neutral-800">{highlight.label}</p>
                 </CardContent>
               </Card>
             ))}
@@ -917,22 +918,22 @@ const Home = () => {
       </section>
 
       {/* Quick Links */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#333333]">
+          <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800">
             Quick Access
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-[#FFF6E5]">
+            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white border-saffron/30 border">
               <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6">
-                  <HeartHandshake className="w-8 h-8 text-[#FF6F00]" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green/5 rounded-full mb-6">
+                  <HeartHandshake className="w-8 h-8 text-green" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-[#333333]">Membership</h3>
-                <p className="text-[#666666] mb-6">
+                <h3 className="text-xl font-semibold mb-4 text-neutral-800">Membership</h3>
+                <p className="text-gray-600 mb-6">
                   Join our prestigious community of physicians and access exclusive benefits, resources, and networking opportunities.
                 </p>
-                <Button asChild className="w-full bg-[#FF6F00] hover:bg-[#FF9933] text-white rounded-lg py-3">
+                <Button asChild className="w-full bg-green hover:bg-green/90 text-white rounded-lg py-3 shadow-md">
                   <Link to="/membership" aria-label="Join API Membership">
                     Join Now - ₹1,000/year
                   </Link>
@@ -940,16 +941,16 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-[#FFF6E5]">
+            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white border-saffron/30 border">
               <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
-                  <GraduationCap className="w-8 h-8 text-[#006747]" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-saffron/10 rounded-full mb-6">
+                  <GraduationCap className="w-8 h-8 text-saffron" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-[#333333]">CME Programs</h3>
-                <p className="text-[#666666] mb-6">
+                <h3 className="text-xl font-semibold mb-4 text-neutral-800">CME Programs</h3>
+                <p className="text-gray-600 mb-6">
                   Access our continuing medical education programs, conferences, and workshops designed for professional growth.
                 </p>
-                <Button asChild variant="link" className="w-full text-[#FF6F00] hover:text-[#FF9933] rounded-lg py-3">
+                <Button asChild variant="outline" className="w-full border-2 border-saffron text-saffron hover:bg-saffron hover:text-white rounded-lg py-3">
                   <Link to="/meetings" aria-label="View CME Programs and Meetings">
                     View Programs <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
@@ -957,16 +958,16 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-[#FFF6E5]">
+            <Card className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white border-saffron/30 border">
               <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6">
-                  <Shield className="w-8 h-8 text-[#FF6F00]" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green/5 rounded-full mb-6">
+                  <Shield className="w-8 h-8 text-green" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-[#333333]">Latest Updates</h3>
-                <p className="text-[#666666] mb-6">
+                <h3 className="text-xl font-semibold mb-4 text-neutral-800">Latest Updates</h3>
+                <p className="text-gray-600 mb-6">
                   Stay informed with the latest announcements, policy updates, and important notifications from API.
                 </p>
-                <Button asChild variant="link" className="w-full text-[#FF6F00] hover:text-[#FF9933] rounded-lg py-3">
+                <Button asChild variant="outline" className="w-full border-2 border-green text-green hover:bg-green hover:text-white rounded-lg py-3">
                   <Link to="/notifications" aria-label="View Latest Notifications">
                     View Notifications <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
@@ -988,8 +989,8 @@ const Home = () => {
             {/* About Section Summary */}
             <Card className="rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 bg-[#FFF6E5]">
               <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-100 rounded-full mb-4">
-                  <Info className="w-7 h-7 text-[#006747]" />
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-green/10 rounded-full mb-4">
+                  <Info className="w-7 h-7 text-green" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-[#333333]">About Us</h3>
                 <p className="text-[#666666] mb-6">
@@ -1006,8 +1007,8 @@ const Home = () => {
             {/* Upcoming Events Section Summary */}
             <Card className="rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 bg-[#FFF6E5]">
               <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-orange-100 rounded-full mb-4">
-                  <Megaphone className="w-7 h-7 text-[#FF6F00]" />
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-saffron/10 rounded-full mb-4">
+                  <Megaphone className="w-7 h-7 text-saffron-dark" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-[#333333]">Upcoming Events</h3>
                 <p className="text-[#666666] mb-6">
@@ -1075,15 +1076,15 @@ const Home = () => {
     </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-[#FF6F00]">
+      <section className="py-16 bg-gradient-to-r from-green-500 to-green-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
             Ready to Advance Your Medical Career?
           </h2>
-          <p className="text-xl mb-8 text-white">
+          <p className="text-xl mb-8 text-white/90">
             Join thousands of physicians who trust API for professional development, networking, and excellence in healthcare.
           </p>
-          <Button asChild size="lg" className="bg-white text-[#FF6F00] hover:bg-orange-50 rounded-lg px-8 py-3">
+          <Button asChild size="lg" className="bg-white text-green-600 hover:bg-saffron hover:text-white rounded-lg px-8 py-3 shadow-lg transition-all duration-300">
             <Link to="/membership" aria-label="Become a Member of API Today">
               Become a Member Today <ArrowRight className="ml-2 w-5 h-5" />
             </Link>

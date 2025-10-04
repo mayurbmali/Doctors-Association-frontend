@@ -13,14 +13,68 @@ import { mockData } from "../utils/mock";
 const HistoryAchieve = () => {
   const [activeYear, setActiveYear] = useState(null);
   const [currentAwardIndex, setCurrentAwardIndex] = useState(0);
-  const [visibleMilestones, setVisibleMilestones] = useState(new Set());
-  const milestoneRefs = useRef([]);
+  const [currentMilestoneIndex, setCurrentMilestoneIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [slideDirection, setSlideDirection] = useState('right');
+  const yearScrollRef = useRef(null);
+  const autoPlayTimerRef = useRef(null);
   const [counters, setCounters] = useState({
     awards: 0,
     trained: 0,
     research: 0,
     conferences: 0
   });
+
+  const timelineMilestones = [
+    {
+      year: "1944",
+      title: "Foundation of API",
+      description: "Association of Physicians of India was established by a group of visionary doctors committed to advancing medical excellence across the nation.",
+      image: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&h=600&fit=crop"
+    },
+    {
+      year: "1950",
+      title: "First Annual Conference",
+      description: "Organized the first annual medical conference in Mumbai with 200+ participants, marking the beginning of our tradition of knowledge sharing.",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop"
+    },
+    {
+      year: "1965",
+      title: "National Recognition",
+      description: "Gained national recognition and established partnerships with medical institutions across India, expanding our reach and impact.",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop"
+    },
+    {
+      year: "1980",
+      title: "CME Program Launch",
+      description: "Launched structured Continuing Medical Education programs for member development, setting new standards for professional growth.",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop"
+    },
+    {
+      year: "1995",
+      title: "Digital Transformation",
+      description: "Embraced technology with online platforms and digital medical resources, pioneering the digital revolution in medical education.",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop"
+    },
+    {
+      year: "2010",
+      title: "International Collaboration",
+      description: "Established partnerships with international medical associations and organizations, bringing global expertise to Indian healthcare.",
+      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop"
+    },
+    {
+      year: "2020",
+      title: "COVID-19 Response",
+      description: "Led national response initiatives and provided crucial support during the pandemic, showcasing our commitment to healthcare excellence.",
+      image: "https://images.unsplash.com/photo-1584744982491-665216d95f8b?w=800&h=600&fit=crop"
+    },
+    {
+      year: "2024",
+      title: "80 Years of Excellence",
+      description: "Celebrating eight decades of advancing medical excellence and professional development, with a vision for the future of healthcare.",
+      image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&h=600&fit=crop"
+    }
+  ];
 
   useEffect(() => {
     const targets = {
@@ -61,24 +115,71 @@ const HistoryAchieve = () => {
   }, []);
 
   useEffect(() => {
-    const observers = milestoneRefs.current.map((ref, index) => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setVisibleMilestones(prev => new Set([...prev, index]));
-          }
-        },
-        { threshold: 0.2 }
-      );
-
-      if (ref) observer.observe(ref);
-      return observer;
-    });
+    if (isAutoPlaying) {
+      autoPlayTimerRef.current = setInterval(() => {
+        handleNext();
+      }, 5000);
+    }
 
     return () => {
-      observers.forEach(observer => observer.disconnect());
+      if (autoPlayTimerRef.current) {
+        clearInterval(autoPlayTimerRef.current);
+      }
     };
-  }, []);
+  }, [isAutoPlaying, currentMilestoneIndex]);
+
+  const handleYearClick = (index) => {
+    setSlideDirection(index > currentMilestoneIndex ? 'right' : 'left');
+    setCurrentMilestoneIndex(index);
+    setActiveYear(timelineMilestones[index].year);
+    setIsAutoPlaying(false);
+    
+    if (yearScrollRef.current) {
+      const yearButton = yearScrollRef.current.children[index];
+      if (yearButton) {
+        yearButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  };
+
+  const handleNext = () => {
+    setSlideDirection('right');
+    const nextIndex = (currentMilestoneIndex + 1) % timelineMilestones.length;
+    setCurrentMilestoneIndex(nextIndex);
+    setActiveYear(timelineMilestones[nextIndex].year);
+    
+    if (yearScrollRef.current) {
+      const yearButton = yearScrollRef.current.children[nextIndex];
+      if (yearButton) {
+        yearButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    setSlideDirection('left');
+    const prevIndex = (currentMilestoneIndex - 1 + timelineMilestones.length) % timelineMilestones.length;
+    setCurrentMilestoneIndex(prevIndex);
+    setActiveYear(timelineMilestones[prevIndex].year);
+    
+    if (yearScrollRef.current) {
+      const yearButton = yearScrollRef.current.children[prevIndex];
+      if (yearButton) {
+        yearButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  };
+
+  const pauseAutoPlay = () => {
+    setIsAutoPlaying(false);
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+    }
+  };
+
+  const resumeAutoPlay = () => {
+    setIsAutoPlaying(true);
+  };
 
   const awards = [
     {
@@ -136,8 +237,6 @@ const HistoryAchieve = () => {
     }
   ];
 
-  const years = mockData.historyMilestones.map(m => m.year);
-
   const nextAward = () => {
     setCurrentAwardIndex((prev) => (prev + 1) % awards.length);
   };
@@ -146,23 +245,7 @@ const HistoryAchieve = () => {
     setCurrentAwardIndex((prev) => (prev - 1 + awards.length) % awards.length);
   };
 
-  const scrollToYear = (year) => {
-    setActiveYear(year);
-    const element = document.getElementById(`milestone-${year}`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
-
-  const getCategoryColors = (category) => {
-    const colors = {
-      Education: "bg-green text-white border-green/30",
-      Policy: "bg-green/90 text-white border-green/40",
-      Research: "bg-saffron text-white border-saffron/30",
-      Community: "bg-saffron-light text-white border-saffron-light/30"
-    };
-    return colors[category] || "bg-gray-500 text-gray-700 border-gray-300";
-  };
+  const currentMilestone = timelineMilestones[currentMilestoneIndex];
 
   return (
     <div className="min-h-screen bg-white">
@@ -186,137 +269,134 @@ const HistoryAchieve = () => {
         </div>
       </section>
 
-      {/* Mini Timeline Navigation */}
-      <section className="sticky top-0 z-30 bg-white shadow-md py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center gap-4 overflow-x-auto">
-            {years.map((year, idx) => (
-              <button
-                key={idx}
-                onClick={() => scrollToYear(year)}
-                className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap ${
-                  activeYear === year 
-                    ? 'bg-saffron text-white shadow-lg scale-110' 
-                    : 'bg-neutral-50 text-gray-600 hover:bg-saffron/10'
-                }`}
-              >
-                {year}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section with Mobile-Friendly Design */}
+      {/* Interactive Timeline Section */}
       <section className="py-20 bg-gradient-to-b from-white via-neutral-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-neutral-800 mb-6">Historical Timeline</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-neutral-800 mb-6">Interactive History Timeline</h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Key milestones that shaped API's journey to becoming India's leading medical association.
+              Explore 80 years of milestones by selecting years and watching content smoothly animate into view.
             </p>
           </div>
 
-          {/* Mobile Timeline - Left Aligned */}
-          <div className="lg:hidden relative max-w-3xl mx-auto">
-            <div className="absolute left-6 top-0 h-full w-1 bg-gradient-to-b from-saffron via-green to-saffron opacity-60 rounded-full"></div>
-
-            <div className="space-y-8">
-              {mockData.historyMilestones.map((milestone, index) => (
-                <div 
-                  key={index} 
-                  ref={el => milestoneRefs.current[index] = el}
-                  id={`milestone-${milestone.year}`}
-                  className={`relative pl-16 transition-all duration-1000 transform ${
-                    visibleMilestones.has(index) 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-12'
+          {/* Year Selector - Horizontal Scrollable */}
+          <div className="mb-12 relative">
+            <div 
+              ref={yearScrollRef}
+              className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide snap-x snap-mandatory"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              onMouseEnter={pauseAutoPlay}
+              onMouseLeave={resumeAutoPlay}
+            >
+              {timelineMilestones.map((milestone, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleYearClick(index)}
+                  className={`flex-shrink-0 snap-center px-6 py-3 rounded-xl font-bold text-lg transition-all duration-500 transform ${
+                    currentMilestoneIndex === index
+                      ? 'bg-gradient-to-r from-saffron to-green text-white shadow-2xl scale-125 ring-4 ring-saffron/30'
+                      : 'bg-white text-gray-600 hover:bg-gradient-to-r hover:from-saffron/10 hover:to-green/10 shadow-md hover:shadow-lg hover:scale-110'
                   }`}
+                  aria-label={`View milestone from ${milestone.year}`}
                 >
-                  <div className="absolute left-0 top-4 z-20">
-                    <div className={`w-12 h-12 ${index % 2 === 0 ? 'bg-gradient-to-br from-saffron to-green' : 'bg-gradient-to-br from-green to-saffron'} rounded-full shadow-xl flex items-center justify-center border-4 border-white`}>
-                      <div className="w-3 h-3 bg-white rounded-full"></div>
-                    </div>
-                  </div>
-                  <Card className={`shadow-lg hover:shadow-xl transition-all duration-300 bg-white border-l-4 ${index % 2 === 0 ? 'border-l-saffron' : 'border-l-green'}`}>
-                    <CardContent className="p-6">
-                      <Badge className={`mb-3 ${index % 2 === 0 ? 'bg-saffron' : 'bg-green'} text-white text-lg px-4 py-1 font-bold`}>
-                        {milestone.year}
-                      </Badge>
-                      <h3 className="text-xl font-bold text-neutral-800 mb-3">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
-                    </CardContent>
-                  </Card>
-                </div>
+                  {milestone.year}
+                </button>
               ))}
             </div>
+            
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-neutral-50 to-transparent pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-neutral-50 to-transparent pointer-events-none"></div>
           </div>
 
-          {/* Desktop Timeline - Center Aligned with Alternating Layout */}
-          <div className="hidden lg:block relative max-w-6xl mx-auto">
-            <div className="absolute left-1/2 transform -translate-x-0.5 h-full w-1 bg-gradient-to-b from-saffron via-green to-saffron opacity-60 rounded-full"></div>
-
-            <div className="space-y-16">
-              {mockData.historyMilestones.map((milestone, index) => (
-                <div 
-                  key={index}
-                  ref={el => milestoneRefs.current[index] = el}
-                  id={`milestone-${milestone.year}`}
-                  className={`relative flex items-center transition-all duration-1000 transform ${
-                    visibleMilestones.has(index) 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-12'
-                  }`}
+          {/* Main Event Card with Navigation Arrows */}
+          <div className="relative max-w-6xl mx-auto">
+            <div 
+              className="relative overflow-hidden"
+              onMouseEnter={pauseAutoPlay}
+              onMouseLeave={resumeAutoPlay}
+            >
+              <div className="relative min-h-[500px] md:min-h-[400px]">
+                <Card 
+                  key={currentMilestoneIndex}
+                  className={`shadow-2xl border-2 overflow-hidden animate-slide-in-${slideDirection}`}
+                  style={{
+                    animation: `slideIn${slideDirection === 'right' ? 'Right' : 'Left'} 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)`
+                  }}
                 >
-                  {index % 2 === 0 ? (
-                    <>
-                      <div className="w-1/2 pr-12">
-                        <Card className="shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white border-2 border-saffron/30 overflow-hidden group">
-                          <CardContent className="p-8">
-                            <Badge className="mb-4 bg-saffron text-white text-xl px-5 py-2 font-bold shadow-lg">
-                              {milestone.year}
-                            </Badge>
-                            <h3 className="text-2xl font-bold text-neutral-800 mb-4 group-hover:text-saffron transition-colors">
-                              {milestone.title}
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed text-lg">{milestone.description}</p>
-                          </CardContent>
-                        </Card>
+                  <CardContent className="p-0">
+                    <div className="flex flex-col md:flex-row">
+                      {/* Image Section */}
+                      <div className="md:w-1/2 relative overflow-hidden group">
+                        <img 
+                          src={currentMilestone.image}
+                          alt={currentMilestone.title}
+                          className="w-full h-64 md:h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-saffron/30 via-transparent to-green/30 opacity-60"></div>
+                        <Badge className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-saffron text-2xl font-bold px-6 py-3 shadow-xl">
+                          {currentMilestone.year}
+                        </Badge>
                       </div>
-                      <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
-                        <div className="w-16 h-16 bg-gradient-to-br from-saffron to-green rounded-full shadow-xl flex items-center justify-center border-4 border-white">
-                          <div className="w-6 h-6 bg-white rounded-full"></div>
+
+                      {/* Content Section */}
+                      <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-gradient-to-br from-white to-neutral-50">
+                        <div className="mb-4">
+                          <div className="h-1 w-20 bg-gradient-to-r from-saffron to-green rounded-full mb-6"></div>
+                          <h3 className="text-3xl md:text-4xl font-bold text-neutral-800 mb-4 leading-tight">
+                            {currentMilestone.title}
+                          </h3>
+                        </div>
+                        <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                          {currentMilestone.description}
+                        </p>
+                        
+                        {/* Progress Indicator */}
+                        <div className="flex items-center gap-2 mt-auto">
+                          {timelineMilestones.map((_, idx) => (
+                            <div
+                              key={idx}
+                              className={`h-2 rounded-full transition-all duration-500 ${
+                                idx === currentMilestoneIndex 
+                                  ? 'w-12 bg-gradient-to-r from-saffron to-green' 
+                                  : 'w-2 bg-gray-300'
+                              }`}
+                            ></div>
+                          ))}
                         </div>
                       </div>
-                      <div className="w-1/2"></div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="w-1/2"></div>
-                      <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
-                        <div className="w-16 h-16 bg-gradient-to-br from-green to-saffron rounded-full shadow-xl flex items-center justify-center border-4 border-white">
-                          <div className="w-6 h-6 bg-white rounded-full"></div>
-                        </div>
-                      </div>
-                      <div className="w-1/2 pl-12">
-                        <Card className="shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white border-2 border-green/30 overflow-hidden group">
-                          <CardContent className="p-8">
-                            <Badge className="mb-4 bg-green text-white text-xl px-5 py-2 font-bold shadow-lg">
-                              {milestone.year}
-                            </Badge>
-                            <h3 className="text-2xl font-bold text-neutral-800 mb-4 group-hover:text-green transition-colors">
-                              {milestone.title}
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed text-lg">{milestone.description}</p>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={handlePrev}
+                onMouseEnter={pauseAutoPlay}
+                className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 z-20 bg-gradient-to-r from-saffron to-saffron-dark hover:from-saffron-dark hover:to-green text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-saffron/50"
+                aria-label="Previous milestone"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+
+              <button
+                onClick={handleNext}
+                onMouseEnter={pauseAutoPlay}
+                className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 z-20 bg-gradient-to-r from-green to-green-dark hover:from-green-dark hover:to-saffron text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green/50"
+                aria-label="Next milestone"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Auto-play indicator */}
+            <div className="text-center mt-6">
+              <button
+                onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                {isAutoPlaying ? '⏸ Pause auto-play' : '▶ Resume auto-play'}
+              </button>
             </div>
           </div>
         </div>
@@ -506,48 +586,35 @@ const HistoryAchieve = () => {
         </div>
       </section>
 
-      {/* Enhanced CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-saffron via-saffron-dark to-green text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Be Part of Our Continuing Legacy
-          </h2>
-          <p className="text-2xl mb-10 text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Join thousands of physicians who have contributed to 80 years of medical excellence. 
-            Help us shape the next chapter of Indian healthcare.
+      {/* Call to Action */}
+      <section className="py-20 bg-gradient-to-r from-saffron via-saffron-dark to-green text-white">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold mb-6">Join Our Legacy</h2>
+          <p className="text-xl mb-10 text-white/90">
+            Be part of India's premier medical association and contribute to the next chapter of our history.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="bg-white text-saffron hover:bg-neutral-50 rounded-xl px-10 py-6 text-lg font-semibold shadow-2xl transition-all duration-300 hover:scale-105">
-              <Link to="/membership">
-                Join Our Legacy <ArrowRight className="ml-3 w-6 h-6" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-saffron rounded-xl px-10 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105">
-              <Link to="/about">
-                Learn More About API
-              </Link>
-            </Button>
+            <Link to="/membership">
+              <Button 
+                size="lg" 
+                className="bg-white text-saffron hover:bg-white/90 font-semibold px-8 py-6 text-lg shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Become a Member
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-saffron font-semibold px-8 py-6 text-lg shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
-
-      <style>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-out;
-        }
-      `}</style>
     </div>
   );
 };

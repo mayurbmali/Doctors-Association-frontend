@@ -217,20 +217,19 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center space-x-4 group transition-all duration-300 hover:scale-105"
+            className="flex items-center space-x-3 group transition-all duration-300 hover:scale-105"
           >
-            <div className="relative">
-              <div className="flex items-center justify-center w-12 h-12 bg-green rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
-                <Stethoscope className="w-7 h-7 text-white" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-saffron rounded-full animate-pulse"></div>
-            </div>
+            <img 
+              src="/ccmp-logo.png" 
+              alt="CCMP Homoeopathic Doctors Association Logo" 
+              className="h-14 w-14 object-contain group-hover:scale-110 transition-transform duration-300"
+            />
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-bold text-green">
-                API
+              <h1 className="text-xl font-bold text-green leading-tight">
+                CCMP
               </h1>
-              <p className="text-xs font-medium text-gray-600 -mt-1">
-                Since 1944
+              <p className="text-xs font-medium text-gray-600">
+                Maharashtra
               </p>
             </div>
           </Link>

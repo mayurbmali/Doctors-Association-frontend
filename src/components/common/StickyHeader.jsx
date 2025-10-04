@@ -49,12 +49,14 @@ const StickyHeader = () => {
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
               <Link to="/" className="flex items-center gap-3 group">
-                <div className="flex items-center justify-center w-10 h-10 bg-saffron rounded-lg group-hover:scale-110 transition-transform duration-300">
-                  <Stethoscope className="w-6 h-6 text-white" />
-                </div>
+                <img 
+                  src="/ccmp-logo.png" 
+                  alt="CCMP Logo" 
+                  className="h-10 w-10 object-contain group-hover:scale-110 transition-transform duration-300"
+                />
                 <div className="hidden sm:block">
-                  <span className="text-xl font-bold text-neutral-800">API</span>
-                  <span className="text-xs text-neutral-500 block">Since 1944</span>
+                  <span className="text-lg font-bold text-neutral-800">CCMP</span>
+                  <span className="text-xs text-neutral-500 block">Maharashtra</span>
                 </div>
               </Link>
 

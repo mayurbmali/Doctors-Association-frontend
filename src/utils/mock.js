@@ -6,22 +6,22 @@ export const mockData = {
   highlights: [
     {
       icon: <Clock className="w-8 h-8 text-blue-600" />,
-      value: "80+",
-      label: "Years of Excellence"
+      value: "150+",
+      label: "Years of Homoeopathy"
     },
     {
       icon: <Users className="w-8 h-8 text-emerald-600" />,
-      value: "15,000+",
+      value: "5,000+",
       label: "Active Members"
     },
     {
       icon: <Calendar className="w-8 h-8 text-yellow-600" />,
-      value: "200+",
+      value: "100+",
       label: "CME Programs Annually"
     },
     {
       icon: <Award className="w-8 h-8 text-purple-600" />,
-      value: "50+",
+      value: "25+",
       label: "Awards & Recognition"
     }
   ],
@@ -29,31 +29,34 @@ export const mockData = {
   // Testimonials
   testimonials: [
     {
-      name: "Dr. Rajesh Sharma",
-      designation: "Senior Cardiologist, AIIMS Delhi",
-      quote: "API has been instrumental in my professional growth. The networking opportunities and CME programs are exceptional."
+      name: "Dr. Prakash Desai",
+      designation: "Senior Homoeopathic Consultant, Mumbai",
+      quote: "CCMP has been instrumental in advancing homoeopathic practice across Maharashtra. The networking and continuous education opportunities are unmatched."
     },
     {
-      name: "Dr. Priya Mehta",
-      designation: "Pediatrician, Mumbai",
-      quote: "Being an API member has connected me with leading physicians across India. The knowledge sharing is invaluable."
+      name: "Dr. Anjali Kulkarni",
+      designation: "Homoeopathic Physician, Pune",
+      quote: "Being a CCMP member has connected me with leading homoeopathic practitioners across Maharashtra. The knowledge sharing platforms are exceptional."
     },
     {
-      name: "Dr. Amit Patel",
-      designation: "Neurologist, Ahmedabad",
-      quote: "The quality of educational content and research publications from API sets the gold standard in medical practice."
-    },{
-      name: "Dr. Amit Patel",
-      designation: "Neurologist, Ahmedabad",
-      quote: "The quality of educational content and research publications from API sets the gold standard in medical practice."
-    },{
-      name: "Dr. Amit Patel",
-      designation: "Neurologist, Ahmedabad",
-      quote: "The quality of educational content and research publications from API sets the gold standard in medical practice."
-    },{
-      name: "Dr. Amit Patel",
-      designation: "Neurologist, Ahmedabad",
-      quote: "The quality of educational content and research publications from API sets the gold standard in medical practice."
+      name: "Dr. Rajesh Patil",
+      designation: "Homoeopathic Consultant, Nagpur",
+      quote: "CCMP's commitment to preserving and promoting classical homoeopathy while embracing modern research is truly commendable."
+    },
+    {
+      name: "Dr. Sunita Joshi",
+      designation: "Homoeopathic Practitioner, Nashik",
+      quote: "The quality of educational content and case discussions at CCMP events has significantly enhanced my clinical practice."
+    },
+    {
+      name: "Dr. Manoj Sharma",
+      designation: "Homoeopathic Doctor, Thane",
+      quote: "CCMP provides excellent platforms for professional development and maintains the highest standards in homoeopathic medicine."
+    },
+    {
+      name: "Dr. Kavita Deshmukh",
+      designation: "Homoeopathic Specialist, Aurangabad",
+      quote: "The association's dedication to patient care and ethical practice makes me proud to be a CCMP member."
     }
   ],
 
@@ -61,31 +64,31 @@ export const mockData = {
   trustees: [
     {
       id: 1,
-      name: "Dr. Arun Kumar",
+      name: "Dr. Suresh Patel",
       designation: "President",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face",
-      bio: "Leading cardiologist with 30+ years of experience. Former President of Indian Medical Association."
+      bio: "Renowned homoeopathic practitioner with 35+ years of experience. Pioneer in advancing homoeopathic education in Maharashtra."
     },
     {
       id: 2,
-      name: "Dr. Sunita Reddy",
+      name: "Dr. Meera Kulkarni",
       designation: "Vice President",
       image: "https://images.unsplash.com/photo-1594824078170-14d394d79af4?w=300&h=300&fit=crop&crop=face",
-      bio: "Renowned gynecologist and healthcare administrator. Pioneer in women's health initiatives."
+      bio: "Expert in classical homoeopathy and women's health. Leading advocate for homoeopathic integration in mainstream healthcare."
     },
     {
       id: 3,
-      name: "Dr. Vikram Singh",
+      name: "Dr. Vijay Deshmukh",
       designation: "Secretary General",
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face",
-      bio: "Orthopedic surgeon and medical researcher. Published 100+ research papers in international journals."
+      bio: "Homoeopathic researcher and educator. Published numerous papers on efficacy of homoeopathic remedies in chronic diseases."
     },
     {
       id: 4,
-      name: "Dr. Kavita Nair",
+      name: "Dr. Priya Jadhav",
       designation: "Treasurer",
       image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=300&fit=crop&crop=face",
-      bio: "Dermatologist and healthcare policy expert. Advisor to Ministry of Health and Family Welfare."
+      bio: "Specialist in pediatric homoeopathy and healthcare policy. Active member of state health advisory committees."
     }
   ],
 
@@ -93,50 +96,50 @@ export const mockData = {
   leadership: {
     advisory: [
       {
-        name: "Dr. R.K. Sinha",
+        name: "Dr. Ashok Mehta",
         designation: "Chairman, Advisory Board",
-        specialization: "Internal Medicine"
+        specialization: "Classical Homoeopathy"
       },
       {
-        name: "Dr. Meera Agarwal",
+        name: "Dr. Sangeeta Rane",
         designation: "Senior Advisor",
-        specialization: "Pulmonology"
+        specialization: "Homoeopathic Materia Medica"
       }
     ],
     executive: [
       {
-        name: "Dr. Suresh Gupta",
+        name: "Dr. Anil Sharma",
         designation: "Executive Director",
-        specialization: "Surgery"
+        specialization: "Clinical Homoeopathy"
       },
       {
-        name: "Dr. Anjali Desai",
+        name: "Dr. Rekha Patil",
         designation: "Executive Member",
-        specialization: "Oncology"
+        specialization: "Homoeopathic Research"
       }
     ],
     steering: [
       {
-        name: "Dr. Mahesh Jain",
+        name: "Dr. Ganesh Joshi",
         designation: "Steering Committee Head",
-        specialization: "Radiology"
+        specialization: "Organon & Philosophy"
       },
       {
-        name: "Dr. Ritu Sharma",
+        name: "Dr. Nisha Pawar",
         designation: "Member",
-        specialization: "Anesthesiology"
+        specialization: "Repertory & Case Taking"
       }
     ],
     districts: [
       {
-        name: "Dr. Prakash Modi",
-        designation: "Delhi Representative",
-        specialization: "Emergency Medicine"
+        name: "Dr. Rajiv Kulkarni",
+        designation: "Mumbai Representative",
+        specialization: "Chronic Disease Management"
       },
       {
-        name: "Dr. Arjun Nair",
-        designation: "Mumbai Representative",
-        specialization: "Psychiatry"
+        name: "Dr. Swati Gaikwad",
+        designation: "Pune Representative",
+        specialization: "Pediatric Homoeopathy"
       }
     ]
   },
@@ -145,32 +148,32 @@ export const mockData = {
   upcomingMeetings: [
     {
       id: 1,
-      title: "Annual Conference 2024",
+      title: "Annual Homoeopathic Conference 2024",
       date: "2024-03-15",
       time: "09:00 AM",
-      venue: "India Habitat Centre, New Delhi",
+      venue: "Sahitya Sahawas, Mumbai",
       type: "Conference",
-      description: "Three-day annual conference featuring latest developments in medical science.",
+      description: "Three-day conference featuring latest developments in homoeopathic practice and research.",
       registrationOpen: true
     },
     {
       id: 2,
-      title: "Cardiology CME Workshop",
+      title: "Organon & Philosophy Workshop",
       date: "2024-02-28",
       time: "02:00 PM",
       venue: "Online (Zoom)",
       type: "Workshop",
-      description: "Interactive workshop on latest cardiac intervention techniques.",
+      description: "In-depth discussion on Hahnemann's Organon and fundamental principles of homoeopathy.",
       registrationOpen: true
     },
     {
       id: 3,
-      title: "Regional Chapter Meet - South",
+      title: "Regional Chapter Meet - Vidarbha",
       date: "2024-03-05",
       time: "10:00 AM",
-      venue: "Chennai Medical College",
+      venue: "Nagpur Homoeopathic College",
       type: "Regional Meet",
-      description: "Quarterly meeting for southern region members.",
+      description: "Quarterly meeting for Vidarbha region members with case presentations.",
       registrationOpen: true
     }
   ],
@@ -178,19 +181,19 @@ export const mockData = {
   pastMeetings: [
     {
       id: 1,
-      title: "Winter Symposium 2023",
+      title: "Winter CME Program 2023",
       date: "2023-12-10",
-      venue: "AIIMS, New Delhi",
-      type: "Symposium",
-      highlights: "Over 500 physicians attended. Key focus on infectious diseases management."
+      venue: "Pune Homoeopathic Medical College",
+      type: "CME",
+      highlights: "Over 300 homoeopaths attended. Focus on constitutional prescribing and miasmatic analysis."
     },
     {
       id: 2,
-      title: "Emergency Medicine Workshop",
+      title: "Materia Medica Masterclass",
       date: "2023-11-20",
-      venue: "King George Medical University, Lucknow",
+      venue: "Mumbai Homoeopathic Hall",
       type: "Workshop",
-      highlights: "Hands-on training for emergency protocols and life-saving techniques."
+      highlights: "Intensive study of polychrest remedies and their clinical applications."
     }
   ],
 
@@ -201,7 +204,7 @@ export const mockData = {
       title: "New Membership Rates Effective January 2024",
       category: "Notice",
       date: "2024-01-01",
-      content: "The membership fee has been revised to ₹1,000 per annum effective January 1, 2024. All benefits remain unchanged.",
+      content: "The membership fee has been revised to ₹500 per annum effective January 1, 2024. All benefits remain unchanged.",
       priority: "high"
     },
     {
@@ -209,7 +212,7 @@ export const mockData = {
       title: "CME Credit Requirements Update",
       category: "Policy",
       date: "2024-01-10",
-      content: "New guidelines for CME credit accumulation have been published. Members need minimum 20 credits per year.",
+      content: "New guidelines for CME credit accumulation have been published. Members need minimum 15 credits per year.",
       priority: "medium"
     },
     {
@@ -217,72 +220,72 @@ export const mockData = {
       title: "Research Grant Applications Now Open",
       category: "Opportunity",
       date: "2024-01-15",
-      content: "API Research Foundation is accepting applications for medical research grants up to ₹5 lakh.",
+      content: "CCMP Research Foundation is accepting applications for homoeopathic research grants up to ₹2 lakh.",
       priority: "medium"
     },
     {
       id: 4,
-      title: "Annual Journal Publication",
+      title: "Homoeopathic Journal Publication",
       category: "Publication",
       date: "2024-01-20",
-      content: "The latest edition of API Medical Journal is now available for download in the members portal.",
+      content: "The latest edition of CCMP Homoeopathic Journal is now available for download in the members portal.",
       priority: "low"
     }
   ],
 
   // Membership benefits
   membershipBenefits: [
-    "Access to exclusive CME programs and workshops",
-    "Annual subscription to API Medical Journal",
-    "Networking opportunities with leading physicians",
-    "Discounted rates for conferences and events",
-    "Professional development resources",
-    "Research collaboration opportunities",
-    "Healthcare policy updates and advocacy",
-    "Online medical library access"
+    "Access to exclusive CME programs and workshops on homoeopathy",
+    "Annual subscription to CCMP Homoeopathic Journal",
+    "Networking opportunities with leading homoeopathic practitioners",
+    "Discounted rates for conferences and seminars",
+    "Professional development resources in homoeopathic medicine",
+    "Research collaboration opportunities in homoeopathy",
+    "Healthcare policy updates and advocacy for homoeopathy",
+    "Online homoeopathic library access"
   ],
 
-  // History milestones
+  // History milestones - CCMP focused
   historyMilestones: [
     {
-      year: "1944",
-      title: "Foundation of API",
-      description: "Association of Physicians of India was established by a group of visionary doctors."
+      year: "1875",
+      title: "Foundation of Homoeopathy in India",
+      description: "Homoeopathy introduced to India, laying the foundation for organizations like CCMP."
+    },
+    {
+      year: "1920",
+      title: "First Homoeopathic Association",
+      description: "Early homoeopathic practitioners in Maharashtra formed informal networks for knowledge sharing."
     },
     {
       year: "1950",
-      title: "First Annual Conference",
-      description: "Organized the first annual medical conference in Mumbai with 200+ participants."
+      title: "CCMP Establishment",
+      description: "CCMP Homoeopathic Doctors Association formally established in Maharashtra to promote classical homoeopathy."
     },
     {
-      year: "1965",
-      title: "National Recognition",
-      description: "Gained national recognition and established partnerships with medical institutions across India."
+      year: "1970",
+      title: "State Recognition",
+      description: "Gained official recognition from Maharashtra state government as premier homoeopathic association."
     },
     {
-      year: "1980",
+      year: "1990",
       title: "CME Program Launch",
-      description: "Launched structured Continuing Medical Education programs for member development."
+      description: "Launched structured continuing medical education programs specifically for homoeopathic practitioners."
     },
     {
-      year: "1995",
-      title: "Digital Transformation",
-      description: "Embraced technology with online platforms and digital medical resources."
+      year: "2005",
+      title: "Digital Platform Development",
+      description: "Embraced technology with online case repositories and digital learning resources for homoeopathy."
     },
     {
-      year: "2010",
-      title: "International Collaboration",
-      description: "Established partnerships with international medical associations and organizations."
-    },
-    {
-      year: "2020",
-      title: "COVID-19 Response",
-      description: "Led national response initiatives and provided crucial support during the pandemic."
+      year: "2015",
+      title: "Research Foundation",
+      description: "Established CCMP Research Foundation to fund evidence-based homoeopathic research projects."
     },
     {
       year: "2024",
-      title: "80 Years of Excellence",
-      description: "Celebrating eight decades of advancing medical excellence and professional development."
+      title: "Excellence in Homoeopathy",
+      description: "Celebrating decades of advancing homoeopathic practice, education, and patient care across Maharashtra."
     }
   ]
 };
@@ -290,28 +293,28 @@ export const mockData = {
 // Contact information
 export const contactInfo = {
   address: {
-    line1: "Association of Physicians of India",
-    line2: "123 Medical Complex, Central Delhi",
-    line3: "New Delhi - 110001, India"
+    line1: "CCMP Homoeopathic Doctors Association",
+    line2: "Maharashtra Branch Office",
+    line3: "Mumbai - 400001, Maharashtra, India"
   },
-  phone: "+91 11 1234 5678",
-  email: "info@apiindia.org",
-  website: "www.apiindia.org",
+  phone: "+91 22 1234 5678",
+  email: "info@ccmpmaharashtra.org",
+  website: "www.ccmpmaharashtra.org",
   mapCoordinates: {
-    lat: 28.6139,
-    lng: 77.2090
+    lat: 19.0760,
+    lng: 72.8777
   }
 };
 
 // Vision and Mission
 export const visionMission = {
-  vision: "To be the premier association of physicians in India, setting the highest standards of medical practice, education, and healthcare delivery while fostering innovation and excellence in patient care.",
+  vision: "To be the premier association of homoeopathic practitioners in Maharashtra, upholding the classical principles of homoeopathy while fostering innovation, research, and excellence in patient care.",
   mission: [
-    "Promote continuous medical education and professional development among physicians",
-    "Advance medical research and evidence-based practice",
-    "Foster collaboration and networking among healthcare professionals", 
-    "Advocate for healthcare policies that benefit patients and practitioners",
-    "Maintain the highest ethical standards in medical practice",
-    "Support healthcare innovation and technological advancement"
+    "Promote continuous medical education in homoeopathic principles and practice",
+    "Advance homoeopathic research and evidence-based practice",
+    "Foster collaboration and networking among homoeopathic professionals",
+    "Advocate for healthcare policies that recognize and support homoeopathic medicine",
+    "Maintain the highest ethical standards in homoeopathic practice",
+    "Preserve and promote the classical teachings of Dr. Samuel Hahnemann"
   ]
 };

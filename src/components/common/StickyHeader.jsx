@@ -80,7 +80,7 @@ const StickyHeader = () => {
                   asChild
                   className="bg-saffron hover:bg-saffron-dark text-white rounded-lg px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Link to="/membership">Join API</Link>
+                  <Link to="/membership">Join CCMP</Link>
                 </Button>
               </div>
             </div>

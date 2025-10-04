@@ -70,7 +70,7 @@ const FloatingActionButton = () => {
                   },
                 }}
                 className="w-16 h-16 bg-gradient-to-br from-saffron to-saffron-dark text-white rounded-full shadow-2xl flex items-center justify-center group relative overflow-hidden"
-                aria-label="Join API"
+                aria-label="Join CCMP"
               >
                 {/* Pulse Effect */}
                 <motion.div
@@ -95,7 +95,7 @@ const FloatingActionButton = () => {
               whileHover={{ opacity: 1, x: 0 }}
               className="absolute right-20 top-1/2 transform -translate-y-1/2 bg-neutral-800 text-white px-4 py-2 rounded-lg shadow-xl whitespace-nowrap pointer-events-none"
             >
-              <span className="text-sm font-medium">Join API Now!</span>
+              <span className="text-sm font-medium">Join CCMP Now!</span>
               <div className="absolute right-[-6px] top-1/2 transform -translate-y-1/2 w-3 h-3 bg-neutral-800 rotate-45"></div>
             </motion.div>
           </motion.div>

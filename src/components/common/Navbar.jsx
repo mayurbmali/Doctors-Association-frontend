@@ -256,14 +256,14 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Join API Button */}
+          {/* Join CCMP Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button 
               asChild 
               className="bg-saffron hover:bg-saffron-dark text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
             >
               <Link to="/membership" className="flex items-center space-x-2">
-                <span>Join API</span>
+                <span>Join CCMP</span>
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
               </Link>
             </Button>
@@ -319,7 +319,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center space-x-2"
                 >
-                  <span>Join API Today</span>
+                  <span>Join CCMP Today</span>
                   <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
                 </Link>
               </Button>

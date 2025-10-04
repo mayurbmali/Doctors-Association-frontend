@@ -97,32 +97,32 @@ const Home = () => {
     {
       icon: <Network className="w-8 h-8" />,
       title: "Networking Opportunities",
-      description: "Connect with leading physicians and healthcare professionals across India"
+      description: "Connect with leading homoeopaths and classical practitioners across Maharashtra"
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: "CME Credits",
-      description: "Access accredited continuing medical education programs and workshops"
+      title: "Classical Education",
+      description: "Access structured classical homoeopathy education programs and seminars"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Exclusive Resources",
-      description: "Get access to journals, research papers, and clinical guidelines"
+      description: "Get access to materia medica, repertories, and classical homoeopathic literature"
     },
     {
       icon: <Briefcase className="w-8 h-8" />,
-      title: "Career Support",
-      description: "Professional development opportunities and career advancement resources"
+      title: "Practice Development",
+      description: "Professional development and practice enhancement resources for homoeopaths"
     },
     {
       icon: <Target className="w-8 h-8" />,
       title: "Advocacy",
-      description: "Voice in healthcare policy and representation at national level"
+      description: "Voice in homoeopathic policy and representation at state level in Maharashtra"
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "Special Discounts",
-      description: "Member-exclusive discounts on conferences, publications, and services"
+      description: "Member-exclusive discounts on homoeopathic conferences, books, and seminars"
     }
   ];
 
@@ -131,27 +131,27 @@ const Home = () => {
     {
       id: 1,
       date: "15 Dec",
-      title: "Annual National Conference 2024",
-      description: "Join us for the biggest medical conference of the year with renowned speakers.",
-      location: "New Delhi",
+      title: "Annual Maharashtra Homoeopathic Conference 2024",
+      description: "Join us for the state's premier classical homoeopathy conference with renowned speakers.",
+      location: "Mumbai, Maharashtra",
       type: "Conference",
-      badge: "CME"
+      badge: "Classical"
     },
     {
       id: 2,
       date: "20 Dec",
-      title: "Cardiology Update Webinar",
-      description: "Latest advances in cardiovascular medicine and treatment protocols.",
+      title: "Materia Medica Mastery Webinar",
+      description: "Deep dive into classical materia medica and remedy selection principles.",
       location: "Virtual",
       type: "Webinar",
-      badge: "CME"
+      badge: "Education"
     },
     {
       id: 3,
       date: "28 Dec",
-      title: "Regional Medical Workshop",
-      description: "Hands-on training and skill development for practicing physicians.",
-      location: "Mumbai",
+      title: "Regional Homoeopathic Workshop",
+      description: "Hands-on case taking and repertorization training for homoeopaths.",
+      location: "Pune, Maharashtra",
       type: "Workshop",
       badge: "Networking"
     }
@@ -159,23 +159,23 @@ const Home = () => {
 
   // Gallery images data
   const galleryImages = [
-    { id: 1, url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop", caption: "Annual Conference 2024", alt: "Physicians gathering at Annual Conference 2024", span: "row-span-2" },
-    { id: 2, url: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop", caption: "Medical Workshop Session", alt: "Doctors participating in medical workshop" },
-    { id: 3, url: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=600&fit=crop", caption: "Networking Event", alt: "Medical professionals networking at event" },
-    { id: 4, url: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=600&fit=crop", caption: "CME Program", alt: "Continuing Medical Education program in progress" },
-    { id: 5, url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop", caption: "Member Activities", alt: "API members engaged in professional activities", span: "row-span-2" },
-    { id: 6, url: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop", caption: "Research Discussion", alt: "Medical research team discussion" },
-    { id: 7, url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop", caption: "Team Collaboration", alt: "Healthcare professionals collaborating" },
-    { id: 8, url: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=600&fit=crop", caption: "Healthcare Excellence", alt: "Excellence in healthcare delivery" }
+    { id: 1, url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop", caption: "Annual Conference 2024", alt: "Homoeopaths gathering at Annual Conference 2024", span: "row-span-2" },
+    { id: 2, url: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop", caption: "Classical Homoeopathy Workshop", alt: "Homoeopaths participating in classical workshop" },
+    { id: 3, url: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=600&fit=crop", caption: "Networking Event", alt: "Homoeopathic professionals networking at event" },
+    { id: 4, url: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=600&fit=crop", caption: "Education Program", alt: "Classical homoeopathy education program in progress" },
+    { id: 5, url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop", caption: "Member Activities", alt: "CCMP members engaged in professional activities", span: "row-span-2" },
+    { id: 6, url: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop", caption: "Case Discussion", alt: "Homoeopathic case discussion team" },
+    { id: 7, url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop", caption: "Team Collaboration", alt: "Homoeopathic professionals collaborating" },
+    { id: 8, url: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=600&fit=crop", caption: "Homoeopathic Excellence", alt: "Excellence in homoeopathic practice" }
   ];
 
   // Social proof activities
   const activities = [
     { id: 1, text: "Dr. Rajesh Kumar just joined from Mumbai", icon: <UserCheck className="w-4 h-4" /> },
-    { id: 2, text: "50 members registered for upcoming webinar", icon: <Users className="w-4 h-4" /> },
+    { id: 2, text: "50 members registered for materia medica webinar", icon: <Users className="w-4 h-4" /> },
     { id: 3, text: "Dr. Priya Sharma renewed membership", icon: <Award className="w-4 h-4" /> },
-    { id: 4, text: "New CME program published", icon: <BookOpen className="w-4 h-4" /> },
-    { id: 5, text: "Dr. Amit Patel just joined from Delhi", icon: <UserCheck className="w-4 h-4" /> },
+    { id: 4, text: "New classical education program published", icon: <BookOpen className="w-4 h-4" /> },
+    { id: 5, text: "Dr. Amit Patel just joined from Pune", icon: <UserCheck className="w-4 h-4" /> },
     { id: 6, text: "120+ attendees confirmed for Annual Conference", icon: <Calendar className="w-4 h-4" /> }
   ];
 
@@ -806,7 +806,7 @@ const Home = () => {
               Ready to Join Our Community?
             </h2>
             <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Elevate your medical practice with exclusive resources, networking opportunities, and continuous professional development.
+              Elevate your homoeopathic practice with exclusive resources, networking opportunities, and continuous professional development.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button 
@@ -883,7 +883,7 @@ const Home = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-neutral-800 mb-1">Visit Us</h3>
-                    <p className="text-neutral-600">API Headquarters, 123 Medical Complex<br />New Delhi, India 110001</p>
+                    <p className="text-neutral-600">CCMP Headquarters, Maharashtra<br />Mumbai, India</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -892,7 +892,7 @@ const Home = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-neutral-800 mb-1">Call Us</h3>
-                    <p className="text-neutral-600">+91 11 1234 5678<br />Mon-Fri, 9:00 AM - 6:00 PM IST</p>
+                    <p className="text-neutral-600">+91 22 1234 5678<br />Mon-Fri, 9:00 AM - 6:00 PM IST</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -901,7 +901,7 @@ const Home = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-neutral-800 mb-1">Email Us</h3>
-                    <p className="text-neutral-600">info@apiindia.org<br />support@apiindia.org</p>
+                    <p className="text-neutral-600">info@ccmpmaharashtra.org<br />support@ccmpmaharashtra.org</p>
                   </div>
                 </div>
               </div>

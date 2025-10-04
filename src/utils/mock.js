@@ -17,7 +17,7 @@ export const mockData = {
     {
       icon: <Calendar className="w-8 h-8 text-yellow-600" />,
       value: "100+",
-      label: "CME Programs Annually"
+      label: "Educational Events Annually"
     },
     {
       icon: <Award className="w-8 h-8 text-purple-600" />,

@@ -19,8 +19,8 @@ const Trustees = () => {
               Board of Trustees
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Meet the distinguished medical professionals who guide API's strategic direction 
-              and ensure our commitment to excellence in healthcare.
+              Meet the distinguished homoeopathic professionals who guide CCMP's strategic direction 
+              and ensure our commitment to excellence in classical homoeopathy.
             </p>
           </div>
         </div>
@@ -97,16 +97,15 @@ const Trustees = () => {
                 Message from the Board
               </h2>
               <blockquote className="text-lg italic text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
-                "As trustees of the Association of Physicians of India, we are committed to upholding 
-                the highest standards of medical excellence and professional integrity. Our collective 
-                experience spanning decades of medical practice guides us in making decisions that 
-                benefit not only our members but the entire healthcare ecosystem in India. We are 
-                proud to lead an organization that has been at the forefront of medical advancement 
-                for over 80 years."
+                "As trustees of CCMP Homoeopathic Doctors Association, Maharashtra, we are committed to upholding 
+                the highest standards of classical homoeopathic excellence and professional integrity. Our collective 
+                experience spanning decades of homoeopathic practice guides us in making decisions that 
+                benefit not only our members but the entire homoeopathic community in Maharashtra. We are 
+                proud to lead an organization that has been at the forefront of classical homoeopathy advancement."
               </blockquote>
               <div className="text-center">
                 <p className="font-semibold text-gray-900 text-lg">The Board of Trustees</p>
-                <p className="text-emerald-600">Association of Physicians of India</p>
+                <p className="text-emerald-600">CCMP Maharashtra</p>
               </div>
             </CardContent>
           </Card>
@@ -120,7 +119,7 @@ const Trustees = () => {
             Join Our Distinguished Community
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Be part of an organization led by India's most respected medical professionals.
+            Be part of an organization led by Maharashtra's most respected homoeopathic professionals.
           </p>
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white">
             Become a Member Today

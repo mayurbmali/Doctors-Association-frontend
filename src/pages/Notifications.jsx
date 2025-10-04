@@ -228,7 +228,7 @@ const Notifications = () => {
                 </Button>
               </div>
               <p className="text-sm text-gray-500 mt-3">
-                API members automatically receive all notifications via email and member portal.
+                CCMP members automatically receive all notifications via email and member portal.
               </p>
             </CardContent>
           </Card>

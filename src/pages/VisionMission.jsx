@@ -18,7 +18,7 @@ const VisionMission = () => {
               Vision & Mission
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              Guiding principles that drive our commitment to excellence in healthcare and medical education.
+              Guiding principles that drive our commitment to excellence in classical homoeopathy and homoeopathic education.
             </p>
           </div>
         </div>
@@ -86,7 +86,7 @@ const VisionMission = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Patient-Centered Care</h3>
                 <p className="text-gray-600">
-                  Ensuring that patient welfare and safety remain at the heart of all medical decisions and practices.
+                  Ensuring that patient welfare and safety remain at the heart of all homoeopathic decisions and practices.
                 </p>
               </CardContent>
             </Card>
@@ -98,7 +98,7 @@ const VisionMission = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Continuous Learning</h3>
                 <p className="text-gray-600">
-                  Promoting lifelong learning and professional development for all healthcare professionals.
+                  Promoting lifelong learning and professional development for all homoeopathic professionals.
                 </p>
               </CardContent>
             </Card>
@@ -110,7 +110,7 @@ const VisionMission = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Ethical Practice</h3>
                 <p className="text-gray-600">
-                  Upholding the highest ethical standards and professional integrity in all medical activities.
+                  Upholding the highest ethical standards and professional integrity in all homoeopathic activities.
                 </p>
               </CardContent>
             </Card>
@@ -122,7 +122,7 @@ const VisionMission = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Research Excellence</h3>
                 <p className="text-gray-600">
-                  Supporting and conducting high-quality medical research to advance healthcare knowledge.
+                  Supporting and conducting high-quality homoeopathic research to advance homoeopathic knowledge.
                 </p>
               </CardContent>
             </Card>
@@ -146,7 +146,7 @@ const VisionMission = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Global Collaboration</h3>
                 <p className="text-gray-600">
-                  Building partnerships with international medical organizations to share knowledge globally.
+                  Building partnerships with international homoeopathic organizations to share knowledge globally.
                 </p>
               </CardContent>
             </Card>
@@ -161,8 +161,8 @@ const VisionMission = () => {
             Making a Difference in Healthcare
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Through our vision and mission, we have positively impacted millions of lives across India, 
-            trained thousands of physicians, and contributed significantly to medical research and healthcare policy.
+            Through our vision and mission, we have positively impacted millions of lives across Maharashtra, 
+            trained thousands of homoeopaths, and contributed significantly to classical homoeopathic research and healthcare policy.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>

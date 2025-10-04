@@ -307,7 +307,7 @@
 //               <CardContent className="p-6">
 //                 <h4 className="font-semibold text-gray-900 mb-2">What's included in the membership?</h4>
 //                 <p className="text-gray-600">
-//                   Full access to CME programs, medical journals, networking events, research resources, 
+//                   Full access to classical education programs, homoeopathic journals, networking events, research resources, 
 //                   and exclusive member-only benefits including discounted conference rates.
 //                 </p>
 //               </CardContent>
@@ -545,7 +545,7 @@ const Membership = () => {
             if (verifyData.success) {
               // Payment successful!
               toast({
-                title: "🎉 Welcome to API!",
+                title: "🎉 Welcome to CCMP!",
                 description: `Your membership (ID: ${verifyData.data}) has been activated successfully!`,
               });
 
@@ -638,10 +638,10 @@ const Membership = () => {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Join the Premier
-              <span className="block text-yellow-400">Medical Association</span>
+              <span className="block text-yellow-400">Homoeopathic Association</span>
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              Become part of India's most prestigious medical community and unlock exclusive benefits, 
+              Become part of Maharashtra's most prestigious homoeopathic community and unlock exclusive benefits, 
               networking opportunities, and professional growth resources.
             </p>
           </div>
@@ -664,12 +664,12 @@ const Membership = () => {
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-4 mx-auto">
                     <Users className="w-8 h-8 text-emerald-600" />
                   </div>
-                  <CardTitle className="text-2xl text-gray-900">API Membership</CardTitle>
+                  <CardTitle className="text-2xl text-gray-900">CCMP Membership</CardTitle>
                   <div className="text-center mt-4">
                     <span className="text-5xl font-bold text-emerald-600">₹5,000</span>
                     <span className="text-gray-600">/year</span>
                   </div>
-                  <p className="text-gray-600 mt-2">Full access to all API benefits and services</p>
+                  <p className="text-gray-600 mt-2">Full access to all CCMP benefits and services</p>
                 </CardHeader>
                 
                 <CardContent className="p-8">
@@ -689,7 +689,7 @@ const Membership = () => {
                     <div className="p-4 bg-blue-50 rounded-lg">
                       <BookOpen className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                       <div className="font-semibold text-gray-900">200+</div>
-                      <div className="text-sm text-gray-600">CME Programs</div>
+                      <div className="text-sm text-gray-600">Education Programs</div>
                     </div>
                     <div className="p-4 bg-emerald-50 rounded-lg">
                       <Network className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
@@ -705,7 +705,7 @@ const Membership = () => {
             <div>
               <Card className="shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-gray-900">Join API Today</CardTitle>
+                  <CardTitle className="text-2xl text-gray-900">Join CCMP Today</CardTitle>
                   <p className="text-gray-600">Complete your membership registration below</p>
                 </CardHeader>
                 
@@ -1020,7 +1020,7 @@ const Membership = () => {
               <CardContent className="p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">What's included in the membership?</h4>
                 <p className="text-gray-600">
-                  Full access to CME programs, medical journals, networking events, research resources, 
+                  Full access to classical education programs, homoeopathic journals, networking events, research resources, 
                   and exclusive member-only benefits including discounted conference rates.
                 </p>
               </CardContent>

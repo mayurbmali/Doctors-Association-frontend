@@ -29,8 +29,8 @@ const Leadership = () => {
               Leadership & Committees
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Meet the distinguished leaders and committee members who drive API's mission 
-              of excellence in medical practice and education across India.
+              Meet the distinguished leaders and committee members who drive CCMP's mission 
+              of excellence in classical homoeopathic practice and education across Maharashtra.
             </p>
           </div>
         </div>
@@ -229,7 +229,7 @@ const Leadership = () => {
           </h2>
           <p className="text-xl text-blue-100 mb-8">
             Have questions or suggestions? Our leadership team is always available to hear from our members 
-            and the medical community.
+            and the homoeopathic community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">

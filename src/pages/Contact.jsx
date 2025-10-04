@@ -59,14 +59,14 @@ const Contact = () => {
     {
       name: "Dr. Arun Kumar",
       designation: "President",
-      email: "president@apiindia.org",
-      phone: "+91 11 1234 5678"
+      email: "president@ccmpmaharashtra.org",
+      phone: "+91 22 1234 5678"
     },
     {
       name: "Dr. Vikram Singh",
       designation: "Secretary General",
-      email: "secretary@apiindia.org",
-      phone: "+91 11 1234 5679"
+      email: "secretary@ccmpmaharashtra.org",
+      phone: "+91 22 1234 5679"
     }
   ];
 
@@ -83,7 +83,7 @@ const Contact = () => {
               Get in Touch
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Have questions about API membership, programs, or services? We're here to help. 
+              Have questions about CCMP membership, programs, or services? We're here to help. 
               Reach out to us through any of the channels below.
             </p>
           </div>

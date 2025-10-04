@@ -44,15 +44,15 @@ const Meetings = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Badge className="mb-4 bg-blue-600 text-white">
-              CME & Meetings
+              Education & Meetings
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Professional Development
               <span className="block text-yellow-400">& Learning Opportunities</span>
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              Join our comprehensive continuing medical education programs, conferences, 
-              and networking events designed to advance your medical knowledge and practice.
+              Join our comprehensive classical homoeopathy education programs, conferences, 
+              and networking events designed to advance your homoeopathic knowledge and practice.
             </p>
           </div>
         </div>
@@ -70,9 +70,9 @@ const Meetings = () => {
             {/* Upcoming Meetings */}
             <TabsContent value="upcoming">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Upcoming Events & CME Programs</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Upcoming Events & Education Programs</h2>
                 <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
-                  Register for our upcoming conferences, workshops, and continuing medical education programs.
+                  Register for our upcoming conferences, workshops, and classical homoeopathy education programs.
                 </p>
               </div>
 
@@ -124,12 +124,12 @@ const Meetings = () => {
                         </div>
                       </div>
 
-                      {/* CME Credits */}
+                      {/* Education Credits */}
                       {meeting.type !== 'Regional Meet' && (
                         <div className="flex items-center bg-yellow-50 p-3 rounded-lg">
                           <Award className="w-5 h-5 text-yellow-600 mr-2" />
                           <span className="text-sm font-medium text-yellow-800">
-                            5 CME Credits Available
+                            Education Credits Available
                           </span>
                         </div>
                       )}
@@ -207,13 +207,13 @@ const Meetings = () => {
         </div>
       </section>
 
-      {/* CME Program Benefits */}
+      {/* Education Program Benefits */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">CME Program Benefits</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Education Program Benefits</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our continuing medical education programs are designed to keep you at the forefront of medical knowledge and practice.
+              Our classical homoeopathy education programs are designed to keep you at the forefront of homoeopathic knowledge and practice.
             </p>
           </div>
 
@@ -221,13 +221,13 @@ const Meetings = () => {
             {[
               {
                 icon: <Award className="w-8 h-8 text-yellow-600" />,
-                title: "Accredited Credits",
-                description: "Earn recognized CME credits for professional development and certification maintenance."
+                title: "Accredited Learning",
+                description: "Gain recognized education credits for professional development and certification maintenance."
               },
               {
                 icon: <Users className="w-8 h-8 text-blue-600" />,
                 title: "Expert Faculty",
-                description: "Learn from India's leading medical professionals and international experts."
+                description: "Learn from Maharashtra's leading homoeopaths and international classical experts."
               },
               {
                 icon: <Video className="w-8 h-8 text-emerald-600" />,
@@ -261,8 +261,8 @@ const Meetings = () => {
             Stay Updated on Upcoming Events
           </h2>
           <p className="text-xl text-emerald-100 mb-8">
-            Never miss an important conference or CME opportunity. Join API today and get exclusive access 
-            to all our educational programs and networking events.
+            Never miss an important conference or education opportunity. Join CCMP today and get exclusive access 
+            to all our classical homoeopathy programs and networking events.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700">

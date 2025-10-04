@@ -27,51 +27,51 @@ const HistoryAchieve = () => {
 
   const timelineMilestones = [
     {
-      year: "1944",
-      title: "Foundation of API",
-      description: "Association of Physicians of India was established by a group of visionary doctors committed to advancing medical excellence across the nation.",
+      year: "1950",
+      title: "Foundation of CCMP",
+      description: "CCMP Homoeopathic Doctors Association, Maharashtra was established by visionary homoeopaths committed to advancing classical homoeopathy across Maharashtra.",
       image: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&h=600&fit=crop"
     },
     {
-      year: "1950",
-      title: "First Annual Conference",
-      description: "Organized the first annual medical conference in Mumbai with 200+ participants, marking the beginning of our tradition of knowledge sharing.",
+      year: "1960",
+      title: "First Homoeopathic Conference",
+      description: "Organized the first annual homoeopathic conference in Mumbai with practitioners across Maharashtra, establishing our tradition of classical knowledge sharing.",
       image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop"
     },
     {
-      year: "1965",
-      title: "National Recognition",
-      description: "Gained national recognition and established partnerships with medical institutions across India, expanding our reach and impact.",
+      year: "1975",
+      title: "State Recognition",
+      description: "Gained Maharashtra state recognition and established partnerships with homoeopathic colleges across the state, expanding classical homoeopathy's reach.",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop"
     },
     {
-      year: "1980",
-      title: "CME Program Launch",
-      description: "Launched structured Continuing Medical Education programs for member development, setting new standards for professional growth.",
+      year: "1985",
+      title: "Classical Education Programs",
+      description: "Launched structured continuing education programs in classical homoeopathy, setting new standards for professional development following Hahnemann's principles.",
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop"
     },
     {
-      year: "1995",
-      title: "Digital Transformation",
-      description: "Embraced technology with online platforms and digital medical resources, pioneering the digital revolution in medical education.",
+      year: "2000",
+      title: "Digital Homoeopathic Resources",
+      description: "Embraced technology with online classical homoeopathy resources and materia medica databases, making Hahnemann's teachings more accessible.",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop"
     },
     {
       year: "2010",
-      title: "International Collaboration",
-      description: "Established partnerships with international medical associations and organizations, bringing global expertise to Indian healthcare.",
+      title: "International Homoeopathic Network",
+      description: "Established partnerships with international classical homoeopathy associations, bringing global perspectives to Maharashtra's practitioners.",
       image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop"
     },
     {
       year: "2020",
-      title: "COVID-19 Response",
-      description: "Led national response initiatives and provided crucial support during the pandemic, showcasing our commitment to healthcare excellence.",
+      title: "Pandemic Homoeopathic Support",
+      description: "Provided crucial homoeopathic support during the pandemic, showcasing the effectiveness of classical homoeopathy in supporting community health.",
       image: "https://images.unsplash.com/photo-1584744982491-665216d95f8b?w=800&h=600&fit=crop"
     },
     {
-      year: "2024",
-      title: "80 Years of Excellence",
-      description: "Celebrating eight decades of advancing medical excellence and professional development, with a vision for the future of healthcare.",
+      year: "2025",
+      title: "Legacy of Classical Excellence",
+      description: "Celebrating decades of advancing classical homoeopathic excellence in Maharashtra, with a vision for the future of Hahnemannian practice.",
       image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&h=600&fit=crop"
     }
   ];
@@ -185,7 +185,7 @@ const HistoryAchieve = () => {
     {
       title: "National Excellence Award",
       organization: "Ministry of Health & Family Welfare",
-      description: "For outstanding contribution to medical education",
+      description: "For outstanding contribution to homoeopathic education",
       icon: <Trophy className="w-10 h-10 text-white" />
     },
     {
@@ -204,12 +204,12 @@ const HistoryAchieve = () => {
 
   const contributions = [
     {
-      title: "Medical Education",
+      title: "Homoeopathic Education",
       category: "Education",
       color: "green",
       icon: <BookOpen className="w-8 h-8" />,
-      description: "Pioneered continuing medical education programs that became the standard across India.",
-      achievements: ["First CME certification program", "200+ annual training sessions", "Digital learning platform launch"]
+      description: "Pioneered continuing homoeopathic education programs that became the standard across Maharashtra.",
+      achievements: ["First classical education certification program", "200+ annual training sessions", "Digital learning platform launch"]
     },
     {
       title: "Healthcare Policy",
@@ -224,7 +224,7 @@ const HistoryAchieve = () => {
       category: "Research",
       color: "orange",
       icon: <FlaskConical className="w-8 h-8" />,
-      description: "Established research foundations funding breakthrough medical research.",
+      description: "Established research foundations funding breakthrough homoeopathic research.",
       achievements: ["₹50 crore research funding", "100+ breakthrough studies", "International collaborations"]
     },
     {
@@ -258,12 +258,12 @@ const HistoryAchieve = () => {
               Our Legacy
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              80 Years of
-              <span className="block text-white mt-2">Medical Excellence</span>
+              Legacy of
+              <span className="block text-white mt-2">Homoeopathic Excellence</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Discover the remarkable journey of the Association of Physicians of India 
-              from its humble beginnings in 1944 to becoming the nation's premier medical association.
+              Discover the remarkable journey of CCMP Homoeopathic Doctors Association, Maharashtra 
+              from its foundation to becoming Maharashtra's premier homoeopathic association.
             </p>
           </div>
         </div>
@@ -408,7 +408,7 @@ const HistoryAchieve = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-neutral-800 mb-6">Major Achievements</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Recognizing our significant contributions to healthcare, medical education, and professional development.
+              Recognizing our significant contributions to healthcare, homoeopathic education, and professional development.
             </p>
           </div>
 
@@ -420,7 +420,7 @@ const HistoryAchieve = () => {
                 </div>
                 <h3 className="text-4xl font-bold text-saffron mb-2">{counters.awards}+</h3>
                 <p className="text-gray-700 font-semibold text-lg">National Awards</p>
-                <p className="text-sm text-gray-500 mt-3">Excellence in medical practice and education</p>
+                <p className="text-sm text-gray-500 mt-3">Excellence in homoeopathic practice and education</p>
               </CardContent>
             </Card>
 
@@ -430,8 +430,8 @@ const HistoryAchieve = () => {
                   <Users className="w-10 h-10 text-green" />
                 </div>
                 <h3 className="text-4xl font-bold text-green mb-2">{counters.trained.toLocaleString()}+</h3>
-                <p className="text-gray-700 font-semibold text-lg">Physicians Trained</p>
-                <p className="text-sm text-gray-500 mt-3">Through comprehensive CME programs</p>
+                <p className="text-gray-700 font-semibold text-lg">Homoeopaths Trained</p>
+                <p className="text-sm text-gray-500 mt-3">Through comprehensive classical education programs</p>
               </CardContent>
             </Card>
 
@@ -591,7 +591,7 @@ const HistoryAchieve = () => {
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-6">Join Our Legacy</h2>
           <p className="text-xl mb-10 text-white/90">
-            Be part of India's premier medical association and contribute to the next chapter of our history.
+            Be part of Maharashtra's premier homoeopathic association and contribute to the next chapter of our history.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link to="/membership">

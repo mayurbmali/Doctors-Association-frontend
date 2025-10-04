@@ -226,7 +226,7 @@ const Home = () => {
               className="text-center"
             >
               <Badge className="mb-6 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white text-base py-2 px-6 rounded-full shadow-lg border border-white/30">
-                Established 1944 • 80+ Years of Excellence
+                Following Hahnemann's Legacy • Classical Homoeopathy
               </Badge>
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
@@ -234,9 +234,9 @@ const Home = () => {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg"
               >
-                Advancing Physician
+                Advancing Homoeopathic
                 <span className="block text-white mt-2">
-                  Excellence Since 1944
+                  Excellence in Maharashtra
                 </span>
               </motion.h1>
               <motion.p 
@@ -245,8 +245,8 @@ const Home = () => {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="text-xl md:text-2xl mb-10 text-white max-w-4xl mx-auto drop-shadow-md"
               >
-                Empowering healthcare professionals through continuous education, networking,
-                and advancing the highest standards of medical practice across India.
+                Empowering homoeopathic practitioners through continuous education, classical principles,
+                and advancing the highest standards of homoeopathic practice across Maharashtra.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -256,7 +256,7 @@ const Home = () => {
               >
                 <Button asChild size="lg" className="bg-green hover:bg-green/90 text-white rounded-xl px-10 py-6 text-lg shadow-2xl hover:shadow-green/50 hover:scale-105 transition-all duration-300">
                   <Link to="/membership">
-                    Join API <ArrowRight className="ml-2 w-5 h-5" />
+                    Join CCMP <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-saffron rounded-xl px-10 py-6 text-lg shadow-xl hover:scale-105 transition-all duration-300">
@@ -352,7 +352,7 @@ const Home = () => {
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop" 
-                  alt="API Association"
+                  alt="CCMP Homoeopathic Association"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -370,13 +370,13 @@ const Home = () => {
                 <span className="text-saffron font-semibold text-sm uppercase tracking-wider border-b-2 border-saffron pb-1">About Us</span>
               </div>
               <h2 className="text-4xl font-bold text-neutral-800 mb-6">
-                Leading India's Medical Excellence Since 1944
+                Leading Maharashtra's Homoeopathic Excellence
               </h2>
               <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-                The Association of Physicians of India (API) stands as one of the most prestigious medical organizations in the country, dedicated to advancing the practice of medicine and promoting the highest standards of patient care.
+                CCMP Homoeopathic Doctors Association, Maharashtra stands as one of the most prestigious homoeopathic organizations in the state, dedicated to advancing the practice of classical homoeopathy and promoting the highest standards of patient care.
               </p>
               <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
-                With over 15,000 active members across 50+ chapters nationwide, we provide a platform for continuous learning, professional networking, and collaborative healthcare advancement.
+                Following the principles of Dr. Samuel Hahnemann, we provide a platform for continuous learning, professional networking, and collaborative advancement of homoeopathic medicine across Maharashtra.
               </p>
               <Button asChild size="lg" className="bg-saffron hover:bg-saffron-dark text-white rounded-xl px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                 <Link to="/about">
@@ -505,10 +505,10 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-neutral-800 mb-4">
-              Why Join API?
+              Why Join CCMP?
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Unlock exclusive benefits designed to enhance your medical practice and professional growth
+              Unlock exclusive benefits designed to enhance your homoeopathic practice and professional growth
             </p>
           </motion.div>
 

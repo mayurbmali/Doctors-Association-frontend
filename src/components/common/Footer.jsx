@@ -64,16 +64,18 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center space-x-3 mb-6">
-                <div className="flex items-center justify-center w-12 h-12 bg-saffron rounded-xl">
-                  <Stethoscope className="w-7 h-7 text-white" />
-                </div>
+                <img 
+                  src="/ccmp-logo.png" 
+                  alt="CCMP Logo" 
+                  className="h-12 w-12 object-contain"
+                />
                 <div>
-                  <h3 className="text-2xl font-bold">API</h3>
-                  <p className="text-sm text-gray-400">Since 1944</p>
+                  <h3 className="text-2xl font-bold">CCMP</h3>
+                  <p className="text-sm text-gray-400">Maharashtra</p>
                 </div>
               </div>
               <h4 className="text-2xl lg:text-3xl font-bold mb-6 leading-tight">
-                API helps you to grow your medical career fast.
+                CCMP helps you grow your homoeopathic practice with excellence.
               </h4>
               <Button 
                 asChild 

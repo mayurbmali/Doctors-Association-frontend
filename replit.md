@@ -60,13 +60,16 @@ This is a React-based frontend application for the Association of Physicians of 
 
 ## Recent Changes
 - **2025-10-05 (Latest)**: Google Translate Integration & Routing Fix
-  - **Google Translate Widget**: 
-    - Added Google Translate widget to Navbar component for language switching
+  - **Custom Language Switcher**: 
+    - Created beautiful custom language dropdown to replace default Google Translate widget
+    - Features globe icon, flag emojis (🇬🇧 🇮🇳), and smooth slide-down animation
+    - Modern, aesthetic design with hover effects matching brand colors (saffron accent)
+    - Dropdown shows checkmark for currently selected language
+    - Click-outside-to-close functionality for better UX
     - Limited to English and Marathi (en, mr) as requested
-    - Widget positioned in top-right corner next to "Join CCMP" button
-    - Custom styling with border, hover effects matching brand colors (saffron accent)
-    - Hidden the Google Translate banner for cleaner UI
-    - Works across all pages without reload
+    - Positioned in top-right corner next to "Join CCMP" button
+    - Completely hidden Google Translate overlay/banner with comprehensive CSS
+    - Works across all pages without reload or layout shifts
   - **Fixed Page Reload Issue**:
     - Added `historyApiFallback: true` to craco.config.js devServer configuration
     - Fixes "Page not found" error when reloading on client-side routes (e.g., /about, /leadership)

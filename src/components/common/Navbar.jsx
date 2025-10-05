@@ -209,22 +209,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Wait for Google Translate to fully load
-    const checkGoogleTranslate = setInterval(() => {
-      if (window.google && window.google.translate && window.google.translate.TranslateElement) {
-        clearInterval(checkGoogleTranslate);
-        new window.google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'en,mr',
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        }, 'google_translate_element');
-      }
-    }, 100);
-
-    return () => clearInterval(checkGoogleTranslate);
-  }, []);
+  // Google Translate is initialized in index.html, no need to initialize here
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -279,7 +264,7 @@ const Navbar = () => {
         : 'bg-white shadow-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 gap-4">
+        <div className="flex items-center h-20 gap-2 lg:gap-4">
           {/* Logo */}
           <Link 
             to="/" 
@@ -301,7 +286,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-1 flex-1 justify-center">
+          <div className="hidden lg:flex items-center space-x-1 flex-1 justify-end lg:justify-center">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -421,6 +406,36 @@ const Navbar = () => {
                 </div>
               </Link>
             ))}
+            
+            {/* Mobile Language Selector */}
+            <div className="px-2 pt-2 border-t border-gray-200 mt-2">
+              <p className="text-xs font-semibold text-gray-500 uppercase px-2 mb-2">Language</p>
+              <div className="space-y-1">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      handleLanguageChange(lang.code);
+                      setIsOpen(false);
+                    }}
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
+                      currentLang === lang.code 
+                        ? 'bg-saffron/10 text-saffron' 
+                        : 'text-gray-700 hover:bg-saffron/5'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{lang.flag}</span>
+                      <span className="text-sm font-medium">{lang.name}</span>
+                    </div>
+                    {currentLang === lang.code && (
+                      <Check className="w-4 h-4" />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+            
             <div className="px-2 pt-4">
               <Button 
                 asChild 

@@ -77,33 +77,69 @@
         
         <!-- Google Translate Script -->
         <script type="text/javascript">
+            // Check if page is already translated on load
+            const currentLangCookie = document.cookie.split('; ').find(row => row.startsWith('googtrans='));
+            const isTranslated = currentLangCookie && !currentLangCookie.includes('/en/en') && currentLangCookie.includes('/mr');
+            
+            // Only clear cookies if page is already translated to Marathi (auto-detect issue)
+            if (isTranslated && !window.location.hash.includes('keep-translation')) {
+                document.cookie = 'googtrans=/en/en; path=/; domain=' + window.location.hostname;
+                document.cookie = 'googtrans=/en/en; path=/;';
+                // Reload to apply English
+                if (!sessionStorage.getItem('translation-reset')) {
+                    sessionStorage.setItem('translation-reset', 'true');
+                    window.location.reload();
+                }
+            }
+            
             function googleTranslateElementInit() {
                 new google.translate.TranslateElement({
                     pageLanguage: 'en',
                     includedLanguages: 'en,mr',
                     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false,
-                    multilanguagePage: true
+                    autoDisplay: false
                 }, 'google_translate_element');
-                
-                // Force English on page load and clear any stored language preference
-                setTimeout(function() {
-                    // Clear Google Translate cookies
-                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
-                    
-                    // Force select to English
-                    const selectElement = document.querySelector('.goog-te-combo');
-                    if (selectElement && selectElement.value !== 'en') {
-                        selectElement.value = 'en';
-                        selectElement.dispatchEvent(new Event('change', { bubbles: true }));
-                    }
-                }, 100);
             }
             
-            // Clear cookies before initialization
-            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
+            // Helper function for React component to trigger translation
+            window.triggerGoogleTranslate = function(langCode) {
+                const checkAndTranslate = () => {
+                    const selectElement = document.querySelector('.goog-te-combo');
+                    if (selectElement) {
+                        // Set the cookie manually
+                        const langPair = '/en/' + langCode;
+                        document.cookie = 'googtrans=' + langPair + '; path=/; domain=' + window.location.hostname;
+                        document.cookie = 'googtrans=' + langPair + '; path=/;';
+                        
+                        // Trigger the select change
+                        selectElement.value = langCode;
+                        selectElement.dispatchEvent(new Event('change', { bubbles: true }));
+                        
+                        // Force reload if switching to Marathi
+                        if (langCode === 'mr') {
+                            sessionStorage.removeItem('translation-reset');
+                            window.location.hash = 'keep-translation';
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 100);
+                        } else if (langCode === 'en') {
+                            // Switching back to English
+                            sessionStorage.removeItem('translation-reset');
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 100);
+                        }
+                        
+                        return true;
+                    }
+                    return false;
+                };
+                
+                // Try immediately, then retry if needed
+                if (!checkAndTranslate()) {
+                    setTimeout(checkAndTranslate, 500);
+                }
+            };
         </script>
         <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         

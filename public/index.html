@@ -82,9 +82,28 @@
                     pageLanguage: 'en',
                     includedLanguages: 'en,mr',
                     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false
+                    autoDisplay: false,
+                    multilanguagePage: true
                 }, 'google_translate_element');
+                
+                // Force English on page load and clear any stored language preference
+                setTimeout(function() {
+                    // Clear Google Translate cookies
+                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
+                    
+                    // Force select to English
+                    const selectElement = document.querySelector('.goog-te-combo');
+                    if (selectElement && selectElement.value !== 'en') {
+                        selectElement.value = 'en';
+                        selectElement.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                }, 100);
             }
+            
+            // Clear cookies before initialization
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
         </script>
         <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         

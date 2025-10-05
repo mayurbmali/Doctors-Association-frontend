@@ -1,0 +1,167 @@
+ou're completely hiding essential translation iframes using this block of CSS:
+
+body > .skiptranslate > iframe.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+
+and
+
+iframe.goog-te-banner-frame {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+
+These disable the translation iframe responsible for actually applying the translation to your content.
+
+✅ Fix: Remove or Modify the CSS That Hides the Translation Engine
+
+Here’s what you should do:
+
+✅ Keep This (safe to hide):
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+body {
+    top: 0px !important;
+    position: static !important;
+}
+
+❌ Remove or Comment Out This (breaks translation):
+/* ❌ This breaks translation */
+body > .skiptranslate > iframe.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* ❌ This too */
+iframe.goog-te-banner-frame {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+
+These iframes are used internally by Google Translate to perform the actual page modifications. If they're hidden, the translation will silently fail.
+
+✅ Updated CSS You Can Use Safely:
+/* Hides the top banner cleanly */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Prevent layout shift */
+body {
+    top: 0px !important;
+    position: static !important;
+}
+
+/* Optional: Hide branding */
+.goog-logo-link,
+.goog-te-gadget span {
+    display: none !important;
+}
+
+🧪 Test Again After CSS Fix
+
+After you remove the problematic CSS, try switching to Marathi from the dropdown.
+
+Expected:
+
+The content on the page should dynamically change to Marathi (e.g., “Welcome” becomes “स्वागत”).
+
+There might still be a quick flash or subtle layout shift — that's normal due to how Google Translate injects code.
+
+✅ Bonus Tip: Clean Custom Dropdown (Optional)
+
+If you’d like to replace the default Google Translate dropdown with a cleaner custom select, I can help you do that — it would still trigger Google Translate but look more native to your design.
+
+Would you like that improved custom dropdown version?
+
+You said:
+yes
+ChatGPT said:
+
+Great! Here's how you can replace the default Google Translate dropdown with a clean, custom-styled dropdown that still uses Google Translate under the hood — but gives you full control over the design.
+
+✅ What This Will Do:
+
+Add a custom dropdown (e.g., "🌐 Language: English / मराठी")
+
+Hide Google’s default widget
+
+Use JavaScript to programmatically trigger the Google Translate engine to switch languages
+
+No API key required
+
+Still uses Google Translate’s backend
+
+✅ Step-by-Step Instructions
+✅ 1. Include Google Translate Script (Hidden)
+
+Place this in your HTML (you already have it, just update as needed):
+
+<!-- Hidden Translate Element -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,mr',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+✅ 2. Add the Custom Dropdown
+
+Add this wherever you want the dropdown (e.g., top-right corner):
+
+<select id="custom-lang-select" style="padding: 5px; margin: 10px;">
+    <option value="">🌐 Select Language</option>
+    <option value="en">English</option>
+    <option value="mr">मराठी</option>
+</select>
+
+✅ 3. Add JavaScript to Trigger Language Change
+
+Put this after your dropdown or in a script block at the end of the <body>:
+
+<script>
+    document.getElementById('custom-lang-select').addEventListener('change', function () {
+        var lang = this.value;
+        if (lang) {
+            var translateSelect = document.querySelector('.goog-te-combo');
+            if (translateSelect) {
+                translateSelect.value = lang;
+                // Trigger change event
+                translateSelect.dispatchEvent(new Event('change'));
+            }
+        }
+    });
+</script>
+
+✅ 4. CSS to Hide Google Branding (Optional):
+
+This hides the original Google Translate dropdown and branding while keeping functionality intact:
+
+/* Hide Google's default dropdown and branding */
+#google_translate_element {
+    display: none !important;
+}
+.goog-logo-link,
+.goog-te-gadget span,
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+}
+body {
+    top: 0px !important;
+}

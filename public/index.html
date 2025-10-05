@@ -6,7 +6,7 @@
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="A product of emergent.sh" />
         <style>
-            /* Completely hide Google Translate banner/overlay */
+            /* Hide Google Translate banner cleanly without breaking functionality */
             .goog-te-banner-frame.skiptranslate {
                 display: none !important;
                 visibility: hidden !important;
@@ -15,13 +15,10 @@
                 top: 0px !important;
                 position: static !important;
             }
-            body > .skiptranslate > iframe.skiptranslate {
+            /* Hide branding but keep translation working */
+            .goog-logo-link,
+            .goog-te-gadget span {
                 display: none !important;
-                visibility: hidden !important;
-            }
-            iframe.goog-te-banner-frame {
-                display: none !important;
-                visibility: hidden !important;
             }
             .goog-tooltip {
                 display: none !important;

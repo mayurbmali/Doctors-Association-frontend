@@ -59,7 +59,26 @@ This is a React-based frontend application for the Association of Physicians of 
 - **styled-jsx syntax**: The Navbar component was using `<style jsx>` which caused React warnings. Fixed by removing the `jsx` attribute since styled-jsx is not configured in this project.
 
 ## Recent Changes
-- **2025-10-05 (Latest)**: Google Translate Integration & Routing Fix
+- **2025-10-05 (Latest Update)**: Navbar Redesign & Google Translate Fix
+  - **Google Translate Fixed**: 
+    - Removed CSS that was blocking translation iframes from working
+    - Translation now works properly - selecting Marathi translates entire page
+    - Kept banner/overlay hidden while allowing translation engine to function
+    - Google Translate properly initialized in index.html
+  - **Complete Navbar Redesign**:
+    - Logo positioned on the left with CCMP Maharashtra branding
+    - Navigation links perfectly centered in the middle
+    - Join CCMP button placed before language selector on the right
+    - Language selector (globe icon) as the rightmost element
+    - Clean, modern styling with proper spacing and hover effects
+    - Responsive design maintains order on all screen sizes
+    - Mobile menu includes language selector with flag emojis
+  - **Routing Fix**:
+    - Added `_redirects` file for production deployment
+    - Fixes 404 errors when refreshing on client-side routes
+    - Works on both development and production environments
+
+- **2025-10-05**: Google Translate Integration & Routing Fix
   - **Custom Language Switcher**: 
     - Created beautiful custom language dropdown to replace default Google Translate widget
     - Features globe icon, flag emojis (🇬🇧 🇮🇳), and smooth slide-down animation

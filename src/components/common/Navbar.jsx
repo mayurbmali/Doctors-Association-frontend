@@ -206,6 +206,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (window.google && window.google.translate) {
+      new window.google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,mr',
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  }, []);
+
   return (
     <nav className={`sticky top-0 z-50 transition-all duration-300 ${
       isScrolled 
@@ -256,8 +267,9 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Join CCMP Button */}
+          {/* Google Translate & Join CCMP Button */}
           <div className="hidden lg:flex items-center space-x-4">
+            <div id="google_translate_element" className="translate-widget"></div>
             <Button 
               asChild 
               className="bg-saffron hover:bg-saffron-dark text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
@@ -338,6 +350,24 @@ const Navbar = () => {
             opacity: 1;
             transform: translateX(0);
           }
+        }
+        .translate-widget .goog-te-gadget-simple {
+          background-color: transparent !important;
+          border: 1px solid #e5e7eb !important;
+          border-radius: 0.75rem !important;
+          padding: 0.5rem 1rem !important;
+          font-size: 0.875rem !important;
+          transition: all 0.3s !important;
+        }
+        .translate-widget .goog-te-gadget-simple:hover {
+          border-color: #FF9933 !important;
+          background-color: rgba(255, 153, 51, 0.05) !important;
+        }
+        .translate-widget .goog-te-gadget-icon {
+          display: none !important;
+        }
+        .translate-widget .goog-te-menu-value span {
+          color: #1f2937 !important;
         }
       `}</style>
     </nav>

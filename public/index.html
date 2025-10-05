@@ -54,12 +54,17 @@
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
         
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <script type="text/javascript">
             function googleTranslateElementInit() {
-                // Google Translate initialization handled by React component
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,mr',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
             }
         </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <script>
             !(function (t, e) {
                 var o, n, p, r;

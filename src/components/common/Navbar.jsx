@@ -173,15 +173,18 @@
 // export default Navbar;
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
-import { Menu, X, Stethoscope, ChevronDown } from "lucide-react";
+import { Menu, X, Stethoscope, ChevronDown, Globe, Check } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState('en');
   const location = useLocation();
+  const langDropdownRef = useRef(null);
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -207,15 +210,47 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (window.google && window.google.translate) {
-      new window.google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,mr',
-        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
+    // Wait for Google Translate to fully load
+    const checkGoogleTranslate = setInterval(() => {
+      if (window.google && window.google.translate && window.google.translate.TranslateElement) {
+        clearInterval(checkGoogleTranslate);
+        new window.google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,mr',
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    }, 100);
+
+    return () => clearInterval(checkGoogleTranslate);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
+        setLangDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const languages = [
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'mr', name: 'मराठी', flag: '🇮🇳' }
+  ];
+
+  const handleLanguageChange = (langCode) => {
+    setCurrentLang(langCode);
+    setLangDropdownOpen(false);
+    
+    const selectElement = document.querySelector('.goog-te-combo');
+    if (selectElement) {
+      selectElement.value = langCode;
+      selectElement.dispatchEvent(new Event('change'));
+    }
+  };
 
   return (
     <nav className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -267,9 +302,54 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Google Translate & Join CCMP Button */}
+          {/* Custom Language Switcher & Join CCMP Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <div id="google_translate_element" className="translate-widget"></div>
+            {/* Hidden Google Translate element */}
+            <div id="google_translate_element" className="hidden"></div>
+            
+            {/* Custom Language Dropdown */}
+            <div className="relative" ref={langDropdownRef}>
+              <button
+                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 hover:border-saffron hover:bg-saffron/5 transition-all duration-300 group"
+              >
+                <Globe className="w-4 h-4 text-gray-600 group-hover:text-saffron transition-colors" />
+                <span className="text-sm font-medium text-gray-700 group-hover:text-saffron transition-colors">
+                  {languages.find(l => l.code === currentLang)?.flag} {languages.find(l => l.code === currentLang)?.name}
+                </span>
+                <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-300 ${langDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Dropdown Menu */}
+              {langDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50 animate-slideDown">
+                  <div className="py-2">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => handleLanguageChange(lang.code)}
+                        className={`w-full flex items-center justify-between px-4 py-3 hover:bg-saffron/10 transition-all duration-200 group ${
+                          currentLang === lang.code ? 'bg-saffron/5' : ''
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl">{lang.flag}</span>
+                          <span className={`text-sm font-medium ${
+                            currentLang === lang.code ? 'text-saffron' : 'text-gray-700'
+                          } group-hover:text-saffron transition-colors`}>
+                            {lang.name}
+                          </span>
+                        </div>
+                        {currentLang === lang.code && (
+                          <Check className="w-4 h-4 text-saffron" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            
             <Button 
               asChild 
               className="bg-saffron hover:bg-saffron-dark text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
@@ -351,23 +431,20 @@ const Navbar = () => {
             transform: translateX(0);
           }
         }
-        .translate-widget .goog-te-gadget-simple {
-          background-color: transparent !important;
-          border: 1px solid #e5e7eb !important;
-          border-radius: 0.75rem !important;
-          padding: 0.5rem 1rem !important;
-          font-size: 0.875rem !important;
-          transition: all 0.3s !important;
+        
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        .translate-widget .goog-te-gadget-simple:hover {
-          border-color: #FF9933 !important;
-          background-color: rgba(255, 153, 51, 0.05) !important;
-        }
-        .translate-widget .goog-te-gadget-icon {
-          display: none !important;
-        }
-        .translate-widget .goog-te-menu-value span {
-          color: #1f2937 !important;
+        
+        .animate-slideDown {
+          animation: slideDown 0.2s ease-out forwards;
         }
       `}</style>
     </nav>

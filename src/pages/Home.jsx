@@ -750,10 +750,23 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400" />
                   <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent backdrop-blur-[2px]" />
                   
-                  <div className="relative p-10 flex flex-col items-center text-center min-h-[280px] justify-center">
-                    <p className="text-white text-lg leading-relaxed mb-8 font-normal max-w-md">
-                      "{member.quote}"
-                    </p>
+                  <div className="relative p-10 flex flex-col items-center text-center min-h-[320px] justify-center">
+                    <div className="relative w-32 h-32 mb-6">
+                      <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/50 group-hover:border-white/70 transition-all duration-300">
+                        <img
+                          src={member.imageUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=150&background=3b82f6&color=fff`}
+                          alt={member.name}
+                          className="w-full h-full object-cover transition-all duration-300 group-hover:blur-sm"
+                          loading="lazy"
+                        />
+                      </div>
+                      
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 p-4">
+                        <p className="text-white text-sm font-normal text-center drop-shadow-lg leading-relaxed">
+                          "{member.quote}"
+                        </p>
+                      </div>
+                    </div>
                     
                     <h4 className="font-bold text-xl mb-2 text-white">
                       {member.name}

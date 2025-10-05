@@ -64,8 +64,29 @@
                         if (select) {
                             clearInterval(checkInterval);
                             console.log('Found select element, triggering translation to Marathi');
+                            
+                            // Method 1: Direct selection
                             select.value = 'mr';
-                            select.dispatchEvent(new Event('change'));
+                            
+                            // Method 2: Trigger multiple event types
+                            const events = ['change', 'click', 'input'];
+                            events.forEach(eventType => {
+                                const event = new Event(eventType, { bubbles: true, cancelable: true });
+                                select.dispatchEvent(event);
+                            });
+                            
+                            // Method 3: Manual cookie set as backup
+                            document.cookie = 'googtrans=/en/mr; path=/; domain=' + window.location.hostname;
+                            document.cookie = 'googtrans=/en/mr; path=/;';
+                            
+                            // Force a reload after a short delay to apply translation
+                            setTimeout(() => {
+                                if (document.documentElement.className.indexOf('translated') === -1) {
+                                    console.log('Translation not applied, forcing reload...');
+                                    window.location.reload();
+                                }
+                            }, 1000);
+                            
                         } else if (attempts > 50) {
                             clearInterval(checkInterval);
                             console.error('Could not find Google Translate select element');

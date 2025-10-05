@@ -77,21 +77,6 @@
         
         <!-- Google Translate Script -->
         <script type="text/javascript">
-            // Check if page is already translated on load
-            const currentLangCookie = document.cookie.split('; ').find(row => row.startsWith('googtrans='));
-            const isTranslated = currentLangCookie && !currentLangCookie.includes('/en/en') && currentLangCookie.includes('/mr');
-            
-            // Only clear cookies if page is already translated to Marathi (auto-detect issue)
-            if (isTranslated && !window.location.hash.includes('keep-translation')) {
-                document.cookie = 'googtrans=/en/en; path=/; domain=' + window.location.hostname;
-                document.cookie = 'googtrans=/en/en; path=/;';
-                // Reload to apply English
-                if (!sessionStorage.getItem('translation-reset')) {
-                    sessionStorage.setItem('translation-reset', 'true');
-                    window.location.reload();
-                }
-            }
-            
             function googleTranslateElementInit() {
                 new google.translate.TranslateElement({
                     pageLanguage: 'en',
@@ -99,45 +84,41 @@
                     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                     autoDisplay: false
                 }, 'google_translate_element');
+                
+                // After initialization, check if we should be in a specific language
+                setTimeout(() => {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const targetLang = urlParams.get('lang');
+                    
+                    if (targetLang && targetLang === 'mr') {
+                        const selectElement = document.querySelector('.goog-te-combo');
+                        if (selectElement) {
+                            selectElement.value = 'mr';
+                            selectElement.dispatchEvent(new Event('change'));
+                        }
+                    }
+                }, 500);
             }
             
-            // Helper function for React component to trigger translation
+            // Global helper function for React component
             window.triggerGoogleTranslate = function(langCode) {
-                const checkAndTranslate = () => {
-                    const selectElement = document.querySelector('.goog-te-combo');
-                    if (selectElement) {
-                        // Set the cookie manually
-                        const langPair = '/en/' + langCode;
-                        document.cookie = 'googtrans=' + langPair + '; path=/; domain=' + window.location.hostname;
-                        document.cookie = 'googtrans=' + langPair + '; path=/;';
-                        
-                        // Trigger the select change
-                        selectElement.value = langCode;
-                        selectElement.dispatchEvent(new Event('change', { bubbles: true }));
-                        
-                        // Force reload if switching to Marathi
-                        if (langCode === 'mr') {
-                            sessionStorage.removeItem('translation-reset');
-                            window.location.hash = 'keep-translation';
-                            setTimeout(() => {
-                                window.location.reload();
-                            }, 100);
-                        } else if (langCode === 'en') {
-                            // Switching back to English
-                            sessionStorage.removeItem('translation-reset');
-                            setTimeout(() => {
-                                window.location.reload();
-                            }, 100);
-                        }
-                        
-                        return true;
-                    }
-                    return false;
-                };
+                console.log('Triggering translation to:', langCode);
                 
-                // Try immediately, then retry if needed
-                if (!checkAndTranslate()) {
-                    setTimeout(checkAndTranslate, 500);
+                if (langCode === 'mr') {
+                    // Redirect with lang parameter to trigger Marathi
+                    const currentUrl = new URL(window.location.href);
+                    currentUrl.searchParams.set('lang', 'mr');
+                    window.location.href = currentUrl.toString();
+                } else {
+                    // For English, just reload without lang parameter
+                    const currentUrl = new URL(window.location.href);
+                    currentUrl.searchParams.delete('lang');
+                    
+                    // Also clear the Google Translate cookies
+                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
+                    
+                    window.location.href = currentUrl.toString();
                 }
             };
         </script>

@@ -736,7 +736,7 @@ const Home = () => {
             Meet Our Founding Team
           </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {mockData.testimonials.slice(0, 4).map((member, index) => (
               <motion.div
                 key={index}
@@ -746,36 +746,23 @@ const Home = () => {
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <Card className="bg-white/80 backdrop-blur-sm border-slate-200 hover:border-transparent relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" style={{ padding: '2px' }} />
+                <div className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent backdrop-blur-[2px]" />
                   
-                  <CardContent className="p-8 text-center flex flex-col items-center">
-                    <div className="relative w-36 h-36 mb-6">
-                      <div className="w-full h-full rounded-full overflow-hidden border-4 border-slate-200 group-hover:border-blue-400 transition-all duration-300">
-                        <img
-                          src={member.imageUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=150&background=3b82f6&color=fff`}
-                          alt={member.name}
-                          className="w-full h-full object-cover transition-all duration-300 group-hover:blur-sm"
-                          loading="lazy"
-                        />
-                      </div>
-                      
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 p-4">
-                        <p className="text-white text-sm font-medium text-center drop-shadow-lg leading-relaxed">
-                          {member.quote}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="relative p-10 flex flex-col items-center text-center min-h-[280px] justify-center">
+                    <p className="text-white text-lg leading-relaxed mb-8 font-normal max-w-md">
+                      "{member.quote}"
+                    </p>
                     
-                    <h4 className="font-bold text-xl mb-2 text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
+                    <h4 className="font-bold text-xl mb-2 text-white">
                       {member.name}
                     </h4>
-                    <p className="text-slate-600 text-sm">
+                    <p className="text-white/80 text-sm font-light">
                       {member.designation}
                     </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

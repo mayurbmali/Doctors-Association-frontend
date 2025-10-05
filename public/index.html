@@ -86,18 +86,24 @@
                 }, 'google_translate_element');
                 
                 // After initialization, check if we should be in a specific language
-                setTimeout(() => {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const targetLang = urlParams.get('lang');
-                    
-                    if (targetLang && targetLang === 'mr') {
+                const urlParams = new URLSearchParams(window.location.search);
+                const targetLang = urlParams.get('lang');
+                
+                if (targetLang === 'mr') {
+                    // Wait for Google Translate to fully initialize
+                    const waitForTranslate = setInterval(() => {
                         const selectElement = document.querySelector('.goog-te-combo');
-                        if (selectElement) {
+                        if (selectElement && selectElement.length > 1) {
+                            clearInterval(waitForTranslate);
+                            console.log('Google Translate ready, triggering Marathi translation');
                             selectElement.value = 'mr';
                             selectElement.dispatchEvent(new Event('change'));
                         }
-                    }
-                }, 500);
+                    }, 100);
+                    
+                    // Stop trying after 5 seconds
+                    setTimeout(() => clearInterval(waitForTranslate), 5000);
+                }
             }
             
             // Global helper function for React component

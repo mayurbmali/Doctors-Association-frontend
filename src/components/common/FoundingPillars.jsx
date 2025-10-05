@@ -9,28 +9,28 @@ const FoundingPillars = () => {
       id: 1,
       name: "Dr. Prakash Desai",
       designation: "Senior Homoeopathic Consultant, Mumbai",
-      image: "/api/placeholder/400/500",
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=faces",
       testimonial: "Instrumental in advancing homoeopathic practice across Maharashtra. The networking and continuous education opportunities are unmatched."
     },
     {
       id: 2,
       name: "Dr. Meera Kulkarni",
       designation: "Chief Medical Officer, Pune",
-      image: "/api/placeholder/400/500",
+      image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop&crop=faces",
       testimonial: "A visionary leader dedicated to establishing the highest standards of classical homoeopathy in our state."
     },
     {
       id: 3,
       name: "Dr. Rajesh Patil",
       designation: "Director, Homoeopathic Research Centre",
-      image: "/api/placeholder/400/500",
+      image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=500&fit=crop&crop=faces",
       testimonial: "Through CCMP, we've built a community that honors Hahnemann's legacy while embracing modern research and collaboration."
     },
     {
       id: 4,
       name: "Dr. Anjali Shah",
       designation: "Head of Education, CCMP Maharashtra",
-      image: "/api/placeholder/400/500",
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces",
       testimonial: "Empowering the next generation of homoeopaths through continuous learning and classical principles is at the heart of our mission."
     }
   ];
@@ -128,16 +128,6 @@ const FoundingPillars = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes borderGlow {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-      `}</style>
     </section>
   );
 };

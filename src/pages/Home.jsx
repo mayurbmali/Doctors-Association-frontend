@@ -8,6 +8,7 @@ import { useInView } from 'react-intersection-observer';
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
+import FoundingPillars from "../components/common/FoundingPillars";
 import {
   Users,
   Calendar,
@@ -387,6 +388,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Founding Pillars Section */}
+      <FoundingPillars />
 
       {/* Quick Navigation Cards */}
       <section className="py-20 bg-neutral-50">

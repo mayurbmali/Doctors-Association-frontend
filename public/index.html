@@ -6,7 +6,7 @@
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="A product of emergent.sh" />
         <style>
-            /* CRITICAL: Completely hide ALL Google Translate UI elements */
+            /* Hide Google Translate UI but allow it to function */
             body {
                 top: 0 !important;
                 position: static !important;
@@ -18,30 +18,38 @@
                 visibility: hidden !important;
             }
             
-            /* Hide the default widget */
+            /* Hide but don't completely disable the widget */
             #google_translate_element {
+                position: absolute !important;
+                left: -9999px !important;
+                width: 1px !important;
+                height: 1px !important;
+                overflow: hidden !important;
+            }
+            
+            /* Hide visual elements but keep select functional */
+            .goog-te-gadget {
+                position: absolute !important;
+                left: -9999px !important;
+            }
+            
+            /* Hide branding */
+            .goog-logo-link {
                 display: none !important;
             }
             
-            /* Hide all Google Translate branding and UI */
-            .goog-logo-link,
-            .goog-te-gadget,
-            .goog-te-combo,
             .goog-te-balloon-frame,
             .goog-te-menu-frame {
                 display: none !important;
             }
             
-            .skiptranslate {
-                display: none !important;
+            .skiptranslate iframe {
+                visibility: hidden !important;
+                height: 0 !important;
             }
             
             /* Hide tooltips */
             .goog-tooltip {
-                display: none !important;
-            }
-            
-            .goog-tooltip:hover {
                 display: none !important;
             }
             
@@ -54,16 +62,7 @@
             
             /* Ensure no frame pushing body down */
             body > .skiptranslate {
-                display: none !important;
-            }
-            
-            iframe.skiptranslate {
-                display: none !important;
-            }
-            
-            /* Hide the translate select element but keep it functional */
-            select.goog-te-combo {
-                display: none !important;
+                height: 0 !important;
             }
         </style>
     </head>
@@ -71,7 +70,7 @@
         <noscript>You need to enable JavaScript to run this app.</noscript>
         
         <!-- Hidden Google Translate Element - Required for functionality -->
-        <div id="google_translate_element" style="display: none !important;"></div>
+        <div id="google_translate_element"></div>
         
         <div id="root"></div>
         

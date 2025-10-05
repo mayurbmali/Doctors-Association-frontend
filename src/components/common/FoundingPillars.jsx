@@ -60,7 +60,7 @@ const FoundingPillars = () => {
               onMouseEnter={() => setHoveredCard(member.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-[4/5] group cursor-pointer">
+              <div className="relative overflow-hidden rounded-2xl aspect-[3/4] group cursor-pointer">
                 <div
                   className="absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
@@ -107,7 +107,7 @@ const FoundingPillars = () => {
                         transition={{ duration: 0.4 }}
                         className="absolute bottom-6 left-6 right-6"
                       >
-                        <p className="text-sm md:text-base leading-relaxed italic text-white/95">
+                        <p className="text-base md:text-lg leading-relaxed italic text-white font-medium">
                           "{member.testimonial}"
                         </p>
                       </motion.div>

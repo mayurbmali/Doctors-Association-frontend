@@ -728,66 +728,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Carousel */}
-      <section className="py-20 bg-gradient-to-br from-saffron via-saffron-dark to-green text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-16"
-          >
-            What Our Members Say
-          </motion.h2>
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true
-            }}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 }
-            }}
-            className="pb-12"
-          >
-            {mockData.testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index}>
-                <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white h-full hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-8 text-center flex flex-col items-center">
-                    <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white/50 mb-6">
-                      <img
-                        src={testimonial.imageUrl}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="flex items-center justify-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <p className="text-white/90 italic mb-6 text-lg">
-                      "{testimonial.quote}"
-                    </p>
-                    <h4 className="font-semibold text-xl mb-1">{testimonial.name}</h4>
-                    <p className="text-white/80 text-sm">{testimonial.designation}</p>
-                  </CardContent>
-                </Card>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-
       {/* Enhanced Final CTA Section */}
-      <section className="relative py-24 bg-gradient-to-br from-saffron via-saffron-dark to-green text-white overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-br from-blue-600 to-indigo-700 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -867,7 +809,7 @@ const Home = () => {
       {/* Contact & Support Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12">
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -917,56 +859,6 @@ const Home = () => {
               </Button>
             </motion.div>
 
-            {/* Quick Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="shadow-2xl border-t-4 border-t-saffron">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-neutral-800 mb-6">Quick Inquiry</h3>
-                  <form className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Full Name</label>
-                      <input
-                        type="text"
-                        placeholder="Dr. John Doe"
-                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition-all"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Email</label>
-                      <input
-                        type="email"
-                        placeholder="john@example.com"
-                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition-all"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Subject</label>
-                      <input
-                        type="text"
-                        placeholder="Membership Inquiry"
-                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition-all"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Message</label>
-                      <textarea
-                        rows="4"
-                        placeholder="How can we help you?"
-                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition-all resize-none"
-                      />
-                    </div>
-                    <Button type="submit" className="w-full bg-green hover:bg-green/90 text-white rounded-lg py-6 text-lg font-semibold">
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </motion.div>
           </div>
         </div>
       </section>

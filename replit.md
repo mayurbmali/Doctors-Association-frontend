@@ -59,7 +59,25 @@ This is a React-based frontend application for the Association of Physicians of 
 - **styled-jsx syntax**: The Navbar component was using `<style jsx>` which caused React warnings. Fixed by removing the `jsx` attribute since styled-jsx is not configured in this project.
 
 ## Recent Changes
-- **2025-10-04 (Latest)**: Interactive History Timeline Redesign
+- **2025-10-05 (Latest)**: Google Translate Integration & Routing Fix
+  - **Google Translate Widget**: 
+    - Added Google Translate widget to Navbar component for language switching
+    - Limited to English and Marathi (en, mr) as requested
+    - Widget positioned in top-right corner next to "Join CCMP" button
+    - Custom styling with border, hover effects matching brand colors (saffron accent)
+    - Hidden the Google Translate banner for cleaner UI
+    - Works across all pages without reload
+  - **Fixed Page Reload Issue**:
+    - Added `historyApiFallback: true` to craco.config.js devServer configuration
+    - Fixes "Page not found" error when reloading on client-side routes (e.g., /about, /leadership)
+    - Now properly serves index.html for all routes in development
+  - **Dependency Updates**:
+    - Updated `react-day-picker` from 8.10.1 to 9.11.0 (React 19 compatibility)
+    - Updated `date-fns` from 4.1.0 to 3.6.0 (peer dependency compatibility)
+    - Successfully installed all npm packages
+  - Application fully tested and verified working on all routes
+
+- **2025-10-04**: Interactive History Timeline Redesign
   - **Completely Replaced** the existing history timeline with a modern, interactive experience
   - **Horizontal Year Selector**: 
     - Scrollable horizontal bar displaying all milestone years (1944-2024)

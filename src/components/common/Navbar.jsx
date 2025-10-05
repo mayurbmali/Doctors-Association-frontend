@@ -245,10 +245,30 @@ const Navbar = () => {
     setCurrentLang(langCode);
     setLangDropdownOpen(false);
     
-    const selectElement = document.querySelector('.goog-te-combo');
-    if (selectElement) {
-      selectElement.value = langCode;
-      selectElement.dispatchEvent(new Event('change'));
+    // Try multiple times to ensure Google Translate is ready
+    const triggerTranslation = () => {
+      const selectElement = document.querySelector('.goog-te-combo');
+      if (selectElement) {
+        selectElement.value = langCode;
+        // Trigger both change and input events for better compatibility
+        const changeEvent = new Event('change', { bubbles: true });
+        selectElement.dispatchEvent(changeEvent);
+        
+        // Also try triggering with a small delay
+        setTimeout(() => {
+          selectElement.value = langCode;
+          selectElement.dispatchEvent(new Event('change', { bubbles: true }));
+        }, 100);
+        
+        return true;
+      }
+      return false;
+    };
+    
+    // Try immediately
+    if (!triggerTranslation()) {
+      // If not found, retry after a short delay
+      setTimeout(triggerTranslation, 200);
     }
   };
 
@@ -259,11 +279,11 @@ const Navbar = () => {
         : 'bg-white shadow-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-20 gap-4">
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center space-x-3 group transition-all duration-300 hover:scale-105"
+            className="flex items-center space-x-3 group transition-all duration-300 hover:scale-105 flex-shrink-0"
           >
             <img 
               src="/ccmp-logo.png" 
@@ -281,7 +301,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-1 flex-1 justify-center">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -303,7 +323,7 @@ const Navbar = () => {
           </div>
 
           {/* Custom Language Switcher & Join CCMP Button */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4 flex-shrink-0">
             {/* Hidden Google Translate element */}
             <div id="google_translate_element" className="hidden"></div>
             

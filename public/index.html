@@ -5,6 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="A product of emergent.sh" />
+        <style>
+            .goog-te-banner-frame.skiptranslate {
+                display: none !important;
+            }
+            body {
+                top: 0px !important;
+            }
+            #google_translate_element {
+                float: right;
+                margin: 10px;
+            }
+            .goog-te-gadget-simple {
+                background-color: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+            }
+        </style>
         <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -22,7 +39,20 @@
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="google_translate_element"></div>
         <div id="root"></div>
+        
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,mr',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
+            }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <script>
             !(function (t, e) {
                 var o, n, p, r;

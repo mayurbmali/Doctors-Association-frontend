@@ -49,57 +49,25 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Check current language from cookie on mount
+  // Check current language from URL parameter on mount
   useEffect(() => {
-    const checkCurrentLanguage = () => {
-      const cookie = document.cookie.split('; ').find(row => row.startsWith('googtrans='));
-      if (cookie) {
-        const value = cookie.split('=')[1];
-        if (value.includes('/mr')) {
-          setCurrentLang('mr');
-        } else {
-          setCurrentLang('en');
-        }
-      }
-    };
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
     
-    // Check after a short delay to ensure Google Translate is loaded
-    setTimeout(checkCurrentLanguage, 1000);
-  }, []);
+    if (langParam === 'mr') {
+      setCurrentLang('mr');
+    } else {
+      setCurrentLang('en');
+    }
+  }, [location]);
 
   const handleLanguageChange = (langCode) => {
     setCurrentLang(langCode);
     setLangDropdownOpen(false);
     
-    // Use the global helper function if available
+    // Use the global helper function
     if (window.triggerGoogleTranslate) {
       window.triggerGoogleTranslate(langCode);
-    } else {
-      // Fallback method
-      const triggerTranslation = () => {
-        const selectElement = document.querySelector('.goog-te-combo');
-        if (selectElement) {
-          // Set cookie
-          const langPair = '/en/' + langCode;
-          document.cookie = 'googtrans=' + langPair + '; path=/; domain=' + window.location.hostname;
-          document.cookie = 'googtrans=' + langPair + '; path=/;';
-          
-          // Change select value
-          selectElement.value = langCode;
-          selectElement.dispatchEvent(new Event('change', { bubbles: true }));
-          
-          // Reload for Marathi to ensure translation applies
-          if (langCode === 'mr') {
-            setTimeout(() => window.location.reload(), 100);
-          }
-          return true;
-        }
-        return false;
-      };
-      
-      if (!triggerTranslation()) {
-        setTimeout(triggerTranslation, 500);
-      }
     }
   };
 

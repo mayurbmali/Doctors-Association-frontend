@@ -1,0 +1,81 @@
+
+
+### 🔧 **Design Prompt: Homepage Section Redesign**
+
+#### ✅ **Section Title:**
+
+Change **"What Our Members Say"** to ** “Meet Our Founding Team” 
+
+---
+
+#### 🎯 **Core Layout Requirements:**
+
+* Replace the slider with **4 static cards** (no carousel).
+* Display **2 cards per row**, totaling 2 rows.
+* Each card should prominently feature:
+
+  * A **round image** (not too small, not too large – ideally 120px–160px diameter).
+  * **Name** and **Designation** always visible.
+  * A **small paragraph of description revealed on hover**.
+
+---
+
+#### 🎨 **Design & Aesthetics:**
+
+* **Remove existing orange & green gradient background.**
+
+  * Replace with a **cool, modern background** – suggestion: light neutral (e.g., soft white, off-white, or pastel gradient).
+  * Alternatively, use a **glassmorphism** or **frosted card background** with subtle shadows.
+
+---
+
+#### 🖼️ **Card Details:**
+
+* Cards should be **modern with rounded corners** and **subtle box shadows**.
+* Card content:
+
+  * **Profile Picture** (round, centered or slightly top-aligned).
+  * **Name** (bold, center-aligned).
+  * **Designation** (smaller, below the name).
+  * **Hidden Description Paragraph**, revealed only on **image hover**.
+
+    * On hover: **image blurs**, description fades in over it with slight delay (0.2s-0.3s).
+
+---
+
+#### ⚙️ **Microinteractions & Animations:**
+
+* **Card hover effects:**
+
+  * Subtle **border animation** (e.g., animated gradient border or glowing pulse).
+  * **Smooth image blur** on hover (`filter: blur(3px); transition: 0.3s ease-in-out`).
+  * Description text **fades and scales slightly** into view.
+* Add **cursor pointer** and maybe slight **card scale-up on hover** (`transform: scale(1.03)`).
+* Ensure responsiveness across all screen sizes (stack to one per row on mobile).
+
+---
+
+#### 📁 **Content (4 Cards):**
+
+Use the same individuals from your previous testimonial section. Their names and designations can stay, but now each should have:
+
+* A profile photo
+* A short paragraph that reflects their role/contribution when hovered
+
+Example:
+
+```text
+Dr. Rajesh Patil
+Homoeopathic Consultant, Nagpur
+> "An advocate for research-integrated classical homoeopathy, leading several knowledge initiatives."
+```
+
+---
+
+#### 📌 Notes:
+
+* Ensure **accessibility**: hover effects should also be **keyboard navigable** and content should meet contrast standards.
+* Lazy-load images for performance.
+* Consider using **GSAP** or **Framer Motion** for smoother animations if using React.
+
+

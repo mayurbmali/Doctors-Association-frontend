@@ -724,61 +724,61 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Carousel */}
-      <section className="py-20 bg-gradient-to-br from-saffron via-saffron-dark to-green text-white">
+      {/* Meet Our Founding Team */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-16"
+            className="text-4xl font-bold text-center mb-16 text-slate-800"
           >
-            What Our Members Say
+            Meet Our Founding Team
           </motion.h2>
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true
-            }}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 }
-            }}
-            className="pb-12"
-          >
-            {mockData.testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index}>
-                <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white h-full hover:bg-white/20 transition-all duration-300 hover:scale-105">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {mockData.testimonials.slice(0, 4).map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <Card className="bg-white/80 backdrop-blur-sm border-slate-200 hover:border-transparent relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" style={{ padding: '2px' }} />
+                  
                   <CardContent className="p-8 text-center flex flex-col items-center">
-                    <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white/50 mb-6">
-                      <img
-                        src={testimonial.imageUrl}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
+                    <div className="relative w-36 h-36 mb-6">
+                      <div className="w-full h-full rounded-full overflow-hidden border-4 border-slate-200 group-hover:border-blue-400 transition-all duration-300">
+                        <img
+                          src={member.imageUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=150&background=3b82f6&color=fff`}
+                          alt={member.name}
+                          className="w-full h-full object-cover transition-all duration-300 group-hover:blur-sm"
+                          loading="lazy"
+                        />
+                      </div>
+                      
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 p-4">
+                        <p className="text-white text-sm font-medium text-center drop-shadow-lg leading-relaxed">
+                          {member.quote}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <p className="text-white/90 italic mb-6 text-lg">
-                      "{testimonial.quote}"
+                    
+                    <h4 className="font-bold text-xl mb-2 text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
+                      {member.name}
+                    </h4>
+                    <p className="text-slate-600 text-sm">
+                      {member.designation}
                     </p>
-                    <h4 className="font-semibold text-xl mb-1">{testimonial.name}</h4>
-                    <p className="text-white/80 text-sm">{testimonial.designation}</p>
                   </CardContent>
                 </Card>
-              </SwiperSlide>
+              </motion.div>
             ))}
-          </Swiper>
+          </div>
         </div>
       </section>
 

@@ -6,130 +6,98 @@
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="A product of emergent.sh" />
         <style>
-            /* Hide Google Translate UI but allow it to function */
+            /* Hide Google Translate banner and UI */
             body {
                 top: 0 !important;
-                position: static !important;
             }
             
-            /* Hide the top banner frame */
-            .goog-te-banner-frame {
-                display: none !important;
-                visibility: hidden !important;
-            }
-            
-            /* Hide but don't completely disable the widget */
-            #google_translate_element {
-                position: absolute !important;
-                left: -9999px !important;
-                width: 1px !important;
-                height: 1px !important;
-                overflow: hidden !important;
-            }
-            
-            /* Hide visual elements but keep select functional */
-            .goog-te-gadget {
-                position: absolute !important;
-                left: -9999px !important;
-            }
-            
-            /* Hide branding */
-            .goog-logo-link {
+            .goog-te-banner-frame.skiptranslate {
                 display: none !important;
             }
             
-            .goog-te-balloon-frame,
-            .goog-te-menu-frame {
+            body > .skiptranslate {
                 display: none !important;
             }
             
-            .skiptranslate iframe {
-                visibility: hidden !important;
-                height: 0 !important;
-            }
-            
-            /* Hide tooltips */
-            .goog-tooltip {
+            #goog-gt-tt {
                 display: none !important;
             }
             
-            /* Remove text highlighting */
+            .goog-te-balloon-frame {
+                display: none !important;
+            }
+            
             .goog-text-highlight {
                 background-color: transparent !important;
-                border: none !important;
                 box-shadow: none !important;
-            }
-            
-            /* Ensure no frame pushing body down */
-            body > .skiptranslate {
-                height: 0 !important;
             }
         </style>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         
-        <!-- Hidden Google Translate Element - Required for functionality -->
-        <div id="google_translate_element"></div>
-        
         <div id="root"></div>
         
-        <!-- Google Translate Script -->
+        <!-- Google Translate Element - Must be visible for initialization -->
+        <div id="google_translate_element" style="position: fixed; top: -100px; left: -100px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
+        
         <script type="text/javascript">
             function googleTranslateElementInit() {
                 new google.translate.TranslateElement({
                     pageLanguage: 'en',
-                    includedLanguages: 'en,mr',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false
+                    includedLanguages: 'en,mr'
                 }, 'google_translate_element');
                 
-                // After initialization, check if we should be in a specific language
+                console.log('Google Translate initialized');
+                
+                // Check URL for language parameter
                 const urlParams = new URLSearchParams(window.location.search);
                 const targetLang = urlParams.get('lang');
                 
                 if (targetLang === 'mr') {
-                    // Wait for Google Translate to fully initialize
-                    const waitForTranslate = setInterval(() => {
-                        const selectElement = document.querySelector('.goog-te-combo');
-                        if (selectElement && selectElement.length > 1) {
-                            clearInterval(waitForTranslate);
-                            console.log('Google Translate ready, triggering Marathi translation');
-                            selectElement.value = 'mr';
-                            selectElement.dispatchEvent(new Event('change'));
+                    // Wait for the select element to be available
+                    let attempts = 0;
+                    const checkInterval = setInterval(() => {
+                        const select = document.querySelector('select.goog-te-combo');
+                        attempts++;
+                        
+                        if (select) {
+                            clearInterval(checkInterval);
+                            console.log('Found select element, triggering translation to Marathi');
+                            select.value = 'mr';
+                            select.dispatchEvent(new Event('change'));
+                        } else if (attempts > 50) {
+                            clearInterval(checkInterval);
+                            console.error('Could not find Google Translate select element');
                         }
                     }, 100);
-                    
-                    // Stop trying after 5 seconds
-                    setTimeout(() => clearInterval(waitForTranslate), 5000);
                 }
             }
             
-            // Global helper function for React component
-            window.triggerGoogleTranslate = function(langCode) {
-                console.log('Triggering translation to:', langCode);
+            // Helper function for language switching
+            window.changeLanguage = function(langCode) {
+                console.log('Changing language to:', langCode);
+                
+                const currentUrl = new URL(window.location.href);
                 
                 if (langCode === 'mr') {
-                    // Redirect with lang parameter to trigger Marathi
-                    const currentUrl = new URL(window.location.href);
                     currentUrl.searchParams.set('lang', 'mr');
-                    window.location.href = currentUrl.toString();
                 } else {
-                    // For English, just reload without lang parameter
-                    const currentUrl = new URL(window.location.href);
                     currentUrl.searchParams.delete('lang');
-                    
-                    // Also clear the Google Translate cookies
-                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
-                    
-                    window.location.href = currentUrl.toString();
+                    // Clear cookies
+                    document.cookie = 'googtrans=; path=/; max-age=0';
+                    document.cookie = 'googtrans=; path=/; domain=' + window.location.hostname + '; max-age=0';
                 }
+                
+                window.location.href = currentUrl.toString();
             };
+            
+            // Alias for compatibility
+            window.triggerGoogleTranslate = window.changeLanguage;
         </script>
-        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         
-        <!-- PostHog Analytics -->
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
         <script>
             !(function (t, e) {
                 var o, n, p, r;

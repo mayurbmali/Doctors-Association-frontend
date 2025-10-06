@@ -38,15 +38,26 @@ const FoundingPillars = () => {
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-orange-400 via-orange-300 to-yellow-300">
       <div className="max-w-7xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-16"
-        >
-          Meet Our Founding Pillars
-        </motion.h2>
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-3"
+          >
+            Meet Our Founding Pillars
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-white/90"
+          >
+            Visionaries who built the foundation of excellence.
+          </motion.p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {foundingMembers.map((member, index) => {
@@ -84,14 +95,12 @@ const FoundingPillars = () => {
                       <img
                         src={member.image}
                         alt={member.name}
-                        className={`w-full h-full object-cover transition-all duration-500 ${
-                          isHovered ? 'blur-sm scale-105' : 'blur-0 scale-100'
-                        }`}
+                        className="w-full h-full object-cover transition-all duration-500"
                       />
                       
                       <div
-                        className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-500 ${
-                          isHovered ? 'opacity-95' : 'opacity-60'
+                        className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-500 ${
+                          isHovered ? 'opacity-100' : 'opacity-60'
                         }`}
                       />
                       
@@ -117,7 +126,7 @@ const FoundingPillars = () => {
                           transition={{ duration: 0.5 }}
                           className="absolute bottom-4 left-4 right-4"
                         >
-                          <p className="text-[1.05rem] leading-relaxed italic text-white font-normal">
+                          <p className="text-[1.05rem] leading-relaxed italic text-white font-medium drop-shadow-lg">
                             "{member.testimonial}"
                           </p>
                         </motion.div>

@@ -201,4 +201,76 @@ code {
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
+
+  /* Glassmorphism effect */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+
+  .glass-icon {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #FF6F00 0%, #FF8F00 50%, #FFA000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Icon hover animations */
+  @keyframes phoneRing {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(-15deg); }
+    20%, 40% { transform: rotate(15deg); }
+  }
+
+  @keyframes pinBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes mailFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+  }
+
+  .icon-ring:hover {
+    animation: phoneRing 0.6s ease-in-out;
+  }
+
+  .icon-bounce:hover {
+    animation: pinBounce 0.6s ease-in-out;
+  }
+
+  .icon-float:hover {
+    animation: mailFloat 0.8s ease-in-out;
+  }
+
+  /* Gradient button with shimmer effect */
+  .gradient-button {
+    background: linear-gradient(135deg, #FF6F00 0%, #FF8F00 50%, #FFA000 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    transition: all 0.3s ease;
+  }
+
+  .gradient-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 111, 0, 0.4);
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 }

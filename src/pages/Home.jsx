@@ -806,61 +806,139 @@ const Home = () => {
         />
       </section>
 
-      {/* Contact & Support Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12">
-            {/* Contact Info */}
+      {/* Contact & Support Section with Glassmorphism */}
+      <section 
+        className="py-24 relative overflow-hidden"
+        style={{
+          backgroundImage: `url('/contact-bg.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        {/* Overlay for better glassmorphism effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-saffron/40 via-orange-500/30 to-amber-600/40"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Title, Subtitle & Button */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="space-y-8"
             >
-              <h2 className="text-4xl font-bold text-neutral-800 mb-6">Get in Touch</h2>
-              <p className="text-lg text-neutral-600 mb-8">
-                Have questions? Our team is here to help you with membership, events, or any inquiries.
-              </p>
-              
-              <div className="space-y-6 mb-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex items-center justify-center w-12 h-12 bg-saffron/10 rounded-xl flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-saffron" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-neutral-800 mb-1">Visit Us</h3>
-                    <p className="text-neutral-600">CCMP Headquarters, Maharashtra<br />Mumbai, India</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex items-center justify-center w-12 h-12 bg-green/10 rounded-xl flex-shrink-0">
-                    <Phone className="w-6 h-6 text-green" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-neutral-800 mb-1">Call Us</h3>
-                    <p className="text-neutral-600">+91 22 1234 5678<br />Mon-Fri, 9:00 AM - 6:00 PM IST</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex items-center justify-center w-12 h-12 bg-saffron/10 rounded-xl flex-shrink-0">
-                    <Mail className="w-6 h-6 text-saffron" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-neutral-800 mb-1">Email Us</h3>
-                    <p className="text-neutral-600">info@ccmpmaharashtra.org<br />support@ccmpmaharashtra.org</p>
-                  </div>
-                </div>
+              <div>
+                <h2 
+                  className="text-5xl lg:text-6xl font-bold mb-4 gradient-text"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  Get in Touch
+                </h2>
+                <p className="text-xl text-white/90 italic font-light">
+                  "We're here to listen, guide, and grow together."
+                </p>
               </div>
 
-              <Button asChild className="bg-saffron hover:bg-saffron-dark text-white rounded-xl px-8 py-6">
-                <Link to="/contact">
-                  Visit Contact Page <ArrowRight className="ml-2 w-5 h-5" />
+              <Button 
+                asChild 
+                className="gradient-button text-white rounded-2xl px-10 py-7 text-lg font-semibold shadow-2xl group border-0 hover:border-0"
+              >
+                <Link to="/contact" className="flex items-center gap-3">
+                  Visit Contact Page 
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                 </Link>
               </Button>
             </motion.div>
 
+            {/* Right Side - Contact Info Icons */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <div className="glass-card rounded-3xl p-8 space-y-6">
+                <motion.div 
+                  className="flex items-start gap-5"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-bounce">
+                    <MapPin className="w-8 h-8 text-white drop-shadow-lg" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-lg mb-2">Visit Us</h3>
+                    <p className="text-white/90 leading-relaxed">
+                      CCMP Headquarters, Maharashtra<br />Mumbai, India
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  className="flex items-start gap-5"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-ring">
+                    <Phone className="w-8 h-8 text-white drop-shadow-lg" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-lg mb-2">Call Us</h3>
+                    <p className="text-white/90 leading-relaxed">
+                      +91 22 1234 5678<br />Mon-Fri, 9:00 AM - 6:00 PM IST
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  className="flex items-start gap-5"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-float">
+                    <Mail className="w-8 h-8 text-white drop-shadow-lg" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-lg mb-2">Email Us</h3>
+                    <p className="text-white/90 leading-relaxed">
+                      info@ccmpmaharashtra.org<br />support@ccmpmaharashtra.org
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
           </div>
         </div>
+
+        {/* Decorative glassmorphic orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 0],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute -top-32 -right-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -180, 0],
+          }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"
+        />
       </section>
     </div>
   );

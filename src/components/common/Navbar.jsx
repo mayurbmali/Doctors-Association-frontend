@@ -90,8 +90,8 @@ const Navbar = () => {
               alt="CCMP Homoeopathic Doctors Association Logo" 
               className="h-14 w-14 object-contain group-hover:scale-110 transition-transform duration-300"
             />
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-green leading-tight">
+            <div>
+              <h1 className="text-lg sm:text-xl font-bold text-green leading-tight">
                 CCMP
               </h1>
               <p className="text-xs font-medium text-gray-600">

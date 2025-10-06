@@ -816,8 +816,11 @@ const Home = () => {
           backgroundAttachment: 'fixed'
         }}
       >
-        {/* Overlay for better glassmorphism effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-saffron/40 via-orange-500/30 to-amber-600/40"></div>
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        
+        {/* Gradient overlay from bottom left to top right */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-saffron/30 via-orange-500/20 to-transparent"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -831,19 +834,22 @@ const Home = () => {
             >
               <div>
                 <h2 
-                  className="text-5xl lg:text-6xl font-bold mb-4 gradient-text"
+                  className="text-5xl lg:text-6xl font-bold mb-4 text-white drop-shadow-2xl"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Get in Touch
                 </h2>
-                <p className="text-xl text-white/90 italic font-light">
+                <p className="text-xl text-white italic font-light drop-shadow-lg">
                   "We're here to listen, guide, and grow together."
                 </p>
               </div>
 
               <Button 
                 asChild 
-                className="gradient-button text-white rounded-2xl px-10 py-7 text-lg font-semibold shadow-2xl group border-0 hover:border-0"
+                className="gradient-button text-white rounded-2xl px-10 py-7 text-lg font-semibold group border-0 hover:border-0"
+                style={{
+                  boxShadow: '0 10px 30px rgba(255, 111, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.3)'
+                }}
               >
                 <Link to="/contact" className="flex items-center gap-3">
                   Visit Contact Page 
@@ -866,12 +872,16 @@ const Home = () => {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-bounce">
-                    <MapPin className="w-8 h-8 text-white drop-shadow-lg" />
+                  <div 
+                    className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-bounce"
+                    role="img"
+                    aria-label="Location icon"
+                  >
+                    <MapPin className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-lg mb-2">Visit Us</h3>
-                    <p className="text-white/90 leading-relaxed">
+                    <h3 className="font-bold text-white text-lg mb-2" style={{ fontWeight: 700 }}>Visit Us</h3>
+                    <p className="text-gray-100 leading-relaxed font-light">
                       CCMP Headquarters, Maharashtra<br />Mumbai, India
                     </p>
                   </div>
@@ -882,12 +892,16 @@ const Home = () => {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-ring">
-                    <Phone className="w-8 h-8 text-white drop-shadow-lg" />
+                  <div 
+                    className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-ring"
+                    role="img"
+                    aria-label="Phone icon"
+                  >
+                    <Phone className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-lg mb-2">Call Us</h3>
-                    <p className="text-white/90 leading-relaxed">
+                    <h3 className="font-bold text-white text-lg mb-2" style={{ fontWeight: 700 }}>Call Us</h3>
+                    <p className="text-gray-100 leading-relaxed font-light">
                       +91 22 1234 5678<br />Mon-Fri, 9:00 AM - 6:00 PM IST
                     </p>
                   </div>
@@ -898,12 +912,16 @@ const Home = () => {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-float">
-                    <Mail className="w-8 h-8 text-white drop-shadow-lg" />
+                  <div 
+                    className="glass-icon flex items-center justify-center w-16 h-16 rounded-2xl flex-shrink-0 icon-float"
+                    role="img"
+                    aria-label="Email icon"
+                  >
+                    <Mail className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-lg mb-2">Email Us</h3>
-                    <p className="text-white/90 leading-relaxed">
+                    <h3 className="font-bold text-white text-lg mb-2" style={{ fontWeight: 700 }}>Email Us</h3>
+                    <p className="text-gray-100 leading-relaxed font-light">
                       info@ccmpmaharashtra.org<br />support@ccmpmaharashtra.org
                     </p>
                   </div>

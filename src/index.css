@@ -92,6 +92,11 @@ code {
   body {
     @apply bg-background text-foreground;
     }
+  
+  /* Apply Playfair Display to all headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    }
 }
 
 @layer utilities {

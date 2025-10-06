@@ -49,82 +49,93 @@ const FoundingPillars = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {foundingMembers.map((member, index) => (
-            <motion.div
-              key={member.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative"
-              onMouseEnter={() => setHoveredCard(member.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <div className="relative overflow-hidden rounded-2xl aspect-[3/5] group cursor-pointer">
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    backgroundSize: '200% 200%',
-                    animation: hoveredCard === member.id ? 'borderGlow 3s ease infinite' : 'none'
-                  }}
-                />
-                
-                <div className="absolute inset-[3px] rounded-2xl overflow-hidden bg-white">
-                  <div className="relative w-full h-full">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className={`w-full h-full object-cover transition-all duration-500 ${
-                        hoveredCard === member.id ? 'blur-sm scale-105' : 'blur-0 scale-100'
-                      }`}
-                    />
-                    
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-500 ${
-                        hoveredCard === member.id ? 'opacity-90' : 'opacity-70'
-                      }`}
-                    />
-                    
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <motion.div
-                        initial={false}
-                        animate={{
-                          y: hoveredCard === member.id ? -20 : 0,
-                          opacity: hoveredCard === member.id ? 0 : 1
-                        }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <h3 className="text-lg font-bold mb-1">{member.name}</h3>
-                        <p className="text-xs text-gray-200">{member.designation}</p>
-                      </motion.div>
+          {foundingMembers.map((member, index) => {
+            const isHovered = hoveredCard === member.id;
+            const isOtherHovered = hoveredCard !== null && hoveredCard !== member.id;
+            
+            return (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative"
+                onMouseEnter={() => setHoveredCard(member.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div 
+                  className={`relative overflow-hidden rounded-2xl aspect-[3/5] cursor-pointer transition-all duration-500 ${
+                    isOtherHovered ? 'blur-md opacity-40 scale-95' : 'blur-0 opacity-100 scale-100'
+                  } ${isHovered ? 'translate-y-[-12px]' : 'translate-y-0'}`}
+                >
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-400 transition-opacity duration-500 ${
+                      isHovered ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    style={{
+                      backgroundSize: '200% 200%',
+                      animation: isHovered ? 'borderGlow 3s ease infinite' : 'none'
+                    }}
+                  />
+                  
+                  <div className="absolute inset-[3px] rounded-2xl overflow-hidden bg-white">
+                    <div className="relative w-full h-full">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className={`w-full h-full object-cover transition-all duration-500 ${
+                          isHovered ? 'blur-sm scale-105' : 'blur-0 scale-100'
+                        }`}
+                      />
                       
-                      <motion.div
-                        initial={false}
-                        animate={{
-                          y: hoveredCard === member.id ? 0 : 40,
-                          opacity: hoveredCard === member.id ? 1 : 0
-                        }}
-                        transition={{ duration: 0.4 }}
-                        className="absolute bottom-4 left-4 right-4"
-                      >
-                        <p className="text-sm leading-relaxed italic text-white font-medium">
-                          "{member.testimonial}"
-                        </p>
-                      </motion.div>
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-500 ${
+                          isHovered ? 'opacity-95' : 'opacity-60'
+                        }`}
+                      />
+                      
+                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <motion.div
+                          initial={false}
+                          animate={{
+                            y: isHovered ? -30 : 0,
+                            opacity: isHovered ? 0 : 1
+                          }}
+                          transition={{ duration: 0.4 }}
+                        >
+                          <h3 className="text-lg font-bold mb-1">{member.name}</h3>
+                          <p className="text-xs text-gray-200">{member.designation}</p>
+                        </motion.div>
+                        
+                        <motion.div
+                          initial={false}
+                          animate={{
+                            y: isHovered ? 0 : 50,
+                            opacity: isHovered ? 1 : 0
+                          }}
+                          transition={{ duration: 0.5 }}
+                          className="absolute bottom-4 left-4 right-4"
+                        >
+                          <p className="text-[1.05rem] leading-relaxed italic text-white font-normal">
+                            "{member.testimonial}"
+                          </p>
+                        </motion.div>
+                      </div>
                     </div>
                   </div>
+                  
+                  <div
+                    className={`absolute inset-0 rounded-2xl transition-all duration-500 pointer-events-none ${
+                      isHovered 
+                        ? 'shadow-2xl shadow-orange-400/60' 
+                        : 'shadow-md shadow-black/20'
+                    }`}
+                  />
                 </div>
-                
-                <div
-                  className={`absolute inset-0 rounded-2xl shadow-lg transition-all duration-500 pointer-events-none ${
-                    hoveredCard === member.id 
-                      ? 'shadow-2xl shadow-orange-400/50 translate-y-[-8px]' 
-                      : 'shadow-md shadow-black/20'
-                  }`}
-                />
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 

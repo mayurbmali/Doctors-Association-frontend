@@ -1,0 +1,51 @@
+ a **focused spotlight effect** — where hovering on one card keeps it sharp and fades/blurs the surrounding cards. 
+In Meet Our Founding Pillars section:
+
+> A premium, modern **“Meet Our Founding Pillars”** section for a professional medical association website.
+>
+> The layout contains **four elegant profile cards** displayed in a row, each featuring a founding member with smooth interactive effects. 
+>
+> #### 🧩 **Card Interaction Logic**
+>
+> * **Default State:**
+>
+>   * All four cards show **professional portrait photos** with the member’s **name and title** overlaid at the bottom in a clean, modern sans-serif font (Poppins, Inter, or Open Sans).
+>   * Example:
+>     **Dr. Prakash Desai**
+>     *Senior Homoeopathic Consultant, Mumbai*
+> * **Hover State (Focus Effect):**
+>
+>   * When one card is hovered:
+>
+>     * The **hovered card remains in sharp focus**, bright and clear.
+>     * The **other three cards softly blur and dim**, creating a **spotlight effect** on the active card.
+>     * The hovered card slightly **lifts up** with a gentle shadow expansion for depth.
+>     * A **semi-transparent dark overlay** appears on the active card, and a **testimonial paragraph** fades in smoothly.
+>     * Example quote:
+>       “Instrumental in advancing homoeopathic practice across Maharashtra. The networking and continuous education opportunities are unmatched.”
+> * The paragraph text is **clear, well-spaced, and readable** — slightly larger font size (around 1.1rem) with high contrast against the overlay.
+>
+> #### 🎨 **Visual & Layout Design**
+> 
+> * **Card Style:** rounded corners, soft drop shadow, light gradient border animation on hover.
+> * **Background:** warm **orange-to-golden gradient** to match brand palette.
+> * **Typography:** clean sans-serif, white or off-white for text on hover, dark gray or navy for default names.
+> * **Microinteractions:**
+>
+>   * Smooth transitions (0.4–0.6s ease).
+>   * Soft shadow expansion on hover.
+>   * Blurring animation for non-hovered cards (blur radius ~6–8px).
+>   * Optional gradient border glow on hovered card edges.
+>
+> #### 🏷️ **Section Title**
+>
+> * Centered at the top in bold, refined text:
+>   **Meet Our Founding Pillars**
+> * Subtitle (optional): *Visionaries who shaped our foundation and continue to inspire our journey.*
+>
+> #### 💡 **Overall Feel**
+>
+> The section should look **elegant, professional, and interactive**, creating a sense of focus and admiration for each founding member.
+> Smooth transitions and readability are key — users should feel a subtle cinematic shift as they hover between cards.
+
+

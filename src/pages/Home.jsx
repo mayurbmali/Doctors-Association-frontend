@@ -531,7 +531,7 @@ const Home = () => {
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6" role="img" aria-label={`${benefit.title} icon`}>
-                  <div className="text-white" style={{ width: '36px', height: '36px' }}>{benefit.icon}</div>
+                  <div className="text-white drop-shadow-lg">{benefit.icon}</div>
                 </div>
                 <h3 className="text-xl font-bold text-neutral-800 mb-3">
                   {benefit.title}

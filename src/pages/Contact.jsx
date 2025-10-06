@@ -112,13 +112,13 @@ const Contact = () => {
                       <div className="mt-2 space-y-2">
                         <p className="text-sm text-gray-600 flex items-center gap-2">
                           <div className="glass-icon flex items-center justify-center w-7 h-7 rounded-lg" role="img" aria-label="Email">
-                            <Mail className="w-4 h-4 text-white" strokeWidth={2.5} />
+                            <Mail className="w-4 h-4 text-white drop-shadow-lg" strokeWidth={2.5} />
                           </div>
                           {contact.email}
                         </p>
                         <p className="text-sm text-gray-600 flex items-center gap-2">
                           <div className="glass-icon flex items-center justify-center w-7 h-7 rounded-lg" role="img" aria-label="Phone">
-                            <Phone className="w-4 h-4 text-white" strokeWidth={2.5} />
+                            <Phone className="w-4 h-4 text-white drop-shadow-lg" strokeWidth={2.5} />
                           </div>
                           {contact.phone}
                         </p>

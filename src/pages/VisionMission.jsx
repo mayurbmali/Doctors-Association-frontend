@@ -56,7 +56,7 @@ const VisionMission = () => {
                   {visionMission.mission.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="glass-icon flex items-center justify-center w-7 h-7 rounded-lg flex-shrink-0 mt-0.5" role="img" aria-label="Check icon">
-                        <CheckCircle className="w-4 h-4 text-white" strokeWidth={2.5} />
+                        <CheckCircle className="w-4 h-4 text-white drop-shadow-lg" strokeWidth={2.5} />
                       </div>
                       <span className="text-gray-700">{item}</span>
                     </li>

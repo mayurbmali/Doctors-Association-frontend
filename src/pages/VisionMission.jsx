@@ -32,8 +32,8 @@ const VisionMission = () => {
             <Card className="h-full shadow-xl border-t-4 border-t-blue-600">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mr-4">
-                    <Eye className="w-6 h-6 text-blue-600" />
+                  <div className="glass-icon inline-flex items-center justify-center w-14 h-14 rounded-2xl mr-4" role="img" aria-label="Vision icon">
+                    <Eye className="w-7 h-7 text-white drop-shadow-lg" strokeWidth={2.5} />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900">Our Vision</h2>
                 </div>
@@ -47,15 +47,17 @@ const VisionMission = () => {
             <Card className="h-full shadow-xl border-t-4 border-t-emerald-600">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-full mr-4">
-                    <Target className="w-6 h-6 text-emerald-600" />
+                  <div className="glass-icon inline-flex items-center justify-center w-14 h-14 rounded-2xl mr-4" role="img" aria-label="Mission icon">
+                    <Target className="w-7 h-7 text-white drop-shadow-lg" strokeWidth={2.5} />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
                 </div>
                 <ul className="space-y-4">
                   {visionMission.mission.map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="glass-icon flex items-center justify-center w-7 h-7 rounded-lg flex-shrink-0 mt-0.5" role="img" aria-label="Check icon">
+                        <CheckCircle className="w-4 h-4 text-white" strokeWidth={2.5} />
+                      </div>
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}

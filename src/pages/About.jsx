@@ -68,8 +68,8 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
-                  <Heart className="w-8 h-8 text-red-600" />
+                <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 mx-auto" role="img" aria-label="Excellence icon">
+                  <Heart className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Excellence</h3>
                 <p className="text-gray-600">
@@ -80,8 +80,8 @@ const About = () => {
 
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                  <Users className="w-8 h-8 text-blue-600" />
+                <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 mx-auto" role="img" aria-label="Collaboration icon">
+                  <Users className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Collaboration</h3>
                 <p className="text-gray-600">
@@ -92,8 +92,8 @@ const About = () => {
 
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-4">
-                  <Award className="w-8 h-8 text-emerald-600" />
+                <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 mx-auto" role="img" aria-label="Innovation icon">
+                  <Award className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Innovation</h3>
                 <p className="text-gray-600">
@@ -104,8 +104,8 @@ const About = () => {
 
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
-                  <Globe className="w-8 h-8 text-purple-600" />
+                <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 mx-auto" role="img" aria-label="Impact icon">
+                  <Globe className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Impact</h3>
                 <p className="text-gray-600">

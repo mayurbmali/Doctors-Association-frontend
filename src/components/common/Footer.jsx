@@ -37,9 +37,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" },
-    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
-    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
+    { icon: <Twitter className="w-5 h-5" strokeWidth={2.5} />, href: "#", label: "Twitter" },
+    { icon: <Facebook className="w-5 h-5" strokeWidth={2.5} />, href: "#", label: "Facebook" },
+    { icon: <Instagram className="w-5 h-5" strokeWidth={2.5} />, href: "#", label: "Instagram" },
   ];
 
   const linkVariants = {

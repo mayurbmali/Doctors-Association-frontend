@@ -60,8 +60,10 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="flex items-start">
-                    <MapPin className="w-5 h-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-4">
+                    <div className="glass-icon flex items-center justify-center w-12 h-12 rounded-xl flex-shrink-0" role="img" aria-label="Location icon">
+                      <MapPin className="w-6 h-6 text-white drop-shadow-lg" strokeWidth={2.5} />
+                    </div>
                     <div>
                       <p className="font-semibold text-gray-900">{contactInfo.address.line1}</p>
                       <p className="text-gray-600">{contactInfo.address.line2}</p>
@@ -69,18 +71,24 @@ const Contact = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center">
-                    <Phone className="w-5 h-5 text-emerald-600 mr-3 flex-shrink-0" />
+                  <div className="flex items-center gap-4">
+                    <div className="glass-icon flex items-center justify-center w-12 h-12 rounded-xl flex-shrink-0" role="img" aria-label="Phone icon">
+                      <Phone className="w-6 h-6 text-white drop-shadow-lg" strokeWidth={2.5} />
+                    </div>
                     <p className="text-gray-700">{contactInfo.phone}</p>
                   </div>
                   
-                  <div className="flex items-center">
-                    <Mail className="w-5 h-5 text-emerald-600 mr-3 flex-shrink-0" />
+                  <div className="flex items-center gap-4">
+                    <div className="glass-icon flex items-center justify-center w-12 h-12 rounded-xl flex-shrink-0" role="img" aria-label="Email icon">
+                      <Mail className="w-6 h-6 text-white drop-shadow-lg" strokeWidth={2.5} />
+                    </div>
                     <p className="text-gray-700">{contactInfo.email}</p>
                   </div>
                   
-                  <div className="flex items-start">
-                    <Clock className="w-5 h-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-4">
+                    <div className="glass-icon flex items-center justify-center w-12 h-12 rounded-xl flex-shrink-0" role="img" aria-label="Clock icon">
+                      <Clock className="w-6 h-6 text-white drop-shadow-lg" strokeWidth={2.5} />
+                    </div>
                     <div>
                       <p className="font-semibold text-gray-900">Office Hours</p>
                       <p className="text-gray-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
@@ -101,13 +109,17 @@ const Contact = () => {
                     <div key={index} className="border-l-4 border-emerald-600 pl-4">
                       <h4 className="font-semibold text-gray-900">{contact.name}</h4>
                       <p className="text-emerald-600 text-sm font-medium">{contact.designation}</p>
-                      <div className="mt-2 space-y-1">
-                        <p className="text-sm text-gray-600 flex items-center">
-                          <Mail className="w-4 h-4 mr-2" />
+                      <div className="mt-2 space-y-2">
+                        <p className="text-sm text-gray-600 flex items-center gap-2">
+                          <div className="glass-icon flex items-center justify-center w-7 h-7 rounded-lg" role="img" aria-label="Email">
+                            <Mail className="w-4 h-4 text-white" strokeWidth={2.5} />
+                          </div>
                           {contact.email}
                         </p>
-                        <p className="text-sm text-gray-600 flex items-center">
-                          <Phone className="w-4 h-4 mr-2" />
+                        <p className="text-sm text-gray-600 flex items-center gap-2">
+                          <div className="glass-icon flex items-center justify-center w-7 h-7 rounded-lg" role="img" aria-label="Phone">
+                            <Phone className="w-4 h-4 text-white" strokeWidth={2.5} />
+                          </div>
                           {contact.phone}
                         </p>
                       </div>

@@ -96,32 +96,32 @@ const Home = () => {
   // Benefits data
   const benefits = [
     {
-      icon: <Network className="w-8 h-8" />,
+      icon: <Network className="w-9 h-9" strokeWidth={2.5} />,
       title: "Networking Opportunities",
       description: "Connect with leading homoeopaths and classical practitioners across Maharashtra"
     },
     {
-      icon: <BookOpen className="w-8 h-8" />,
+      icon: <BookOpen className="w-9 h-9" strokeWidth={2.5} />,
       title: "Classical Education",
       description: "Access structured classical homoeopathy education programs and seminars"
     },
     {
-      icon: <Shield className="w-8 h-8" />,
+      icon: <Shield className="w-9 h-9" strokeWidth={2.5} />,
       title: "Exclusive Resources",
       description: "Get access to materia medica, repertories, and classical homoeopathic literature"
     },
     {
-      icon: <Briefcase className="w-8 h-8" />,
+      icon: <Briefcase className="w-9 h-9" strokeWidth={2.5} />,
       title: "Practice Development",
       description: "Professional development and practice enhancement resources for homoeopaths"
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <Target className="w-9 h-9" strokeWidth={2.5} />,
       title: "Advocacy",
       description: "Voice in homoeopathic policy and representation at state level in Maharashtra"
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-9 h-9" strokeWidth={2.5} />,
       title: "Special Discounts",
       description: "Member-exclusive discounts on homoeopathic conferences, books, and seminars"
     }
@@ -298,8 +298,8 @@ const Home = () => {
             className="grid grid-cols-1 md:grid-cols-4 gap-8"
           >
             <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-saffron/10 rounded-full mb-4">
-                <Users className="w-8 h-8 text-saffron" />
+              <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" role="img" aria-label="Active Members icon">
+                <Users className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
               </div>
               <div className="text-5xl font-bold text-saffron mb-2">
                 {inView && <CountUp end={15000} duration={2.5} separator="," suffix="+" />}
@@ -308,8 +308,8 @@ const Home = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green/10 rounded-full mb-4">
-                <Award className="w-8 h-8 text-green" />
+              <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" role="img" aria-label="Years of Service icon">
+                <Award className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
               </div>
               <div className="text-5xl font-bold text-green mb-2">
                 {inView && <CountUp end={80} duration={2.5} suffix="+" />}
@@ -318,8 +318,8 @@ const Home = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-saffron/10 rounded-full mb-4">
-                <Calendar className="w-8 h-8 text-saffron" />
+              <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" role="img" aria-label="Annual Events icon">
+                <Calendar className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
               </div>
               <div className="text-5xl font-bold text-saffron mb-2">
                 {inView && <CountUp end={500} duration={2.5} separator="," suffix="+" />}
@@ -328,8 +328,8 @@ const Home = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green/10 rounded-full mb-4">
-                <Star className="w-8 h-8 text-green" />
+              <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" role="img" aria-label="Chapters icon">
+                <Star className="w-9 h-9 text-white drop-shadow-lg" strokeWidth={2.5} />
               </div>
               <div className="text-5xl font-bold text-green mb-2">
                 {inView && <CountUp end={50} duration={2.5} suffix="+" />}
@@ -530,8 +530,8 @@ const Home = () => {
                 whileHover={{ scale: 1.05 }}
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <div className={`inline-flex items-center justify-center w-16 h-16 ${index % 2 === 0 ? 'bg-saffron/10' : 'bg-green/10'} rounded-2xl mb-6 group-hover:rotate-6 transition-transform duration-300`}>
-                  <div className={index % 2 === 0 ? 'text-saffron' : 'text-green'}>{benefit.icon}</div>
+                <div className="glass-icon inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6" role="img" aria-label={`${benefit.title} icon`}>
+                  <div className="text-white" style={{ width: '36px', height: '36px' }}>{benefit.icon}</div>
                 </div>
                 <h3 className="text-xl font-bold text-neutral-800 mb-3">
                   {benefit.title}

@@ -728,16 +728,20 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Enhanced Final CTA Section */}
-      <section className="relative py-24 bg-gradient-to-br from-blue-600 to-indigo-700 text-white overflow-hidden">
+{/* Enhanced Final CTA Section */}
+      <section className="relative py-24 bg-gradient-to-br from-orange-500 to-orange-600 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
+              backgroundSize: "40px 40px",
+            }}
+          />
         </div>
-        
+
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -752,28 +756,27 @@ const Home = () => {
               Ready to Join Our Community?
             </h2>
             <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Elevate your homoeopathic practice with exclusive resources, networking opportunities, and continuous professional development.
+              Elevate your homoeopathic practice with exclusive resources,
+              networking opportunities, and continuous professional development.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-white text-saffron hover:bg-white/90 rounded-xl px-12 py-7 text-lg font-semibold shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 group"
+              <Button
+                asChild
+                size="lg"
+                className="bg-white text-orange-600 hover:bg-white/90 rounded-xl px-12 py-7 text-lg font-semibold shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-400 group"
               >
                 <Link to="/membership">
-                  Become a Member Today 
+                  Become a Member Today
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button 
-                asChild 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-saffron rounded-xl px-12 py-7 text-lg font-semibold transition-all duration-300 hover:scale-105"
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-2 border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-orange-600 rounded-xl px-12 py-7 text-lg font-semibold transition-all duration-400 hover:scale-105"
               >
-                <Link to="/contact">
-                  Have questions? Contact us
-                </Link>
+                <Link to="/contact">Have questions? Contact us</Link>
               </Button>
             </div>
           </motion.div>
@@ -788,7 +791,7 @@ const Home = () => {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl"
         />
@@ -800,9 +803,9 @@ const Home = () => {
           transition={{
             duration: 25,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
-          className="absolute -bottom-24 -left-24 w-96 h-96 bg-green/20 rounded-full blur-3xl"
+          className="absolute -bottom-24 -left-24 w-96 h-96 bg-green-500/20 rounded-full blur-3xl"
         />
       </section>
 
